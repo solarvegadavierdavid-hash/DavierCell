@@ -8,42 +8,39 @@
   <meta name="description" content="Servicio técnico profesional de celulares en Cartagena. Expertos en microelectrónica, reparación de pantallas, baterías y soluciones de software.">
   <meta name="keywords" content="reparacion de celulares cartagena, servicio tecnico celulares, daviercell, arreglar pantalla, servicio tecnico de software, cartagena">
   <meta name="google-site-verification" content="rbn782NRVuhDGCR73SELagaFGEyfCMA60TeW3m0no14" />
-
-  <!-- SEO AVANZADO -->
   <meta name="robots" content="index, follow">
   <meta name="author" content="Davier David Solar Vega">
   <meta name="geo.region" content="CO-BOL">
   <meta name="geo.placename" content="Cartagena de Indias">
-
-  <!-- OPEN GRAPH -->
   <meta property="og:title" content="DAVIERCELL | Reparación de Celulares en Cartagena">
   <meta property="og:description" content="Servicio técnico especializado en reparación de celulares, microelectrónica y software en Cartagena de Indias.">
-  <meta property="og:url" content="https:"https://daviercell.netlify.app/">
+  <meta property="og:url" content="https://daviercell.netlify.app/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
-
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
   
   <body>
+<header>
+  <img src="javi.png" alt="DAVIERCELL">
+  <button class="menu-hamburguesa" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <nav id="nav-menu">
+    <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a href="#" onclick="mostrarSeccion('servicios')">Servicios</a>
+    <a href="#" onclick="mostrarSeccion('tecnico')">Sobre el Técnico</a>
+    <a href="#" onclick="mostrarSeccion('condiciones')">Condiciones</a>
+    <a href="#" onclick="mostrarSeccion('porque')">¿Por qué nosotros?</a>
+    <a href="#" onclick="mostrarSeccion('pqrs')">PQRS</a>
+  </nav>
+</header>
 
-    <header>
-      <img src="javi.png" alt="DAVIERCELL">
-      <nav>
-        <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
-        <a href="#" onclick="mostrarSeccion('servicios')">Servicios</a>
-        <a href="#" onclick="mostrarSeccion('tecnico')">Sobre el Técnico</a>
-        <a href="#" onclick="mostrarSeccion('condiciones')">Condiciones</a>
-        <a href="#" onclick="mostrarSeccion('porque')">¿Por qué nosotros?</a>
-        <a href="#" onclick="mostrarSeccion('pqrs')">PQRS</a>
-      </nav>
-    </header>
-
-   <!-- INICIO -->
+<!-- INICIO -->
 <section id="inicio">
   <div class="hero-davier">
-    <img src="eduar1.png" alt="Daviercell Microelectrónica" class="hero-fondo">
+    <img src="nombre1.png" alt="Daviercell Microelectrónica" class="hero-fondo">
     <div class="hero-filtro"></div>
     <div class="hero-contenido">
       <h1>#1 Reparación<br>de Equipos Móviles</h1>
@@ -51,68 +48,61 @@
     </div>
   </div>
 
-      <div class="descripcion-contenedor-home selector-equipos-bloque">
-        <h2>¿Qué equipo necesitas reparar?</h2>
-        <div class="equipos-botones-flex">
-          <div class="boton-equipo-card" onclick="mostrarSeccion('servicios')">
-            <i class="fab fa-android icono-android"></i>
-            <h3>Android</h3>
-            <p>Samsung, Xiaomi, Motorola y más</p>
-          </div>
-          <div class="boton-equipo-card" onclick="mostrarSeccion('servicios')">
-            <i class="fab fa-apple icono-iphone"></i>
-            <h3>iPhone</h3>
-            <p>Especialista en Microelectrónica Apple</p>
-          </div>
-        </div>
+  <div class="descripcion-contenedor-home selector-equipos-bloque">
+    <h2>¿Qué equipo necesitas reparar?</h2>
+    <div class="equipos-botones-flex">
+      <div class="boton-equipo-card" onclick="mostrarSeccion('servicios')">
+        <i class="fab fa-android icono-android"></i>
+        <h3>Android</h3>
+        <p>Samsung, Xiaomi, Motorola y más</p>
       </div>
-
-<div class="bloque-calificacion">
-  <h3>DAVIERCELL</h3>
-  <p>Califica nuestro servicio</p>
-  <!-- Formulario ajustado -->
-  <form action="https://formspree.io/f/mgoqrpoo" method="POST" id="form-calificacion">
-    <div class="estrellas-calificacion" id="estrellas-container">
-      <i class="fas fa-star" onclick="calificar(1)"></i>
-      <i class="fas fa-star" onclick="calificar(2)"></i>
-      <i class="fas fa-star" onclick="calificar(3)"></i>
-      <i class="fas fa-star" onclick="calificar(4)"></i>
-      <i class="fas fa-star" onclick="calificar(5)"></i>
+      <div class="boton-equipo-card" onclick="mostrarSeccion('servicios')">
+        <i class="fab fa-apple icono-iphone"></i>
+        <h3>iPhone</h3>
+        <p>Especialista en Microelectrónica Apple</p>
+      </div>
     </div>
-    
-    <input type="hidden" name="calificacion" id="input-valor" value="0">
-    
-    <button type="submit" id="boton-enviar-calificacion">Enviar Calificación</button>
-  </form>
-  
-  <p id="mensaje-gracias" class="oculto">¡Gracias por tu calificación!</p>
-</div>
+  </div>
 
-      <div id="descripcion-negocio" class="descripcion-contenedor-home"></div>
-      <div id="descripcion-negocio" class="descripcion-contenedor-home"></div>
-
-      <div id="lista-garantias" class="descripcion-contenedor-home" style="margin-top: 40px;"></div>
-
-<div style="margin-top: 60px; padding: 0 60px; max-width: 100%; width: 100%;">
-  <h2>Preguntas Frecuentes</h2>
-  <p class="faq-subtitulo">Resolvemos las dudas más comunes sobre nuestros servicios para que tomes la mejor decisión con confianza.</p>
-  <div id="lista-faq"></div>
-</div>
-    </section>
-
-    <!-- SERVICIOS -->
-    <section id="servicios" class="oculto">
-      <h2>Nuestros Servicios</h2>
-      <div class="seccion-banner-fijo">
-        <img src="david.png" alt="Laboratorio Técnico DAVIERCELL">
-        <div class="seccion-banner-filtro"></div>
-        <p class="seccion-banner-pie">Laboratorio dotado con herramientas de alta precisión e ingeniería</p>
+  <div class="bloque-calificacion">
+    <h3>DAVIERCELL</h3>
+    <p>Califica nuestro servicio</p>
+    <form id="form-calificacion">
+      <div class="estrellas-calificacion" id="estrellas-container">
+        <i class="fas fa-star" onclick="calificar(1)"></i>
+        <i class="fas fa-star" onclick="calificar(2)"></i>
+        <i class="fas fa-star" onclick="calificar(3)"></i>
+        <i class="fas fa-star" onclick="calificar(4)"></i>
+        <i class="fas fa-star" onclick="calificar(5)"></i>
       </div>
-      <div id="lista-servicios"></div>
-    </section>
+      <input type="hidden" id="input-valor" value="0">
+      <button type="submit" id="boton-enviar-calificacion">Enviar Calificación</button>
+    </form>
+    <p id="mensaje-gracias" class="oculto">¡Gracias por tu calificación!</p>
+  </div>
 
-    <!-- TÉCNICO -->
-  
+  <div id="descripcion-negocio" class="descripcion-contenedor-home"></div>
+  <div id="lista-garantias" class="descripcion-contenedor-home" style="margin-top: 40px;"></div>
+
+  <div style="margin-top: 60px; padding: 0 60px; max-width: 100%; width: 100%;">
+    <h2>Preguntas Frecuentes</h2>
+    <p class="faq-subtitulo">Resolvemos las dudas más comunes sobre nuestros servicios para que tomes la mejor decisión con confianza.</p>
+    <div id="lista-faq"></div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="oculto">
+  <h2>Nuestros Servicios</h2>
+  <div class="seccion-banner-fijo">
+    <img src="david.png" alt="Laboratorio Técnico DAVIERCELL">
+    <div class="seccion-banner-filtro"></div>
+    <p class="seccion-banner-pie">Laboratorio dotado con herramientas de alta precisión e ingeniería</p>
+  </div>
+  <div id="lista-servicios"></div>
+</section>
+
+<!-- TÉCNICO -->
 <section id="tecnico" class="oculto">
   <div class="tecnico-hero-fondo">
     <canvas id="circuitos-canvas"></canvas>
@@ -127,8 +117,7 @@
   </div>
 </section>
 
-   
-     <!-- CONDICIONES -->
+<!-- CONDICIONES -->
 <section id="condiciones" class="oculto">
   <div class="tecnico-hero-fondo">
     <canvas id="circuitos-canvas-condiciones"></canvas>
@@ -164,15 +153,14 @@
   </div>
 </section>
 
-
-    <!-- PQRS -->
+<!-- PQRS -->
 <section id="pqrs" class="oculto">
   <div class="tecnico-hero-fondo">
     <canvas id="circuitos-canvas-pqrs"></canvas>
     <div class="tecnico-hero-filtro"></div>
     <h2>PQRS</h2>
     <p style="color:#cccccc; margin-bottom: 20px;">Canal oficial para radicar peticiones, quejas, reclamos y sugerencias sobre nuestros servicios.</p>
-    <form action="https://formspree.io/f/mgoqrpoo" method="POST" enctype="multipart/form-data" class="form-pqrs-grid">
+    <form id="form-pqrs" class="form-pqrs-grid">
       <input type="text" name="nombre" placeholder="Nombre completo" required>
       <input type="email" name="email" placeholder="Correo electrónico" required>
       <input type="text" name="celular" placeholder="Celular">
@@ -195,51 +183,46 @@
         <option value="arequipa">Arequipa</option>
       </select>
       <textarea name="mensaje" placeholder="Describe tu problema detalladamente" required class="full-width"></textarea>
-      <div class="full-width" style="color: #ccc;">
-        <label>Adjuntar archivos (fotos/videos):</label>
-        <input type="file" name="archivo" style="border: none; padding: 10px 0; width: 100%;">
-      </div>
       <button type="submit" class="full-width">Enviar Formulario</button>
     </form>
   </div>
 </section>
 
-    <!-- PRIVACIDAD -->
-    <section id="privacidad" class="oculto">
-      <h2>Políticas de Privacidad y Tratamiento de Datos</h2>
-      <p>En DAVIERCELL nos tomamos muy en serio la seguridad de tu información. Los datos proporcionados a través de nuestro formulario de contacto se manejan con absoluta confidencialidad y son utilizados exclusivamente para la gestión de servicios técnicos, cotizaciones y soporte de tus dispositivos móviles.</p>
-    </section>
+<!-- PRIVACIDAD -->
+<section id="privacidad" class="oculto">
+  <h2>Políticas de Privacidad y Tratamiento de Datos</h2>
+  <p>En DAVIERCELL nos tomamos muy en serio la seguridad de tu información. Los datos proporcionados a través de nuestro formulario de contacto se manejan con absoluta confidencialidad y son utilizados exclusivamente para la gestión de servicios técnicos, cotizaciones y soporte de tus dispositivos móviles.</p>
+</section>
 
-    <footer>
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="javi.png" alt="DAVIERCELL">
-        </div>
-        <div class="footer-redes">
-          <p>Síguenos:</p>
-          <div class="redes-iconos">
-            <a href="https://www.facebook.com/profile.php?id=61589917534078" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://vm.tiktok.com/ZS9YFqtqdn9D5-9AmPR/" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.instagram.com/daviercell/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/channel/UCeSBLBEZMYw1h6n8QNp6Reg" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      <img src="javi.png" alt="DAVIERCELL">
+    </div>
+    <div class="footer-redes">
+      <p>Síguenos:</p>
+      <div class="redes-iconos">
+        <a href="https://www.facebook.com/profile.php?id=61589917534078" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://vm.tiktok.com/ZS9YFqtqdn9D5-9AmPR/" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/daviercell/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCeSBLBEZMYw1h6n8QNp6Reg" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
-      <div class="footer-bottom">
-        <p>© 2026 DAVIERCELL. Servicio Técnico Profesional & Todos los Derechos Reservados.</p>
-        <a href="#" onclick="mostrarSeccion('privacidad')">Políticas de Privacidad y Tratamiento de Datos</a>
-      </div>
-    </footer>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 DAVIERCELL. Servicio Técnico Profesional & Todos los Derechos Reservados.</p>
+    <a href="#" onclick="mostrarSeccion('privacidad')">Políticas de Privacidad y Tratamiento de Datos</a>
+  </div>
+</footer>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20información" 
-       target="_blank" 
-       class="boton-whatsapp-flotante">
-      <i class="fab fa-whatsapp"></i>
-    </a>
+<a href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20información" 
+   target="_blank" 
+   class="boton-whatsapp-flotante">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
-
-    <script src="app.js"></script>
+<script src="app.js"></script>
 
   </body>
 </html>
+
