@@ -1,4 +1,34 @@
 // =============================================
+// DAVIERCELL - Configuración Supabase
+// =============================================
+
+const SUPABASE_URL = 'https://fpqdtuyoujlodjqvpzkz.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcWR0dXlvdWpsb2RqcXZwemt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwMTY0NjksImV4cCI6MjA5ODU5MjQ2OX0.80MpUmSk5jp8wXtEwZFj-hNcUMmNnBOA438U1IUcH8M';
+
+// Función para enviar datos a Supabase
+async function enviarASupabase(datos) {
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/formularios`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Prefer': 'return=representation'
+      },
+      body: JSON.stringify(datos)
+    });
+    console.log('Status Supabase:', response.status);
+    const text = await response.text();
+    console.log('Respuesta Supabase:', text);
+    return response.status === 200 || response.status === 201;
+  } catch (err) {
+    console.error('Error Supabase:', err);
+    return false;
+  }
+}
+
+// =============================================
 // DAVIERCELL - Datos del negocio
 // =============================================
 
@@ -183,22 +213,14 @@ function mostrarSeccion(idSeccion) {
     }
   });
 
-  if (idSeccion === 'tecnico') {
-    iniciarCircuitos();
-  }
+  if (idSeccion === 'tecnico') iniciarCircuitos();
+  if (idSeccion === 'condiciones') iniciarCircuitosCondiciones();
+  if (idSeccion === 'porque') iniciarCircuitosPorque();
+  if (idSeccion === 'pqrs') iniciarCircuitosPqrs();
 
-  if (idSeccion === 'condiciones') {
-    iniciarCircuitosCondiciones();
-  }
-
-
-  if (idSeccion === 'porque') {
-    iniciarCircuitosPorque();
-  }
-
-  if (idSeccion === 'pqrs') {
-  iniciarCircuitosPqrs();
-}
+  // Cerrar menú hamburguesa al navegar
+  const nav = document.getElementById('nav-menu');
+  if (nav) nav.classList.remove('nav-abierto');
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -225,29 +247,95 @@ function mostrarCondicion(id) {
   detalle.scrollIntoView({ behavior: 'smooth' });
 }
 
-function marcarEstrella(n) {
-  const estrellas = document.querySelectorAll('.estrellas i');
+// =============================================
+// FORMULARIO PQRS — SUPABASE
+// =============================================
+document.addEventListener('DOMContentLoaded', () => {
+  const formPqrs = document.getElementById('form-pqrs');
+  if (formPqrs) {
+    formPqrs.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const boton = formPqrs.querySelector('button[type="submit"]');
+      boton.textContent = 'Enviando...';
+      boton.disabled = true;
+
+      const datos = {
+        nombre: formPqrs.querySelector('[name="nombre"]').value,
+        email: formPqrs.querySelector('[name="email"]').value,
+        celular: formPqrs.querySelector('[name="celular"]').value,
+        rs: formPqrs.querySelector('[name="rs"]').value,
+        sede: formPqrs.querySelector('[name="sede"]').value,
+        mensaje: formPqrs.querySelector('[name="mensaje"]').value,
+        tipo: 'pqrs'
+      };
+
+      const ok = await enviarASupabase(datos);
+
+      if (ok) {
+        boton.textContent = '¡Enviado con éxito!';
+        boton.style.backgroundColor = '#28a745';
+        formPqrs.reset();
+        setTimeout(() => {
+          boton.textContent = 'Enviar Formulario';
+          boton.style.backgroundColor = '';
+          boton.disabled = false;
+        }, 3000);
+      } else {
+        boton.textContent = 'Error al enviar. Intenta de nuevo.';
+        boton.style.backgroundColor = '#dc3545';
+        boton.disabled = false;
+      }
+    });
+  }
+});
+
+// =============================================
+// SISTEMA DE CALIFICACIÓN — SUPABASE
+// =============================================
+function calificar(n) {
+  const estrellas = document.querySelectorAll('.estrellas-calificacion i');
+  const inputValor = document.getElementById('input-valor');
+  const botonEnvio = document.getElementById('boton-enviar-calificacion');
+
+  inputValor.value = n;
+
   estrellas.forEach((estrella, index) => {
     index < n ? estrella.classList.add('activo') : estrella.classList.remove('activo');
   });
+
+  botonEnvio.style.display = 'inline-block';
+  document.getElementById('estrellas-container').style.pointerEvents = 'none';
 }
 
-function enviarResena() {
-  const texto = document.getElementById('texto-resena').value;
-  if (texto.trim() === "") {
-    alert("Por favor, escribe un comentario sobre tu experiencia.");
-    return;
-  }
-  alert("¡Gracias por tu opinión, DAVIERCELL valora tu comentario!");
-  document.getElementById('texto-resena').value = "";
-  const estrellas = document.querySelectorAll('.estrellas i');
-  estrellas.forEach(estrella => estrella.classList.remove('activo'));
+document.addEventListener('DOMContentLoaded', () => {
   mostrarSeccion('inicio');
-}
-// =============================================
-// INICIALIZAR PÁGINA
-// =============================================
+  iniciarCircuitos();
 
+  const formCalificacion = document.getElementById('form-calificacion');
+  if (formCalificacion) {
+    formCalificacion.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const calificacion = document.getElementById('input-valor').value;
+      if (calificacion === '0') return;
+
+      const ok = await enviarASupabase({
+        calificacion: calificacion,
+        tipo: 'calificacion'
+      });
+
+      if (ok) {
+        document.getElementById('mensaje-gracias').classList.remove('oculto');
+        document.getElementById('boton-enviar-calificacion').style.display = 'none';
+      }
+    });
+  }
+});
+
+// =============================================
+// INICIALIZAR CIRCUITOS
+// =============================================
 function iniciarCircuitos() {
   const canvas = document.getElementById('circuitos-canvas');
   if (!canvas) return;
@@ -256,234 +344,10 @@ function iniciarCircuitos() {
   function resize() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
-    
   }
   resize();
   window.addEventListener('resize', resize);
 
-  const puntos = [];
-  const total = 60;
-
-  for (let i = 0; i < total; i++) {
-    puntos.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: (Math.random() - 0.5) * 0.6,
-      color: Math.random() > 0.5 ? '#00c8ff' : '#c9a84c',
-      radio: Math.random() * 2.5 + 1.5
-    });
-  }
-
-  function animar() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    puntos.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.shadowColor = p.color;
-      ctx.shadowBlur = 8;
-      ctx.fill();
-    });
-
-    for (let i = 0; i < puntos.length; i++) {
-      for (let j = i + 1; j < puntos.length; j++) {
-        const dx = puntos[i].x - puntos[j].x;
-        const dy = puntos[i].y - puntos[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(puntos[i].x, puntos[i].y);
-          ctx.lineTo(puntos[j].x, puntos[j].y);
-          ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`;
-          ctx.lineWidth = 0.6;
-          ctx.shadowBlur = 0;
-          ctx.stroke();
-        }
-      }
-    }
-
-    requestAnimationFrame(animar);
-  }
-
-  animar();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  mostrarSeccion('inicio');
-  iniciarCircuitos();
-});
-
-// =============================================
-// SISTEMA DE CALIFICACIÓN
-// =============================================
-function calificar(n) {
-  const estrellas = document.querySelectorAll('.estrellas-calificacion i');
-  const inputValor = document.getElementById('input-valor');
-  const botonEnvio = document.getElementById('boton-enviar-calificacion');
-
-  // Guardamos el número en el campo oculto para el formulario
-  inputValor.value = n;
-
-  // Iluminar estrellas visualmente
-  estrellas.forEach((estrella, index) => {
-    index < n ? estrella.classList.add('activo') : estrella.classList.remove('activo');
-  });
-
-  // Mostramos el botón
-  botonEnvio.style.display = 'inline-block';
-  
-  // Bloqueamos clics adicionales
-  document.getElementById('estrellas-container').style.pointerEvents = 'none';
-}
-
-
-// =============================================
-// ANIMACIÓN CIRCUITOS - CONDICIONES
-// =============================================
-function iniciarCircuitosCondiciones() {
-  const canvas = document.getElementById('circuitos-canvas-condiciones');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  const puntos = [];
-  const total = 60;
-
-  for (let i = 0; i < total; i++) {
-    puntos.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: (Math.random() - 0.5) * 0.6,
-      color: Math.random() > 0.5 ? '#00c8ff' : '#c9a84c',
-      radio: Math.random() * 2.5 + 1.5
-    });
-  }
-
-  function animar() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    puntos.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.shadowColor = p.color;
-      ctx.shadowBlur = 8;
-      ctx.fill();
-    });
-
-    for (let i = 0; i < puntos.length; i++) {
-      for (let j = i + 1; j < puntos.length; j++) {
-        const dx = puntos[i].x - puntos[j].x;
-        const dy = puntos[i].y - puntos[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(puntos[i].x, puntos[i].y);
-          ctx.lineTo(puntos[j].x, puntos[j].y);
-          ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`;
-          ctx.lineWidth = 0.6;
-          ctx.shadowBlur = 0;
-          ctx.stroke();
-        }
-      }
-    }
-
-    requestAnimationFrame(animar);
-  }
-
-  animar();
-}
-
-function iniciarCircuitosPorque() {
-  const canvas = document.getElementById('circuitos-canvas-porque');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  const puntos = [];
-  const total = 60;
-
-  for (let i = 0; i < total; i++) {
-    puntos.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: (Math.random() - 0.5) * 0.6,
-      color: Math.random() > 0.5 ? '#00c8ff' : '#c9a84c',
-      radio: Math.random() * 2.5 + 1.5
-    });
-  }
-
-  function animar() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    puntos.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.shadowColor = p.color;
-      ctx.shadowBlur = 8;
-      ctx.fill();
-    });
-    for (let i = 0; i < puntos.length; i++) {
-      for (let j = i + 1; j < puntos.length; j++) {
-        const dx = puntos[i].x - puntos[j].x;
-        const dy = puntos[i].y - puntos[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(puntos[i].x, puntos[i].y);
-          ctx.lineTo(puntos[j].x, puntos[j].y);
-          ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`;
-          ctx.lineWidth = 0.6;
-          ctx.shadowBlur = 0;
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(animar);
-  }
-  animar();
-}
-
-function iniciarCircuitosPqrs() {
-  const canvas = document.getElementById('circuitos-canvas-pqrs');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  function resize() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
   const puntos = [];
   for (let i = 0; i < 60; i++) {
     puntos.push({
@@ -495,6 +359,7 @@ function iniciarCircuitosPqrs() {
       radio: Math.random() * 2.5 + 1.5
     });
   }
+
   function animar() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     puntos.forEach(p => {
@@ -527,4 +392,115 @@ function iniciarCircuitosPqrs() {
     requestAnimationFrame(animar);
   }
   animar();
+}
+
+function iniciarCircuitosCondiciones() {
+  const canvas = document.getElementById('circuitos-canvas-condiciones');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  const puntos = [];
+  for (let i = 0; i < 60; i++) {
+    puntos.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, color: Math.random() > 0.5 ? '#00c8ff' : '#c9a84c', radio: Math.random() * 2.5 + 1.5 });
+  }
+  function animar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    puntos.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 8; ctx.fill();
+    });
+    for (let i = 0; i < puntos.length; i++) {
+      for (let j = i + 1; j < puntos.length; j++) {
+        const dx = puntos[i].x - puntos[j].x; const dy = puntos[i].y - puntos[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) { ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y); ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke(); }
+      }
+    }
+    requestAnimationFrame(animar);
+  }
+  animar();
+}
+
+function iniciarCircuitosPorque() {
+  const canvas = document.getElementById('circuitos-canvas-porque');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  const puntos = [];
+  for (let i = 0; i < 60; i++) {
+    puntos.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, color: Math.random() > 0.5 ? '#00c8ff' : '#c9a84c', radio: Math.random() * 2.5 + 1.5 });
+  }
+  function animar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    puntos.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 8; ctx.fill();
+    });
+    for (let i = 0; i < puntos.length; i++) {
+      for (let j = i + 1; j < puntos.length; j++) {
+        const dx = puntos[i].x - puntos[j].x; const dy = puntos[i].y - puntos[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) { ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y); ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke(); }
+      }
+    }
+    requestAnimationFrame(animar);
+  }
+  animar();
+}
+
+function iniciarCircuitosPqrs() {
+  const canvas = document.getElementById('circuitos-canvas-pqrs');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  const puntos = [];
+  for (let i = 0; i < 60; i++) {
+    puntos.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, color: Math.random() > 0.5 ? '#00c8ff' : '#c9a84c', radio: Math.random() * 2.5 + 1.5 });
+  }
+  function animar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    puntos.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 8; ctx.fill();
+    });
+    for (let i = 0; i < puntos.length; i++) {
+      for (let j = i + 1; j < puntos.length; j++) {
+        const dx = puntos[i].x - puntos[j].x; const dy = puntos[i].y - puntos[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) { ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y); ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke(); }
+      }
+    }
+    requestAnimationFrame(animar);
+  }
+  animar();
+}
+
+// =============================================
+// MENÚ HAMBURGUESA
+// =============================================
+function toggleMenu() {
+  const nav = document.getElementById('nav-menu');
+  nav.classList.toggle('nav-abierto');
+}
+
+function marcarEstrella(n) {
+  const estrellas = document.querySelectorAll('.estrellas i');
+  estrellas.forEach((estrella, index) => {
+    index < n ? estrella.classList.add('activo') : estrella.classList.remove('activo');
+  });
 }
