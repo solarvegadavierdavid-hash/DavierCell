@@ -1,5 +1,7 @@
 /* =============================================
    DAVIERCELL - Estilos generales
+   METODOLOGÍA: MOBILE FIRST
+   Breakpoints: 320 (base) / 480 / 768 / 1024 / 1366 / 1920
 ============================================= */
 
 * {
@@ -8,27 +10,41 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #000000;
   color: #ffffff;
   font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 /* =============================================
-   HEADER
+   HEADER (base = celular 320px)
 ============================================= */
 
 header {
   background-color: #000000;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 40px;
+  flex-wrap: wrap;
+  padding: 14px 16px;
+  position: relative;
   border-bottom: none;
 }
 
 header img {
-  width: 180px;
+  width: 130px;
   mix-blend-mode: lighten;
 }
 
@@ -37,62 +53,86 @@ header p {
 }
 
 /* =============================================
-   MENÚ DE NAVEGACIÓN
+   MENÚ HAMBURGUESA (solo celular < 480px)
 ============================================= */
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+.menu-hamburguesa {
+  display: block;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  z-index: 100;
 }
 
-nav a {
+nav#nav-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background-color: #111111;
+  padding: 16px;
+  gap: 0;
+  border-top: 1px solid #222;
+  order: 3;
+}
+
+nav#nav-menu.nav-abierto {
+  display: flex;
+}
+
+nav#nav-menu a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 1px;
+  padding: 12px 0;
+  border-bottom: 1px solid #222;
+  width: 100%;
+  white-space: nowrap;
 }
 
-nav a:hover {
+nav#nav-menu a:hover,
+nav#nav-menu a.activo {
   color: #c9a84c;
 }
 
-nav a.activo {
-  color: #c9a84c;
+nav#nav-menu a.activo {
   font-weight: bold;
 }
 
 /* =============================================
-   SECCIONES
+   SECCIONES (base = celular 320px)
 ============================================= */
 
 section {
-  padding: 60px 20px;
-  max-width: 1000px;
+  padding: 35px 16px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 section h2 {
   color: #c9a84c;
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
 }
 
 /* =============================================
-   HERO BANNER PREMIUM
+   HERO BANNER (base = celular 320px)
 ============================================= */
 
 #inicio {
   max-width: 100%;
-  padding: 0 0 60px 0;
+  padding: 0 0 35px 0;
 }
 
-.hero-davier{
+.hero-davier {
   position: relative;
   width: 100%;
-  height: 75vh;
+  height: 55vh;
+  min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +147,7 @@ section h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
 }
 
 .hero-filtro {
@@ -116,49 +156,52 @@ section h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.80));
   z-index: 1;
 }
 
 .hero-contenido {
-  position: relative;
+  position: absolute;
   z-index: 2;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 16px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .hero-contenido h1 {
   color: #ffffff;
-  font-size: 3.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -1px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 .hero-subtitulo {
   color: #c9a84c;
-  font-size: 1.4rem;
-  margin-top: 15px;
+  font-size: 0.9rem;
+  margin-top: 12px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 .descripcion-contenedor-home {
-  max-width: 1000px;
-  margin: 50px auto 0 auto;
-  padding: 0 20px;
+  max-width: 100%;
+  margin: 30px auto 0 auto;
+  padding: 0 16px;
 }
 
 /* =============================================
-   BANNERS SECUNDARIOS
+   BANNERS SECUNDARIOS (base = celular 320px)
 ============================================= */
 
 .seccion-banner-fijo {
   position: relative;
   width: 100%;
-  height: 260px;
-  margin-bottom: 35px;
+  height: 160px;
+  margin-bottom: 20px;
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid #222222;
@@ -186,48 +229,51 @@ section h2 {
   right: 0;
   background: rgba(0,0,0,0.8);
   color: #ffffff;
-  padding: 12px;
+  padding: 10px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   border-top: 1px solid rgba(201,168,76,0.2);
 }
 
 /* =============================================
-   POR QUÉ ELEGIRNOS
+   POR QUÉ ELEGIRNOS (base = celular 320px)
 ============================================= */
 
 .porque-iconos-lista p {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
   color: #cccccc;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .check-dorado {
   color: #c9a84c;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 /* =============================================
-   PERFIL TÉCNICO
+   PERFIL TÉCNICO (base = celular 320px)
 ============================================= */
 
 .perfil-tecnico-bloque {
   display: flex;
-  gap: 35px;
+  flex-direction: column;
+  gap: 20px;
   align-items: center;
+  text-align: center;
   background-color: #111111;
-  padding: 35px;
+  padding: 20px;
   border-radius: 12px;
   border: 1px solid #222222;
 }
 
 .tecnico-tarjeta-foto {
   flex-shrink: 0;
-  width: 220px;
-  height: 220px;
+  width: 150px;
+  height: 150px;
   border-radius: 10px;
   overflow: hidden;
   border: 2px solid #c9a84c;
@@ -240,15 +286,15 @@ section h2 {
 }
 
 /* =============================================
-   TARJETAS DE SERVICIOS
+   TARJETAS DE SERVICIOS (base = celular 320px)
 ============================================= */
 
 .servicio-card {
   background-color: #111111;
   border-left: 4px solid #c9a84c;
   border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
   transition: transform 0.2s ease;
 }
 
@@ -259,23 +305,25 @@ section h2 {
 .servicio-card h3 {
   color: #ffffff;
   margin-bottom: 8px;
+  font-size: 1rem;
 }
 
 .servicio-card p {
   color: #cccccc;
   line-height: 1.6;
+  font-size: 0.9rem;
 }
 
 /* =============================================
-   TARJETAS DE GARANTÍA
+   TARJETAS DE GARANTÍA (base = celular 320px)
 ============================================= */
 
 .garantia-card {
   background-color: #111111;
   border-left: 4px solid #c9a84c;
   border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
   transition: transform 0.2s ease;
 }
 
@@ -286,31 +334,33 @@ section h2 {
 .garantia-card h3 {
   color: #c9a84c;
   margin-bottom: 8px;
+  font-size: 1rem;
 }
 
 .garantia-card p {
   color: #cccccc;
   line-height: 1.6;
+  font-size: 0.9rem;
 }
 
 /* =============================================
-   TÉCNICO INFO
+   TÉCNICO INFO (base = celular 320px)
 ============================================= */
 
 #info-tecnico h3 {
   color: #c9a84c;
-  font-size: 1.3rem;
-  margin-bottom: 16px;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
 }
 
 #info-tecnico p {
   color: #cccccc;
-  line-height: 1.8;
-  font-size: 1rem;
+  line-height: 1.7;
+  font-size: 0.9rem;
 }
 
 /* =============================================
-   FORMULARIO
+   FORMULARIO (base = celular 320px)
 ============================================= */
 
 form {
@@ -318,6 +368,7 @@ form {
   flex-direction: column;
   gap: 12px;
   margin-top: 20px;
+  width: 100%;
 }
 
 form input,
@@ -328,12 +379,12 @@ form select {
   border: 1px solid #333333;
   background-color: #111111;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.95rem;
   width: 100%;
 }
 
 form textarea {
-  height: 120px;
+  height: 110px;
 }
 
 form button {
@@ -342,7 +393,7 @@ form button {
   color: #000000;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
 }
@@ -353,37 +404,42 @@ form button:hover {
 }
 
 /* =============================================
-   FOOTER
+   FOOTER (base = celular 320px)
 ============================================= */
 
 footer {
   background-color: #111111;
-  padding: 40px;
+  padding: 24px 16px;
   border-top: none;
 }
 
 .footer-top {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  gap: 20px;
+  margin-bottom: 24px;
+  text-align: center;
 }
 
 .footer-logo img {
-  width: 150px;
+  width: 120px;
   mix-blend-mode: lighten;
+  margin: 0 auto;
 }
 
 .footer-redes p {
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-bottom: 12px;
-  text-align: right;
+  text-align: center;
 }
 
 .redes-iconos {
   display: flex;
   gap: 12px;
+  justify-content: center;
 }
 
 .redes-iconos a {
@@ -391,13 +447,13 @@ footer {
   text-decoration: none;
   background-color: transparent;
   border: 2px solid #ffffff;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
@@ -409,23 +465,24 @@ footer {
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   border-top: 1px solid #222222;
-  padding-top: 20px;
-  flex-wrap: wrap;
-  gap: 15px;
+  padding-top: 18px;
+  gap: 12px;
+  text-align: center;
 }
 
 .footer-bottom p {
   color: #888888;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   margin: 0;
 }
 
 .footer-bottom a {
   color: #c9a84c;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -444,25 +501,28 @@ footer {
 }
 
 /* =============================================
-   CONDICIONES
+   CONDICIONES (base = celular 320px)
 ============================================= */
 
 .condiciones-menu {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 10px;
   background-color: #111111;
   border-radius: 12px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 18px;
+  margin-bottom: 24px;
 }
 
 .condiciones-menu span {
   color: #cccccc;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   cursor: pointer;
   padding: 10px 0;
   border-bottom: 1px solid #222222;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .condiciones-menu span:hover {
@@ -478,37 +538,37 @@ footer {
   background-color: #111111;
   border-left: 4px solid #c9a84c;
   border-radius: 8px;
-  padding: 30px;
-  margin-top: 20px;
+  padding: 20px;
+  margin-top: 18px;
 }
 
 .condicion-detalle h3 {
   color: #c9a84c;
-  font-size: 1.3rem;
-  margin-bottom: 16px;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
 }
 
 .condicion-detalle p {
   color: #cccccc;
-  line-height: 1.8;
+  line-height: 1.7;
+  font-size: 0.9rem;
 }
 
 /* =============================================
-   FAQ
+   FAQ (base = celular 320px)
 ============================================= */
-
 
 .faq-subtitulo {
   color: #cccccc;
-  margin-bottom: 30px;
-  font-size: 1rem;
+  margin-bottom: 20px;
+  font-size: 0.88rem;
   line-height: 1.6;
 }
 
 #lista-faq {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
   width: 100%;
   max-width: 100%;
 }
@@ -517,7 +577,7 @@ footer {
   background-color: #111111;
   border: 1px solid #222222;
   border-radius: 8px;
-  padding: 16px 20px;
+  padding: 14px 16px;
   cursor: pointer;
   transition: border 0.2s ease;
 }
@@ -531,7 +591,8 @@ footer {
   justify-content: space-between;
   align-items: center;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  gap: 10px;
 }
 
 .faq-respuesta {
@@ -543,43 +604,39 @@ footer {
 .faq-respuesta p {
   color: #cccccc;
   line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  #lista-faq {
-    grid-template-columns: 1fr;
-  }
+  font-size: 0.88rem;
 }
 
 /* =============================================
-   SELECTOR DE EQUIPOS
+   SELECTOR DE EQUIPOS (base = celular 320px)
 ============================================= */
 
 .selector-equipos-bloque {
   text-align: center;
-  margin-top: 50px !important;
-  padding: 0 20px;
+  margin-top: 30px !important;
+  padding: 0 16px;
 }
 
 .selector-equipos-bloque h2 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: #c9a84c;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .equipos-botones-flex {
   display: flex;
-  gap: 25px;
+  flex-direction: column;
+  gap: 14px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .boton-equipo-card {
   background-color: #111111;
   border: 1px solid #222222;
   border-radius: 12px;
-  padding: 30px 20px;
-  width: 45%;
+  padding: 22px 16px;
+  width: 100%;
   cursor: pointer;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -591,517 +648,364 @@ footer {
 }
 
 .boton-equipo-card i {
-  font-size: 3rem;
-  margin-bottom: 15px;
+  font-size: 2.4rem;
+  margin-bottom: 12px;
   display: block;
 }
 
-.icono-android {
-  color: #3ddc84;
-}
-
-.icono-iphone {
-  color: #ffffff;
-}
+.icono-android { color: #3ddc84; }
+.icono-iphone { color: #ffffff; }
 
 .boton-equipo-card h3 {
   color: #ffffff;
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
 }
 
 .boton-equipo-card p {
   color: #888888;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.4;
 }
 
 /* =============================================
-   BLOQUE RESEÑAS
+   BLOQUE RESEÑAS (base = celular 320px)
 ============================================= */
 
 .bloque-resena-davier {
   background: #111;
-  padding: 30px;
+  padding: 20px;
   border-radius: 12px;
   border: 1px solid #333;
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 24px;
   align-items: center;
+  text-align: center;
   margin-top: 20px;
 }
 
-.info-negocio {
-  text-align: center;
-  min-width: 160px;
-}
-
-.info-negocio img {
-  border-radius: 50%;
-  margin-bottom: 10px;
-  border: 2px solid #c9a84c;
-}
-
-.sistema-estrellas {
-  flex-grow: 1;
-}
+.info-negocio { text-align: center; min-width: auto; }
+.info-negocio img { border-radius: 50%; margin-bottom: 10px; border: 2px solid #c9a84c; }
+.sistema-estrellas { flex-grow: 1; width: 100%; }
 
 .estrellas {
   margin: 15px 0;
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 
-.estrellas i {
-  font-size: 2.2rem;
-  color: #333;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.estrellas i.activo {
-  color: #c9a84c;
-}
+.estrellas i { font-size: 1.9rem; color: #333; cursor: pointer; transition: color 0.3s ease; }
+.estrellas i.activo { color: #c9a84c; }
 
 .sistema-estrellas textarea {
-  width: 100%;
-  padding: 15px;
-  margin-top: 15px;
-  height: 100px;
-  background: #000;
-  border: 1px solid #444;
-  color: #fff;
-  border-radius: 8px;
-  resize: none;
-  font-family: inherit;
+  width: 100%; padding: 14px; margin-top: 14px; height: 90px;
+  background: #000; border: 1px solid #444; color: #fff;
+  border-radius: 8px; resize: none; font-family: inherit;
 }
 
 .sistema-estrellas button {
-  margin-top: 15px;
-  padding: 12px 25px;
-  background-color: #c9a84c;
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
+  margin-top: 14px; padding: 12px 22px; background-color: #c9a84c;
+  color: #000; border: none; border-radius: 6px; font-weight: bold;
+  cursor: pointer; transition: background 0.3s; width: 100%;
 }
 
-.sistema-estrellas button:hover {
-  background-color: #fff;
-}
+.sistema-estrellas button:hover { background-color: #fff; }
 
 /* =============================================
-   RESPONSIVE MÓVIL
+   BLOQUE CALIFICACIÓN (base = celular 320px)
 ============================================= */
 
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-  }
-
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .hero-davier{
-    height: 55vh;
-  }
-
-  .hero-contenido h1 {
-    font-size: 2.1rem;
-  }
-
-  .hero-subtitulo {
-    font-size: 1.1rem;
-  }
-
-  .seccion-banner-fijo {
-    height: 180px;
-  }
-
-  .perfil-tecnico-bloque {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .tecnico-tarjeta-foto {
-    width: 170px;
-    height: 170px;
-  }
-
-  .condiciones-menu {
-    grid-template-columns: 1fr;
-    padding: 15px;
-  }
-
-  .equipos-botones-flex {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .boton-equipo-card {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .footer-top {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .footer-redes p {
-    text-align: center;
-  }
-
-  .redes-iconos {
-    justify-content: center;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .bloque-resena-davier {
-    flex-direction: column;
-    text-align: center;
-  }
-}
 .bloque-calificacion {
   text-align: center;
   background-color: #111;
-  padding: 30px;
+  padding: 22px 16px;
   border-radius: 12px;
   border: 1px solid #222;
-  margin: 40px auto;
-  max-width: 400px;
+  margin: 28px auto;
+  max-width: 100%;
+  width: 100%;
 }
 
-.bloque-calificacion h3 {
-  color: #c9a84c;
-  margin-bottom: 5px;
-}
+.bloque-calificacion h3 { color: #c9a84c; margin-bottom: 5px; font-size: 1.05rem; }
 
 .estrellas-calificacion {
-  margin: 15px 0;
+  margin: 14px 0;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-.estrellas-calificacion i {
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
+.estrellas-calificacion i { font-size: 1.7rem; color: #333; cursor: pointer; transition: color 0.3s ease; }
+.estrellas-calificacion i.activo { color: #c9a84c; }
+#mensaje-gracias { color: #c9a84c; font-weight: bold; margin-top: 10px; font-size: 0.9rem; }
 
-.estrellas-calificacion i.activo {
-  color: #c9a84c;
-}
-
-#mensaje-gracias {
-  color: #c9a84c;
-  font-weight: bold;
-  margin-top: 10px;
-}
 #boton-enviar-calificacion {
-display: none; /* Se mostrará al calificar */
-  margin-top: 15px;
-  padding: 8px 20px;
-  background-color: #c9a84c;
-  border: none;
-  border-radius: 5px;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
+  display: none;
+  margin-top: 14px; padding: 8px 20px; background-color: #c9a84c;
+  border: none; border-radius: 5px; color: #000; font-weight: bold; cursor: pointer;
 }
 
 /* =============================================
-   GARANTÍAS - DOS COLUMNAS
+   GARANTÍAS (base = celular 320px)
 ============================================= */
 
 #lista-garantias {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
   max-width: 100%;
-  padding: 0 60px;
+  padding: 0 16px;
 }
 
-#lista-garantias .garantia-card {
-  margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-  #lista-garantias {
-    grid-template-columns: 1fr;
-  }
-}
+#lista-garantias .garantia-card { margin-bottom: 0; }
 
 /* =============================================
-   SERVICIOS - DOS COLUMNAS
+   SERVICIOS (base = celular 320px)
 ============================================= */
 
 #lista-servicios {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 0 60px;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 0 16px;
   max-width: 100%;
   width: 100%;
 }
 
-#servicios {
-  max-width: 100%;
-}
+#servicios { max-width: 100%; }
 
-
-@media (max-width: 768px) {
-  #lista-servicios {
-    grid-template-columns: 1fr;
-  }
-}
-/* =============================================
-   BANNER SERVICIOS - ESTILO HERO
-============================================= */
 #servicios .seccion-banner-fijo {
-  height: 75vh;
-  border-radius: 0;
-  border: none;
-  margin-bottom: 40px;
+  height: 38vh; min-height: 220px;
+  border-radius: 0; border: none; margin-bottom: 24px;
 }
 
-#servicios .seccion-banner-fijo img {
-  object-position: top center;
-}
-
-#servicios .seccion-banner-filtro {
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8));
-}
-
-#servicios .seccion-banner-pie {
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  padding: 20px;
-}
-
+#servicios .seccion-banner-fijo img { object-position: top center; }
+#servicios .seccion-banner-filtro { background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)); }
+#servicios .seccion-banner-pie { font-size: 1rem; font-weight: bold; letter-spacing: 1px; padding: 14px; }
 
 /* =============================================
-   BOTÓN FLOTANTE WHATSAPP
+   BOTÓN FLOTANTE WHATSAPP (base = celular 320px)
 ============================================= */
 
 .boton-whatsapp-flotante {
   position: fixed;
-  bottom: 200px;
-  right: 25px;
-  background-color: #25d366;
-  color: #ffffff;
-  width: 55px;
-  height: 55px;
+  bottom: 90px; right: 16px;
+  background-color: #25d366; color: #ffffff;
+  width: 50px; height: 50px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  text-decoration: none;
-  z-index: 999;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; text-decoration: none; z-index: 999;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.boton-whatsapp-flotante:hover {
-  transform: scale(1.1);
-  background-color: #1ebe5d;
-}
-
-
-
+.boton-whatsapp-flotante:hover { transform: scale(1.1); background-color: #1ebe5d; }
 
 /* =============================================
-   TÉCNICO - FONDO CON IMAGEN
+   TÉCNICO (base = celular)
 ============================================= */
 
-#tecnico {
-  padding: 0;
-  max-width: 100%;
-}
+#tecnico { padding: 0; max-width: 100%; }
 
 .tecnico-hero-fondo {
-  position: relative;
-  width: 100%;
-  padding: 60px 20px;
-  overflow: hidden;
+  position: relative; width: 100%;
+  padding: 35px 16px; overflow: hidden; background-color: #020d1a;
 }
 
 .tecnico-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-}
-
-.tecnico-hero-filtro {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}
-
-#tecnico h2,
-#tecnico .perfil-tecnico-bloque {
-  position: relative;
-  z-index: 2;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-#tecnico h2 {
-  margin-bottom: 30px;
-}
-
-
-#tecnico {
-  padding: 0;
-  max-width: 100%;
-}
-
-.tecnico-hero-fondo {
-  position: relative;
-  width: 100%;
-  padding: 60px 20px;
-  overflow: hidden;
-  background-color: #020d1a;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; z-index: 0;
 }
 
 #circuitos-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
 }
 
 .tecnico-hero-filtro {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 1;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); z-index: 1;
 }
 
-#tecnico h2,
-#tecnico .perfil-tecnico-bloque {
-  position: relative;
-  z-index: 2;
-  max-width: 1000px;
-  margin: 0 auto;
+#tecnico h2, #tecnico .perfil-tecnico-bloque {
+  position: relative; z-index: 2; max-width: 100%; margin: 0 auto;
 }
 
-#tecnico h2 {
-  margin-bottom: 30px;
-}
+#tecnico h2 { margin-bottom: 20px; }
 
 /* =============================================
-   CONDICIONES - FONDO ANIMADO
+   CONDICIONES (base = celular)
 ============================================= */
-#condiciones {
-  padding: 0;
-  max-width: 100%;
-}
+
+#condiciones { padding: 0; max-width: 100%; }
 
 #circuitos-canvas-condiciones {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
 }
 
-#condiciones h2,
-#condiciones .condiciones-menu,
-#condiciones #detalle-condicion {
-  position: relative;
-  z-index: 2;
-}
-
-#porque {
-  padding: 0;
-  max-width: 100%;
-}
-
-#circuitos-canvas-porque {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-#porque h2,
-#porque .seccion-banner-fijo,
-#porque .porque-iconos-lista {
-  position: relative;
-  z-index: 2;
+#condiciones h2, #condiciones .condiciones-menu, #condiciones #detalle-condicion {
+  position: relative; z-index: 2;
 }
 
 /* =============================================
-   PQRS - DOS COLUMNAS
+   POR QUÉ NOSOTROS (base = celular)
 ============================================= */
-.form-pqrs-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+
+#porque { padding: 0; max-width: 100%; }
+
+#circuitos-canvas-porque {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
 }
 
-.form-pqrs-grid .full-width {
-  grid-column: 1 / -1;
+#porque h2, #porque .seccion-banner-fijo, #porque .porque-iconos-lista {
+  position: relative; z-index: 2;
 }
 
-@media (max-width: 768px) {
-  .form-pqrs-grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* =============================================
+   PQRS (base = celular)
+============================================= */
 
-#pqrs {
-  padding: 0;
-  max-width: 100%;
-}
+.form-pqrs-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.form-pqrs-grid .full-width { grid-column: 1 / -1; }
+
+#pqrs { padding: 0; max-width: 100%; }
 
 #circuitos-canvas-pqrs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
 }
 
-#pqrs h2,
-#pqrs p,
-#pqrs .form-pqrs-grid {
-  position: relative;
-  z-index: 2;
+#pqrs h2, #pqrs p, #pqrs .form-pqrs-grid { position: relative; z-index: 2; }
+
+
+/* =============================================================
+   BREAKPOINT 1: 480px — Tablets pequeñas
+   En 480px+ el hamburguesa desaparece y el menú vuelve horizontal
+============================================================= */
+@media (min-width: 480px) {
+
+  /* Ocultar hamburguesa */
+  .menu-hamburguesa {
+    display: none !important;
+  }
+
+  /* Menú horizontal visible siempre */
+  nav#nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    background: none !important;
+    padding: 0 !important;
+    border: none !important;
+    width: auto !important;
+    gap: 14px 18px !important;
+    order: 0 !important;
+  }
+
+  nav#nav-menu a {
+    font-size: 0.85rem;
+    padding: 0;
+    border-bottom: none;
+    width: auto;
+  }
+
+  header {
+    padding: 16px 24px;
+  }
+
+  header img { width: 150px; }
+
+  .hero-contenido h1 { font-size: 2.1rem; }
+  .hero-subtitulo { font-size: 1rem; }
+  .equipos-botones-flex { flex-direction: row; }
+  .boton-equipo-card { width: 48%; }
+  #lista-faq { grid-template-columns: 1fr 1fr; }
+
+  .footer-top { flex-direction: row; justify-content: space-between; text-align: left; }
+  .footer-redes p { text-align: right; }
+  .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+
+/* =============================================================
+   BREAKPOINT 2: 768px — Tablets estándar
+============================================================= */
+@media (min-width: 768px) {
+
+  section { padding: 50px 30px; max-width: 900px; }
+  section h2 { font-size: 1.6rem; margin-bottom: 26px; }
+
+  .hero-contenido h1 { font-size: 2.8rem; }
+  .hero-subtitulo { font-size: 1.15rem; }
+  .descripcion-contenedor-home { max-width: 900px; padding: 0 30px; }
+  .seccion-banner-fijo { height: 220px; }
+  .seccion-banner-pie { font-size: 0.85rem; }
+
+  .perfil-tecnico-bloque { flex-direction: row; text-align: left; padding: 30px; }
+  .tecnico-tarjeta-foto { width: 190px; height: 190px; }
+  .condiciones-menu { grid-template-columns: 1fr 1fr; padding: 24px; }
+
+  #lista-garantias { grid-template-columns: 1fr 1fr; padding: 0 30px; }
+  #lista-servicios { grid-template-columns: 1fr 1fr; padding: 0 30px; }
+  #servicios .seccion-banner-fijo { height: 50vh; }
+  #servicios .seccion-banner-pie { font-size: 1.2rem; }
+
+  .form-pqrs-grid { grid-template-columns: 1fr 1fr; }
+  .bloque-resena-davier { flex-direction: row; text-align: left; }
+  .info-negocio { min-width: 160px; }
+
+  .boton-whatsapp-flotante { bottom: 110px; right: 22px; width: 55px; height: 55px; font-size: 1.8rem; }
+}
+
+
+/* =============================================================
+   BREAKPOINT 3: 1024px — Laptops pequeños
+============================================================= */
+@media (min-width: 1024px) {
+
+  header { padding: 20px 40px; }
+  header img { width: 180px; }
+
+  nav#nav-menu a { font-size: 0.95rem; letter-spacing: 1px; }
+
+  section { padding: 60px 20px; max-width: 1000px; }
+  section h2 { font-size: 1.8rem; margin-bottom: 30px; }
+
+  .hero-contenido { text-align: right; padding: 0 60px 0 50%; }
+  .hero-contenido h1 { font-size: 3.8rem; letter-spacing: -1px; }
+  .hero-subtitulo { font-size: 1.4rem; letter-spacing: 2px; }
+  .descripcion-contenedor-home { max-width: 1000px; padding: 0 20px; }
+
+  .selector-equipos-bloque h2 { font-size: 1.8rem; }
+  .boton-equipo-card { width: 45%; padding: 30px 20px; }
+  .boton-equipo-card i { font-size: 3rem; }
+  .boton-equipo-card h3 { font-size: 1.4rem; }
+  .boton-equipo-card p { font-size: 0.9rem; }
+
+  #lista-garantias { grid-template-columns: 1fr 1fr 1fr; padding: 0 60px; }
+  #lista-servicios { grid-template-columns: 1fr 1fr; padding: 0 60px; }
+  #servicios .seccion-banner-fijo { height: 75vh; }
+  #servicios .seccion-banner-pie { font-size: 1.5rem; letter-spacing: 2px; padding: 20px; }
+
+  .condiciones-menu { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 30px; }
+  .boton-whatsapp-flotante { bottom: 200px; }
+}
+
+
+/* =============================================================
+   BREAKPOINT 4: 1366px — PC estándar
+============================================================= */
+@media (min-width: 1366px) {
+  section h2 { font-size: 1.9rem; }
+  .hero-contenido h1 { font-size: 4.2rem; }
+}
+
+
+/* =============================================================
+   BREAKPOINT 5: 1920px — Monitores grandes
+============================================================= */
+@media (min-width: 1920px) {
+  section { max-width: 1200px; }
+  .descripcion-contenedor-home { max-width: 1200px; }
+  #lista-garantias, #lista-servicios { max-width: 1200px; margin: 0 auto; }
+  .hero-contenido h1 { font-size: 4.6rem; }
 }
