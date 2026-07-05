@@ -19,6 +19,9 @@
   <meta property="og:locale" content="es_CO">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
   
   <body>
@@ -40,7 +43,7 @@
 <!-- INICIO -->
 <section id="inicio">
   <div class="hero-davier">
-    <img src="nombre1.png" alt="Daviercell Microelectrónica" class="hero-fondo">
+    <canvas id="circuitos-canvas-inicio"></canvas>
     <div class="hero-filtro"></div>
     <div class="hero-contenido">
       <h1>#1 Reparación<br>de Equipos Móviles</h1>
@@ -95,7 +98,7 @@
 <section id="servicios" class="oculto">
   <h2>Nuestros Servicios</h2>
   <div class="seccion-banner-fijo">
-    <img src="david.png" alt="Laboratorio Técnico DAVIERCELL">
+    <img src="perfil3.jpg" alt="Laboratorio Técnico DAVIERCELL">
     <div class="seccion-banner-filtro"></div>
     <p class="seccion-banner-pie">Laboratorio dotado con herramientas de alta precisión e ingeniería</p>
   </div>
@@ -159,7 +162,7 @@
     <canvas id="circuitos-canvas-pqrs"></canvas>
     <div class="tecnico-hero-filtro"></div>
     <h2>PQRS</h2>
-    <p style="color:#cccccc; margin-bottom: 20px;">Canal oficial para radicar peticiones, quejas, reclamos y sugerencias sobre nuestros servicios.</p>
+    <p style="color:#cccccc; margin-bottom: 20px; font-weight: 700;">Canal oficial para radicar peticiones, quejas, reclamos y sugerencias sobre nuestros servicios.</p>
     <form id="form-pqrs" class="form-pqrs-grid">
       <input type="text" name="nombre" placeholder="Nombre completo" required>
       <input type="email" name="email" placeholder="Correo electrónico" required>
@@ -183,7 +186,7 @@
         <option value="arequipa">Arequipa</option>
       </select>
       <textarea name="mensaje" placeholder="Describe tu problema detalladamente" required class="full-width"></textarea>
-      <button type="submit" class="full-width">Enviar Formulario</button>
+      <button type="submit" class="boton-pqrs-enviar">Enviar Formulario</button>
     </form>
   </div>
 </section>
@@ -225,4 +228,5 @@
 
   </body>
 </html>
+
 
