@@ -52,13 +52,13 @@ const tecnico = {
 };
 
 const condiciones = {
-  'revision-presupuesto': { titulo: "Revisión y Presupuesto", texto: " estoy trabajando en ello." },
-  'pago-reparacion': { titulo: "Pago de Reparación", texto: " estoy trabajando en ello." },
-  'equipos-abandonados': { titulo: "Equipos Abandonados", texto: " estoy trabajando en ello." },
-  'reparacion': { titulo: "Reparación", texto: " estoy trabajando en ello." },
-  'garantia': { titulo: "Garantía", texto: " estoy trabajando en ello." },
-  'desbloqueo': { titulo: "Desbloqueo", texto: " estoy trabajando en ello." },
-  'revision-calidad': { titulo: "Revisión de Calidad", texto: " estoy trabajando en ello." }
+  'revision-presupuesto': { titulo: "Revisión y Presupuesto", texto: "En nuestro centro de reparación, te ofrecemos un servicio eficiente y confiable. Las fallas comunes, como cambios de pantalla o batería, se resuelven en un plazo de 1 a 2 días hábiles. Para problemas más complejos, como dispositivos apagados, manipulados o mojados, el tiempo de reparación varía entre 4 y 7 días. Si tu dispositivo está en buen estado y no ha sido manipulado previamente, te damos prioridad para una reparación más rápida. Todos nuestros servicios incluyen un costo que varía según el modelo, y contamos con promociones especiales." },
+  'pago-reparacion': { titulo: "Pago de Reparación", texto: "En nuestra empresa, no tienes que pagar nada por adelantado: la revisión y el diagnóstico inicial son 100% gratuitos. Solo pagas una vez que la reparación esté terminada y a tu total satisfacción.<br><br>Para tu comodidad, contamos con múltiples medios de pago:<br><br>📱 Pagos electrónicos: Nequi y Bancolombia.<br>💵 Efectivo." },
+  'equipos-abandonados': { titulo: "Equipos Abandonados", texto: "En nuestra empresa nos tomamos muy en serio el cuidado de tus dispositivos. Sin embargo, por razones de espacio en el taller y para evitar riesgos de seguridad con las baterías, manejamos los siguientes plazos de retiro:<br><br>📅 Plazo máximo: Una vez que te notifiquemos que tu equipo está listo (o el diagnóstico terminado), tendrás un plazo máximo de dos (2) meses para recogerlo.<br><br>⚠️ Proceso de abandono: Si en este tiempo el equipo no es retirado por falta de presupuesto o desinterés, se considerará en estado de abandono.<br><br>♻️ Disposición final: Pasados los tres meses, el dispositivo será enviado a un centro especializado de reciclaje tecnológico y no podremos hacernos responsables por el mismo." },
+  'reparacion': { titulo: "Reparación", texto: "Nuestro proceso es transparente de principio a fin para que dejes tu equipo en las mejores manos:<br><br>1️⃣ Diagnóstico e ingreso: Evaluamos tu dispositivo y te entregamos un presupuesto claro con el tiempo estimado de entrega.<br><br>2️⃣ Garantía de confianza: Todas nuestras reparaciones cuentan con una garantía de hasta seis (4) meses (sujeta al estado inicial del equipo).<br><br>⚠️ Notas importantes sobre el servicio técnico<br>Al reparar tecnología existen riesgos inevitables debido a los daños previos del dispositivo. Al dejar tu equipo, aceptas las siguientes condiciones:<br><br>📱 Pantallas rotas: Si la pantalla llega fisurada o muy partida, puede deteriorarse más o dañarse por completo al intentar desmontarla. El cliente asume este riesgo técnico.<br><br>🔌 Equipos con fallas intermitentes: Si un dispositivo ingresa encendido pero con daños graves, los componentes pueden fallar definitivamente durante el proceso técnico y el equipo podría quedarse apagado. Esto es un riesgo propio del daño inicial y no responsabilidad de nuestra empresa.<br><br>🛠️ Nuestro compromiso: Haremos todo lo técnicamente posible por salvar tu equipo, pero si el daño de fábrica o del golpe es irreversible, la responsabilidad no recaerá sobre nuestro laboratorio." },
+  'garantia': { titulo: "Garantía", texto: "Para tu tranquilidad, respaldamos la calidad de nuestro trabajo técnico bajo las siguientes condiciones claras:<br><br>✅ Equipos sin manipulación previa (Garantía Completa): Si tu dispositivo no ha sido abierto ni revisado por otro servicio técnico antes de ingresar a nuestro taller, cuentas con una garantía de seis (4) meses.<br><br>🔄 Equipos manipulados previamente (Garantía Reducida): Si el equipo ya fue revisado, abierto o trabajado en otro taller antes de traérnoslo, la garantía será de tres (3) meses debido al riesgo de daños preexistentes.<br><br>🔧 ¿Qué cubre la garantía?: La cobertura aplica únicamente sobre la pieza o componente que fue reparado o cambiado. Por ejemplo: si cambiamos la pantalla y luego te falla la batería, esa falla externa no estará cubierta.<br><br>🚫 ¿Qué anula por completo la garantía?<br>Para mantener vigente la garantía de tu reparación, es fundamental cumplir con lo siguiente:<br><br>❌ No llevarlo a otros talleres: Si durante el periodo de garantía el equipo es abierto, revisado o manipulado por otro técnico o por ti mismo, la garantía se anulará de inmediato.<br><br>📞 Reportar directamente con nosotros: Ante cualquier fallo o novedad con la reparación, debes ponerte en contacto directamente con nuestro equipo para darte soporte." },
+  'desbloqueo': { titulo: "Desbloqueo", texto: "En nuestra empresa nos esforzamos por brindar un servicio profesional, honesto y totalmente transparente. Por esta razón, recordamos a toda nuestra clientela en Cartagena y sus alrededores nuestras políticas estrictas de seguridad:<br><br>🚫 No realizamos desbloqueos: En nuestro centro de servicios NO quitamos cuentas de iCloud, ni de iOS, ni bloqueos de operador.<br><br>⚖️ Cero manipulación ilegal: No alteramos software ni recibimos equipos que se encuentren reportados. Nuestro enfoque es 100% técnico y legal (reparación de hardware, pantallas, placas, etc.).<br><br>💰 No pedimos dinero por adelantado: Nosotros no solicitamos pagos anticipados por estos servicios a través de redes sociales o WhatsApp.<br><br>Si alguien te contacta a nombre de nuestra empresa ofreciéndote desbloqueos o pidiéndote dinero por adelantado para ello, es falso y se trata de una estafa.<br><br>Nuestra única sede y canales oficiales atienden directamente para brindarte soporte técnico real, seguro y garantizado. ¡No te dejes engañar!" },
+  'revision-calidad': { titulo: "Revisión de Calidad", texto: "Para tu total tranquilidad, ningún dispositivo sale de nuestro taller sin pasar por un control estricto. Al concluir cada reparación, realizamos un test riguroso de calidad para asegurarnos de que todo funcione a la perfección:<br><br>📱 En Celulares: Revisamos minuciosamente las cámaras, los sensores, la señal y conectividad de la tarjeta SIM, el táctil y la batería.<br><br>💻 En Computadores: Chequeamos pantallas, cámaras de video, teclados, puertos de conexión y rendimiento general del sistema.<br><br>🎥 Transparencia total en tus manos<br>Antes de entregarte el equipo, realizamos un chequeo final completo y te enviamos un video detallado mostrando el dispositivo en perfecto estado y con todas sus funciones operativas.<br><br>Así tienes la certeza y la seguridad del estado óptimo en el que recibes tu equipo, garantizando un servicio totalmente honesto y sin sorpresas." }
 };
 
 const listaServicios = document.getElementById("lista-servicios");
@@ -146,18 +146,35 @@ function toggleFaq(index) {
 function mostrarCondicion(id) {
   const condicion = condiciones[id];
   const detalle = document.getElementById("detalle-condicion");
+  const menu = document.querySelector('.condiciones-menu');
+  const terminos = document.querySelector('.terminos-generales-bloque');
 
-  const spans = document.querySelectorAll('.condiciones-menu span');
-  spans.forEach(span => span.classList.remove('activo'));
-  event.target.classList.add('activo');
+  if (menu) menu.classList.add('oculto');
+  if (terminos) terminos.classList.add('oculto');
 
   detalle.innerHTML = `
     <div class="condicion-detalle">
+      <span class="volver-condiciones" onclick="volverMenuCondiciones()"><i class="fas fa-arrow-left"></i> Volver al menú</span>
       <h3>${condicion.titulo}</h3>
       <p>${condicion.texto}</p>
     </div>
   `;
   detalle.scrollIntoView({ behavior: 'smooth' });
+}
+
+function volverMenuCondiciones() {
+  const menu = document.querySelector('.condiciones-menu');
+  const terminos = document.querySelector('.terminos-generales-bloque');
+  const detalle = document.getElementById('detalle-condicion');
+
+  if (menu) menu.classList.remove('oculto');
+  if (terminos) terminos.classList.remove('oculto');
+  detalle.innerHTML = '';
+
+  const spans = document.querySelectorAll('.condiciones-menu span');
+  spans.forEach(span => span.classList.remove('activo'));
+
+  if (menu) menu.scrollIntoView({ behavior: 'smooth' });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -405,4 +422,5 @@ function marcarEstrella(n) {
     index < n ? estrella.classList.add('activo') : estrella.classList.remove('activo');
   });
 }
+
 
