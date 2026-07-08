@@ -48,6 +48,16 @@ header {
   border-bottom: none;
 }
 
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #4d4d4d;
+}
+
 header img {
   width: 130px;
   mix-blend-mode: lighten;
@@ -76,7 +86,7 @@ nav#nav-menu {
   display: none;
   flex-direction: column;
   width: 100%;
-  background-color: #111111;
+  background-color: #000000;
   padding: 16px;
   gap: 0;
   border-top: 1px solid #222;
@@ -275,7 +285,6 @@ section h2 {
    PERFIL TÉCNICO (base = celular 320px)
 ============================================= */
 
-
 .perfil-tecnico-bloque {
   display: flex;
   flex-direction: column;
@@ -355,7 +364,6 @@ section h2 {
   transition: transform 0.2s ease;
 }
 
-
 .garantia-card:hover {
   transform: translateX(6px);
 }
@@ -419,7 +427,7 @@ form select {
 }
 
 form textarea {
-  height: 110px;
+  height: 70px;
 }
 
 form button {
@@ -441,8 +449,9 @@ form button:hover {
 /* =============================================
    FOOTER (base = celular 320px)
 ============================================= */
+
 footer {
-  background-color: #111111;
+  background-color: #000000;
   padding: 24px 16px;
   border-top: none;
   position: relative;
@@ -454,8 +463,8 @@ footer::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  height: 1.5px;
+  background-color: #4d4d4d;
 }
 
 .footer-top {
@@ -489,10 +498,10 @@ footer::before {
 }
 
 .redes-iconos a {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
-  background-color: transparent;
-  border: 2px solid #ffffff;
+  background-color: #ffffff;
+  border: none;
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -504,8 +513,6 @@ footer::before {
 }
 
 .redes-iconos a:hover {
-  background-color: #ffffff;
-  color: #000000;
   transform: scale(1.1);
 }
 
@@ -608,11 +615,82 @@ footer::before {
   margin-bottom: 14px;
 }
 
+.volver-condiciones {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #c9a84c;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333333;
+  width: 100%;
+}
+
+.volver-condiciones:hover {
+  color: #ffffff;
+}
+
 .condicion-detalle p {
   color: #cccccc;
   font-weight: 500;
   line-height: 1.7;
   font-size: 0.9rem;
+}
+
+.terminos-generales-bloque {
+  background-color: #1a1a1a;
+  border: 1.5px solid #4d4d4d;
+  border-left: 4px solid #c9a84c;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 18px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.terminos-generales-bloque h3 {
+  color: #c9a84c;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.terminos-generales-bloque p {
+  color: #cccccc;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.terminos-generales-bloque h4 {
+  color: #c9a84c;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.terminos-generales-bloque ul {
+  margin: 0 0 12px 0;
+  padding-left: 20px;
+}
+
+.terminos-generales-bloque ul li {
+  color: #cccccc;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.terminos-generales-bloque ul li strong {
+  color: #ffffff;
 }
 
 /* =============================================
@@ -799,7 +877,6 @@ footer::before {
   width: 100%;
 }
 
-
 .bloque-calificacion h3 { color: #c9a84c; font-weight: 800; margin-bottom: 5px; font-size: 1.05rem; }
 .bloque-calificacion p { font-weight: 600; }
 
@@ -872,9 +949,22 @@ footer::before {
   font-size: 1.6rem; text-decoration: none; z-index: 999;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
   transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: pulso-whatsapp 2s infinite;
 }
 
 .boton-whatsapp-flotante:hover { transform: scale(1.1); background-color: #1ebe5d; }
+
+@keyframes pulso-whatsapp {
+  0% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 30px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
 
 /* =============================================
    TÉCNICO (base = celular)
@@ -884,7 +974,7 @@ footer::before {
 
 .tecnico-hero-fondo {
   position: relative; width: 100%;
-  padding: 35px 16px; overflow: hidden; background-color: #020d1a;
+  padding: 35px 16px; overflow: hidden; background-color: #000000;
 }
 
 .tecnico-bg {
@@ -905,6 +995,9 @@ footer::before {
   position: relative; z-index: 2; margin: 0 auto;
 }
 #tecnico h2 { max-width: 100%; }
+
+#tecnico h2 { margin-bottom: 20px; }
+
 /* =============================================
    CONDICIONES (base = celular)
 ============================================= */
@@ -940,15 +1033,13 @@ footer::before {
 .form-pqrs-grid { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 750px; margin-left: auto; margin-right: auto; margin-top: 20px; }
 .form-pqrs-grid .full-width { grid-column: 1 / -1; }
 
-
 .boton-pqrs-enviar {
   grid-column: 1 / -1;
   justify-self: center;
   width: auto;
-  padding: 10px 28px;
+  padding: 8px 10px;
   font-size: 0.9rem;
 }
-
 
 #pqrs { padding: 0; max-width: 100%; }
 
@@ -959,6 +1050,58 @@ footer::before {
 #pqrs h2, #pqrs p, #pqrs .form-pqrs-grid { position: relative; z-index: 2; }
 #pqrs h2, #pqrs > .tecnico-hero-fondo > p { text-align: center; }
 #pqrs p { font-weight: 500; }
+
+/* =============================================
+   PRIVACIDAD (base = celular)
+============================================= */
+
+#privacidad {
+  background-color: #e9e9e9;
+  max-width: 100%;
+  padding: 30px 16px;
+}
+
+.privacidad-tarjeta {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+#privacidad h2 {
+  color: #000000;
+}
+
+#privacidad p {
+  color: #000000;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+#privacidad h3 {
+  color: #000000;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+#privacidad ul {
+  margin: 0 0 14px 0;
+  padding-left: 20px;
+}
+
+#privacidad ul li {
+  color: #000000;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
 
 /* =============================================================
    BREAKPOINT 1: 480px — Tablets pequeñas
