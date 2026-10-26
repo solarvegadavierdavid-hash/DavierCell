@@ -13,21 +13,23 @@ async function enviarASupabase(datos) {
         'Content-Type': 'application/json',
         'apikey': SUPABASE_KEY,
         'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Prefer': 'return=representation'
+        'Prefer': 'return=minimal'
       },
       body: JSON.stringify(datos)
     });
-    console.log('Status Supabase:', response.status);
-    const text = await response.text();
-    console.log('Respuesta Supabase:', text);
-    return response.status === 200 || response.status === 201;
+    if (!response.ok) {
+      console.error('Supabase respondió', response.status, await response.text());
+    }
+    return response.ok;
   } catch (err) {
     console.error('Error Supabase:', err);
     return false;
   }
 }
 
-const descripcion = "En DAVIERCELL o también conocido como TECNOMOVILSHOP, entendemos que un dispositivo móvil es mucho más que tecnología; es el centro de tu productividad y tu conexión con el mundo. Nuestra filosofía se basa en la convergencia de la arquitectura de sistemas y la microelectrónica de alta precisión. Cada equipo que ingresa a nuestro laboratorio es tratado bajo rigurosos estándares de ingeniería, analizando cada síntoma para ofrecer una solución definitiva. No solo reparamos dispositivos, garantizamos la continuidad de tu vida digital con la confianza que solo un experto puede brindar.";
+// =============================================
+// CONTENIDO
+// =============================================
 
 const servicios = [
   { nombre: "Microsoldadura y Reconstrucción de Hardware", descripcion: "Mediante procesos de microsoldadura avanzada, intervenimos la placa base para rescatar circuitos integrados, reconstruir pistas dañadas y realizar diagnósticos profundos mediante esquemáticos profesional." },
@@ -61,15 +63,30 @@ const condiciones = {
   'revision-calidad': { titulo: "Revisión de Calidad", texto: "Para tu total tranquilidad, ningún dispositivo sale de nuestro taller sin pasar por un control estricto. Al concluir cada reparación, realizamos un test riguroso de calidad para asegurarnos de que todo funcione a la perfección:<br><br>📱 En Celulares: Revisamos minuciosamente las cámaras, los sensores, la señal y conectividad de la tarjeta SIM, el táctil y la batería.<br><br>💻 En Computadores: Chequeamos pantallas, cámaras de video, teclados, puertos de conexión y rendimiento general del sistema.<br><br>🎥 Transparencia total en tus manos<br>Antes de entregarte el equipo, realizamos un chequeo final completo y te enviamos un video detallado mostrando el dispositivo en perfecto estado y con todas sus funciones operativas.<br><br>Así tienes la certeza y la seguridad del estado óptimo en el que recibes tu equipo, garantizando un servicio totalmente honesto y sin sorpresas." }
 };
 
+const faqs = [
+  { pregunta: "¿Las reparaciones tienen garantía?", respuesta: "Sí, ofrecemos garantía en nuestras reparaciones, la cual varía según el tipo de servicio realizado." },
+  { pregunta: "¿Cuánto tiempo tarda una reparación?", respuesta: "Dependiendo del daño, muchas reparaciones pueden hacerse el mismo día; otras más complejas pueden requerir más tiempo." },
+  { pregunta: "¿Puedo enviar mi equipo por mensajería para reparación?", respuesta: "Sí, contamos con un servicio de recepción y entrega de equipos a distancia en algunos países." },
+  { pregunta: "¿Ofrecen facturación?", respuesta: "Sí, emitimos factura o comprobante de pago según la legislación de cada país." },
+  { pregunta: "¿Qué métodos de pago aceptan?", respuesta: "Aceptamos pagos en efectivo, tarjetas de crédito/débito y Nequi." },
+  { pregunta: "¿Atienden sin cita previa?", respuesta: "Sí, aunque recomendamos agendar para evitar esperas, especialmente en reparaciones complejas." }
+];
+
+// =============================================
+// RENDER DE LISTAS
+// =============================================
+
 const listaServicios = document.getElementById("lista-servicios");
-servicios.forEach(servicio => {
-  listaServicios.innerHTML += `
-    <div class="servicio-card">
-      <h3>${servicio.nombre}</h3>
-      <p>${servicio.descripcion}</p>
-    </div>
-  `;
-});
+if (listaServicios) {
+  servicios.forEach(servicio => {
+    listaServicios.innerHTML += `
+      <div class="servicio-card">
+        <h3>${servicio.nombre}</h3>
+        <p>${servicio.descripcion}</p>
+      </div>
+    `;
+  });
+}
 
 const listaGarantias = document.getElementById("lista-garantias");
 if (listaGarantias) {
@@ -84,34 +101,33 @@ if (listaGarantias) {
 }
 
 const infoTecnico = document.getElementById("info-tecnico");
-infoTecnico.innerHTML = `
-  <h3>${tecnico.titulo} | ${tecnico.nombre}</h3>
-  <p>${tecnico.descripcion}</p>
-`;
+if (infoTecnico) {
+  infoTecnico.innerHTML = `
+    <h3>${tecnico.titulo} | ${tecnico.nombre}</h3>
+    <p>${tecnico.descripcion}</p>
+  `;
+}
 
 const listaFaq = document.getElementById("lista-faq");
-const faqs = [
-  { pregunta: "¿Las reparaciones tienen garantía?", respuesta: "Sí, ofrecemos garantía en nuestras reparaciones, la cual varía según el tipo de servicio realizado." },
-  { pregunta: "¿Cuánto tiempo tarda una reparación?", respuesta: "Dependiendo del daño, muchas reparaciones pueden hacerse el mismo día; otras más complejas pueden requerir más tiempo." },
-  { pregunta: "¿Puedo enviar mi equipo por mensajería para reparación?", respuesta: "Sí, contamos con un servicio de recepción y entrega de equipos a distancia en algunos países." },
-  { pregunta: "¿Ofrecen facturación?", respuesta: "Sí, emitimos factura o comprobante de pago según la legislación de cada país." },
-  { pregunta: "¿Qué métodos de pago aceptan?", respuesta: "Aceptamos pagos en efectivo, tarjetas de crédito/débito y Nequi." },
-  { pregunta: "¿Atienden sin cita previa?", respuesta: "Sí, aunque recomendamos agendar para evitar esperas, especialmente en reparaciones complejas." }
-];
+if (listaFaq) {
+  faqs.forEach((faq, index) => {
+    listaFaq.innerHTML += `
+      <div class="faq-item" onclick="toggleFaq(${index})">
+        <div class="faq-pregunta">
+          <span>${faq.pregunta}</span>
+          <span class="faq-mas">+</span>
+        </div>
+        <div class="faq-respuesta oculto" id="faq-${index}">
+          <p>${faq.respuesta}</p>
+        </div>
+      </div>
+    `;
+  });
+}
 
-faqs.forEach((faq, index) => {
-  listaFaq.innerHTML += `
-    <div class="faq-item" onclick="toggleFaq(${index})">
-      <div class="faq-pregunta">
-        <span>${faq.pregunta}</span>
-        <span class="faq-mas">+</span>
-      </div>
-      <div class="faq-respuesta oculto" id="faq-${index}">
-        <p>${faq.respuesta}</p>
-      </div>
-    </div>
-  `;
-});
+// =============================================
+// NAVEGACIÓN
+// =============================================
 
 function mostrarSeccion(idSeccion) {
   const secciones = document.querySelectorAll('section');
@@ -126,11 +142,8 @@ function mostrarSeccion(idSeccion) {
     if ((enlace.getAttribute('onclick') || '').includes(idSeccion)) { enlace.classList.add('activo'); }
   });
 
-  if (idSeccion === 'inicio') iniciarCircuitosInicio();
-  if (idSeccion === 'tecnico') iniciarCircuitos();
-  if (idSeccion === 'condiciones') iniciarCircuitosCondiciones();
-  if (idSeccion === 'porque') iniciarCircuitosPorque();
-  if (idSeccion === 'pqrs') iniciarCircuitosPqrs();
+  if (idSeccion === 'inicio') iniciarCircuitosEn('circuitos-canvas-inicio');
+  if (idSeccion === 'condiciones') iniciarCircuitosEn('circuitos-canvas-condiciones');
 
   const nav = document.getElementById('nav-menu');
   if (nav) nav.classList.remove('nav-abierto');
@@ -138,10 +151,19 @@ function mostrarSeccion(idSeccion) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function toggleMenu() {
+  const nav = document.getElementById('nav-menu');
+  nav.classList.toggle('nav-abierto');
+}
+
 function toggleFaq(index) {
   const respuesta = document.getElementById(`faq-${index}`);
   respuesta.classList.toggle('oculto');
 }
+
+// =============================================
+// CONDICIONES
+// =============================================
 
 function mostrarCondicion(id) {
   const condicion = condiciones[id];
@@ -176,6 +198,10 @@ function volverMenuCondiciones() {
 
   if (menu) menu.scrollIntoView({ behavior: 'smooth' });
 }
+
+// =============================================
+// FORMULARIOS
+// =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
   const formAceptacion = document.getElementById('form-aceptacion');
@@ -214,9 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
   const formPqrs = document.getElementById('form-pqrs');
   if (formPqrs) {
     formPqrs.addEventListener('submit', async (e) => {
@@ -242,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
         boton.style.backgroundColor = '#28a745';
         formPqrs.reset();
         setTimeout(() => {
-          boton.textContent = 'Enviar Formulario';
+          boton.textContent = 'Enviar solicitud';
           boton.style.backgroundColor = '';
           boton.disabled = false;
         }, 3000);
@@ -253,6 +277,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  const formCalificacion = document.getElementById('form-calificacion');
+  if (formCalificacion) {
+    formCalificacion.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const calificacion = document.getElementById('input-valor').value;
+      if (calificacion === '0') return;
+
+      const ok = await enviarASupabase({ calificacion: calificacion, tipo: 'calificacion' });
+
+      if (ok) {
+        document.getElementById('mensaje-gracias').classList.remove('oculto');
+        document.getElementById('boton-enviar-calificacion').style.display = 'none';
+      } else {
+        alert('No se pudo enviar tu calificación. Intenta de nuevo.');
+      }
+    });
+  }
+
+  mostrarSeccion('inicio');
 });
 
 function calificar(n) {
@@ -270,38 +314,27 @@ function calificar(n) {
   document.getElementById('estrellas-container').style.pointerEvents = 'none';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  mostrarSeccion('inicio');
+// =============================================
+// ANIMACIÓN DE CIRCUITOS (una sola función)
+// =============================================
 
-  const formCalificacion = document.getElementById('form-calificacion');
-  if (formCalificacion) {
-    formCalificacion.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const calificacion = document.getElementById('input-valor').value;
-      if (calificacion === '0') return;
+const circuitosActivos = {};
 
-      const ok = await enviarASupabase({ calificacion: calificacion, tipo: 'calificacion' });
-
-      if (ok) {
-        document.getElementById('mensaje-gracias').classList.remove('oculto');
-        document.getElementById('boton-enviar-calificacion').style.display = 'none';
-      }
-    });
-  }
-});
-
-function iniciarCircuitosInicio() {
-  const canvas = document.getElementById('circuitos-canvas-inicio');
-  if (!canvas) return;
+function iniciarCircuitosEn(id) {
+  const canvas = document.getElementById(id);
+  if (!canvas || circuitosActivos[id]) return;
+  circuitosActivos[id] = true;
   const ctx = canvas.getContext('2d');
-  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+  const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
   resize();
   window.addEventListener('resize', resize);
-  const puntos = [];
-  for (let i = 0; i < 60; i++) {
-    puntos.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, color: Math.random() > 0.5 ? '#00c8ff' : '#0a84ff', radio: Math.random() * 2.5 + 1.5 });
-  }
+  const puntos = Array.from({ length: 60 }, () => ({
+    x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6,
+    color: Math.random() > 0.5 ? '#00c8ff' : '#0a84ff', radio: Math.random() * 2.5 + 1.5
+  }));
   function animar() {
+    if (canvas.offsetParent === null) { requestAnimationFrame(animar); return; } // oculto: no dibuja
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     puntos.forEach(p => {
       p.x += p.vx; p.y += p.vy;
@@ -312,152 +345,15 @@ function iniciarCircuitosInicio() {
     });
     for (let i = 0; i < puntos.length; i++) {
       for (let j = i + 1; j < puntos.length; j++) {
-        const dx = puntos[i].x - puntos[j].x; const dy = puntos[i].y - puntos[j].y;
+        const dx = puntos[i].x - puntos[j].x, dy = puntos[i].y - puntos[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) { ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y); ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke(); }
+        if (dist < 120) {
+          ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y);
+          ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke();
+        }
       }
     }
     requestAnimationFrame(animar);
   }
   animar();
-}
-
-function iniciarCircuitos() {
-  const canvas = document.getElementById('circuitos-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-  resize();
-  window.addEventListener('resize', resize);
-  const puntos = [];
-  for (let i = 0; i < 60; i++) {
-    puntos.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, color: Math.random() > 0.5 ? '#00c8ff' : '#0a84ff', radio: Math.random() * 2.5 + 1.5 });
-  }
-  function animar() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    puntos.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 8; ctx.fill();
-    });
-    for (let i = 0; i < puntos.length; i++) {
-      for (let j = i + 1; j < puntos.length; j++) {
-        const dx = puntos[i].x - puntos[j].x; const dy = puntos[i].y - puntos[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) { ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y); ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke(); }
-      }
-    }
-    requestAnimationFrame(animar);
-  }
-  animar();
-}
-
-function iniciarCircuitosCondiciones() {
-  const canvas = document.getElementById('circuitos-canvas-condiciones');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-  resize();
-  window.addEventListener('resize', resize);
-  const puntos = [];
-  for (let i = 0; i < 60; i++) {
-    puntos.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, color: Math.random() > 0.5 ? '#00c8ff' : '#0a84ff', radio: Math.random() * 2.5 + 1.5 });
-  }
-  function animar() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    puntos.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 8; ctx.fill();
-    });
-    for (let i = 0; i < puntos.length; i++) {
-      for (let j = i + 1; j < puntos.length; j++) {
-        const dx = puntos[i].x - puntos[j].x; const dy = puntos[i].y - puntos[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) { ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y); ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke(); }
-      }
-    }
-    requestAnimationFrame(animar);
-  }
-  animar();
-}
-
-function iniciarCircuitosPorque() {
-  const canvas = document.getElementById('circuitos-canvas-porque');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-  resize();
-  window.addEventListener('resize', resize);
-  const puntos = [];
-  for (let i = 0; i < 60; i++) {
-    puntos.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, color: Math.random() > 0.5 ? '#00c8ff' : '#0a84ff', radio: Math.random() * 2.5 + 1.5 });
-  }
-  function animar() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    puntos.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 8; ctx.fill();
-    });
-    for (let i = 0; i < puntos.length; i++) {
-      for (let j = i + 1; j < puntos.length; j++) {
-        const dx = puntos[i].x - puntos[j].x; const dy = puntos[i].y - puntos[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) { ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y); ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke(); }
-      }
-    }
-    requestAnimationFrame(animar);
-  }
-  animar();
-}
-
-function iniciarCircuitosPqrs() {
-  const canvas = document.getElementById('circuitos-canvas-pqrs');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-  resize();
-  window.addEventListener('resize', resize);
-  const puntos = [];
-  for (let i = 0; i < 60; i++) {
-    puntos.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, color: Math.random() > 0.5 ? '#00c8ff' : '#0a84ff', radio: Math.random() * 2.5 + 1.5 });
-  }
-  function animar() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    puntos.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 8; ctx.fill();
-    });
-    for (let i = 0; i < puntos.length; i++) {
-      for (let j = i + 1; j < puntos.length; j++) {
-        const dx = puntos[i].x - puntos[j].x; const dy = puntos[i].y - puntos[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) { ctx.beginPath(); ctx.moveTo(puntos[i].x, puntos[i].y); ctx.lineTo(puntos[j].x, puntos[j].y); ctx.strokeStyle = `rgba(0, 200, 255, ${1 - dist / 120})`; ctx.lineWidth = 0.6; ctx.shadowBlur = 0; ctx.stroke(); }
-      }
-    }
-    requestAnimationFrame(animar);
-  }
-  animar();
-}
-
-function toggleMenu() {
-  const nav = document.getElementById('nav-menu');
-  nav.classList.toggle('nav-abierto');
-}
-
-function marcarEstrella(n) {
-  const estrellas = document.querySelectorAll('.estrellas i');
-  estrellas.forEach((estrella, index) => {
-    index < n ? estrella.classList.add('activo') : estrella.classList.remove('activo');
-  });
 }
