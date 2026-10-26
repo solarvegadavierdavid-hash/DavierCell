@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAVIERCELL | Reparación de Celulares y Software en Cartagena</title>
+  <meta name="description" content="Servicio técnico profesional de celulares en Cartagena. Expertos en microelectrónica, reparación de pantallas, baterías y soluciones de software.">
+  <meta name="keywords" content="reparacion de celulares cartagena, servicio tecnico celulares, daviercell, arreglar pantalla, servicio tecnico de software, cartagena">
+  <meta name="google-site-verification" content="rbn782NRVuhDGCR73SELagaFGEyfCMA60TeW3m0no14" />
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Davier David Solar Vega">
+  <meta name="geo.region" content="CO-BOL">
+  <meta name="geo.placename" content="Cartagena de Indias">
+  <meta property="og:title" content="DAVIERCELL | Reparación de Celulares en Cartagena">
+  <meta property="og:description" content="Servicio técnico especializado en reparación de celulares, microelectrónica y software en Cartagena de Indias.">
+  <meta property="og:url" content="https://daviercell.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="rediseno.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+  
+  <body>
+<header>
+  <img src="javi.png" alt="DAVIERCELL">
+  <button class="menu-hamburguesa" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <nav id="nav-menu">
+    <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a href="#" onclick="mostrarSeccion('servicios')">Servicios</a>
+    <a href="#" onclick="mostrarSeccion('tecnico')">Sobre el técnico</a>
+    <a href="#" onclick="mostrarSeccion('condiciones')">Condiciones</a>
+    <a href="#" onclick="mostrarSeccion('pqrs')">PQRS</a>
+    <a href="#" onclick="mostrarSeccion('calificaciones')">Calificaciones</a>
+    <a class="btn-contactar" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20informaci%C3%B3n" target="_blank">Contactar</a>
+  </nav>
+</header>
+
+<div class="barra-llamanos">
+  <i class="fas fa-headset"></i>
+  <span>Llámanos: <strong>320-597-2997</strong></span>
+</div>
+
+<!-- INICIO -->
+<section id="inicio">
+  <div class="hero-nuevo">
+    <canvas id="circuitos-canvas-inicio"></canvas>
+    <div class="hero-nuevo-grid">
+      <div class="hero-texto">
+        <span class="hero-eyebrow">Servicio técnico en Cartagena</span>
+        <h1>Tu celular en<br><span class="acento">las mejores manos</span></h1>
+        <p class="hero-desc">Reparamos tu celular con tecnología, experiencia y garantía. Android y iPhone.</p>
+        <ul class="hero-badges">
+          <li><i class="fas fa-shield-alt"></i> Diagnóstico rápido</li>
+          <li><i class="fas fa-microchip"></i> Repuestos de calidad</li>
+          <li><i class="fas fa-certificate"></i> Garantía de servicio</li>
+        </ul>
+        <div class="hero-botones">
+          <a class="btn-primario" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20informaci%C3%B3n" target="_blank">Solicitar servicio</a>
+          <a class="btn-secundario" href="#" onclick="mostrarSeccion('servicios'); return false;">Conocer servicios <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="hero-imagen">
+        <img class="img-mock" src="img/hero-celular.png" alt="Celulares reparados en DAVIERCELL">
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><i class="fas fa-medal"></i><div><strong>5+ años</strong><span>de experiencia</span></div></div>
+        <div class="hero-stat"><i class="fas fa-map-marker-alt"></i><div><strong>Atención en</strong><span>Cartagena de Indias</span></div></div>
+        <div class="hero-stat"><i class="fas fa-users"></i><div><strong>Clientes satisfechos</strong><span>+3.000</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-especialistas">
+    <div class="esp-grid">
+      <div class="esp-texto">
+        <span class="hero-eyebrow">Reparación de dispositivos</span>
+        <h2>Especialistas en<br><span class="acento">Android y iPhone</span></h2>
+        <p>Trabajamos con las principales marcas y modelos del mercado, con repuestos de calidad y atención especializada.</p>
+        <div class="hero-botones">
+          <a class="btn-primario sm" href="#" onclick="mostrarSeccion('servicios'); return false;">Ver servicios <i class="fas fa-arrow-right"></i></a>
+          <a class="btn-secundario sm" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20informaci%C3%B3n" target="_blank">Contactar ahora</a>
+        </div>
+      </div>
+      <div class="esp-img">
+        <img class="img-mock" src="img/especialistas.png" alt="Android y iPhone">
+      </div>
+    </div>
+    <div class="marcas">
+      <span>SAMSUNG</span><span>mi</span><span>motorola</span><i class="fab fa-apple"></i><span>HUAWEI</span><span>oppo</span><span>realme</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="oculto">
+  <div class="serv-hero">
+    <div>
+      <span class="hero-eyebrow">Nuestros servicios</span>
+      <h2>Soluciones rápidas, seguras y confiables</h2>
+      <p>Ofrecemos servicio técnico especializado en la reparación de dispositivos móviles, con repuestos de alta calidad y garantía en cada trabajo.</p>
+    </div>
+    <div class="serv-hero-img"><img class="img-mock" src="img/microscopio.png" alt="Laboratorio técnico DAVIERCELL"></div>
+  </div>
+
+  <div class="serv-grid">
+    <div class="serv-card"><i class="fas fa-mobile-alt"></i><div><h3>Cambio de pantallas</h3><p>Pantallas originales y de alta calidad.</p></div></div>
+    <div class="serv-card"><i class="fas fa-battery-full"></i><div><h3>Cambio de baterías</h3><p>Mayor duración y rendimiento de tu equipo.</p></div></div>
+    <div class="serv-card"><i class="fas fa-plug"></i><div><h3>Reparación de puertos</h3><p>Solucionamos fallas de carga y conexión.</p></div></div>
+    <div class="serv-card"><i class="fas fa-cogs"></i><div><h3>Problemas de software</h3><p>Actualización, restauración y más.</p></div></div>
+    <div class="serv-card"><i class="fas fa-tint"></i><div><h3>Daños por humedad</h3><p>Recuperamos tu equipo después de un accidente.</p></div></div>
+    <div class="serv-card"><i class="fas fa-tools"></i><div><h3>Otros servicios</h3><p>Cámaras, altavoces, botones y más.</p></div></div>
+  </div>
+
+  <div class="serv-plat">
+    <a class="plat-card" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20tengo%20un%20Android" target="_blank">
+      <i class="fab fa-android" style="color:#3ddc84"></i>
+      <div><strong>Android</strong><span>Samsung, Xiaomi, Motorola y más.</span></div>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+    <a class="plat-card" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20tengo%20un%20iPhone" target="_blank">
+      <i class="fab fa-apple"></i>
+      <div><strong>iPhone</strong><span>Especialistas en microelectrónica Apple.</span></div>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="serv-detalle">
+    <h3 class="sub">Servicios especializados</h3>
+    <div id="lista-servicios"></div>
+  </div>
+</section>
+
+<!-- TECNICO -->
+<section id="tecnico" class="oculto">
+  <div class="tec-wrap">
+    <div class="tec-foto">
+      <img src="juan123.jpeg" alt="Davier David Solar Vega - Técnico especialista">
+      <div class="tec-cita"><i class="fas fa-quote-left"></i><span>“Tu confianza es mi mayor motivación.”</span></div>
+      <p class="firma-tec">Davier David</p>
+    </div>
+    <div class="tec-info">
+      <span class="hero-eyebrow">Conóceme</span>
+      <h2>Davier David<br>Solar Vega</h2>
+      <h4>Técnico Especializado en Dispositivos Móviles</h4>
+      <p>Más de 5 años de experiencia en reparación de celulares y dispositivos móviles. Me apasiona la tecnología y siempre busco brindar un servicio de calidad, con honestidad y compromiso.</p>
+      <ul class="tec-lista">
+        <li><i class="fas fa-shield-alt"></i> 5+ años de experiencia</li>
+        <li><i class="fas fa-mobile-alt"></i> Especialista en Android e iPhone</li>
+        <li><i class="fas fa-microscope"></i> Diagnóstico y reparación avanzada</li>
+        <li><i class="fas fa-user-check"></i> Atención personalizada</li>
+      </ul>
+      <a class="btn-primario" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20informaci%C3%B3n" target="_blank">Contactar ahora <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+  <div id="info-tecnico" hidden></div>
+
+  <div class="porque-wrap">
+    <img class="porque-deco img-mock" src="img/porque-celular.png" alt="">
+    <span class="hero-eyebrow">Tu celular, nuestra prioridad</span>
+    <h2>¿Por qué elegir Daviercell?</h2>
+    <p>No solo reparamos equipos, construimos confianza. Estos son algunos motivos por los que nuestros clientes nos prefieren:</p>
+    <div class="porque-grid">
+      <div class="porque-card"><i class="fas fa-award"></i><strong>Experiencia comprobada</strong><span>Más de 5 años en el sector.</span></div>
+      <div class="porque-card"><i class="fas fa-microchip"></i><strong>Repuestos de calidad</strong><span>Originales y garantizados.</span></div>
+      <div class="porque-card"><i class="fas fa-user-check"></i><strong>Atención personalizada</strong><span>Te asesoramos en todo el proceso.</span></div>
+      <div class="porque-card"><i class="fas fa-hand-holding-usd"></i><strong>Precios justos</strong><span>Sin costos ocultos.</span></div>
+      <div class="porque-card"><i class="fas fa-stopwatch"></i><strong>Rapidez en el servicio</strong><span>Tu equipo en el menor tiempo posible.</span></div>
+      <div class="porque-card"><i class="fas fa-shield-alt"></i><strong>Garantía en cada reparación</strong><span>Tu tranquilidad es lo más importante.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDICIONES -->
+<section id="condiciones" class="oculto">
+  <div class="tecnico-hero-fondo">
+    <canvas id="circuitos-canvas-condiciones"></canvas>
+    <div class="tecnico-hero-filtro"></div>
+    <div class="cond-intro">
+      <div class="cond-texto">
+        <span class="hero-eyebrow">Condiciones de servicio</span>
+        <h2>Todo lo que necesitas saber</h2>
+        <p>Para brindarte un servicio transparente y seguro, te invitamos a leer nuestras condiciones. Aquí encontrarás toda la información sobre garantías, tiempos de entrega, políticas de reparación y más.</p>
+        <a class="btn-primario sm" href="#" onclick="document.querySelector('.condiciones-menu').scrollIntoView({behavior:'smooth'});return false;">Ver condiciones completas <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="cond-der">
+        <img class="img-mock" src="img/escudo.png" alt="Garantía">
+        <ul class="check-lista">
+          <li>Garantía en reparaciones</li>
+          <li>Tiempos de entrega</li>
+          <li>Política de repuestos</li>
+          <li>Responsabilidad del cliente</li>
+        </ul>
+      </div>
+    </div>
+    <div class="condiciones-menu">
+      <span onclick="mostrarCondicion('revision-presupuesto')"><i class="fas fa-file-invoice-dollar"></i> Revisión y presupuesto</span>
+      <span onclick="mostrarCondicion('pago-reparacion')"><i class="fas fa-credit-card"></i> Pago de reparación</span>
+      <span onclick="mostrarCondicion('equipos-abandonados')"><i class="fas fa-mobile-alt"></i> Equipos abandonados</span>
+      <span onclick="mostrarCondicion('reparacion')"><i class="fas fa-tools"></i> Reparación</span>
+      <span onclick="mostrarCondicion('garantia')"><i class="fas fa-shield-alt"></i> Garantía</span>
+      <span onclick="mostrarCondicion('desbloqueo')"><i class="fas fa-lock-open"></i> Desbloqueo</span>
+      <span onclick="mostrarCondicion('revision-calidad')"><i class="fas fa-check-circle"></i> Revisión de calidad</span>
+    </div>
+
+    <div class="terminos-generales-bloque">
+      <h3>DAVIERCELL TÉRMINOS Y CONDICIONES</h3>
+      <p>Al ingresar y autorizar la revisión o reparación de su dispositivo en nuestro centro de servicios en Cartagena, el cliente acepta de manera expresa las siguientes políticas comerciales, operativas y de respaldo, en cumplimiento del Estatuto del Consumidor (Ley 1480 de 2011) y la legislación comercial de Colombia.</p>
+
+      <h4>1. Respaldo de Información y Datos Personales</h4>
+      <p>Daviercell se enfoca exclusivamente en la reparación física o lógica del dispositivo. No nos hacemos responsables por la pérdida, alteración o borrado de fotos, contactos, aplicaciones o configuraciones que contenga el equipo. Es deber obligatorio del cliente realizar una copia de seguridad (backup) antes de entregar el equipo en nuestro taller.</p>
+
+      <h4>2. Diagnóstico, Riesgos Técnicos y Estado de Ingreso</h4>
+      <p>Los componentes electrónicos con fallas preexistentes o desgastes internos pueden reaccionar de forma imprevista durante el desarme o la soldadura técnica:</p>
+      <ul>
+        <li><strong>Equipos que encienden con fallas:</strong> Existe el riesgo de que, debido a la gravedad del daño inicial en la placa o circuitos, el dispositivo empeore o se apague definitivamente durante el proceso de reparación.</li>
+        <li><strong>Pantallas e insumos debilitados:</strong> Si un equipo ingresa con el vidrio trizado, fisurado o con golpes, el daño puede extenderse al intentar desmontar la pieza.</li>
+        <li><strong>Exclusión de responsabilidad:</strong> Daviercell pondrá toda su capacidad técnica para salvar el equipo; sin embargo, no asumirá responsabilidad si el dispositivo se apaga o sufre fallas adicionales derivadas de su estado crítico de ingreso.</li>
+      </ul>
+
+      <h4>3. Políticas de Garantía de Daviercell</h4>
+      <p>Nuestros trabajos de reparación de hardware cuentan con un respaldo limitado bajo los siguientes plazos y condiciones:</p>
+      <ul>
+        <li><strong>Equipos sin intervención previa (6 meses):</strong> Si el dispositivo llega con sus sellos de fábrica y nunca ha sido abierto en otro taller, otorgamos 6 meses de garantía.</li>
+        <li><strong>Equipos previamente manipulados (3 meses):</strong> Si el equipo ya fue destapado, revisado o trabajado por terceros antes de ingresar a nuestra sede, la garantía se reduce a 3 meses por los riesgos técnicos que esto implica.</li>
+        <li><strong>Alcance de la cobertura:</strong> La garantía cubre única y exclusivamente el componente o la parte específica que fue reparada o reemplazada, no fallas nuevas en otras áreas del equipo.</li>
+        <li><strong>Pérdida de garantía:</strong> Se anulará de inmediato si el equipo presenta rastros de golpes, humedad, variaciones de voltaje, si se rompen nuestros sellos de seguridad o si es destapado por el cliente u otro servicio técnico.</li>
+      </ul>
+
+      <h4>4. Servicios Excluidos de Garantía</h4>
+      <p>No cuentan con derecho a garantía los servicios de mantenimiento preventivo, limpiezas por humedad, formateos, actualizaciones de sistema operativo o restauraciones de software, ya que su estabilidad depende directamente del uso posterior del cliente y de factores ajenos a nuestro taller.</p>
+
+      <h4>5. Instalación de Cristales, Vidrios Traseros y Lentes</h4>
+      <p>Por la naturaleza frágil del vidrio, los cambios de tapas traseras o cristales de cámara deben ser verificados por el cliente al momento de la entrega del equipo. Al tratarse de componentes expuestos a caídas o presiones del día a día, no se ofrece garantía sobre roturas posteriores, salvo que se presente un desprendimiento de la pieza por fallas en el adhesivo original de nuestra instalación.</p>
+
+      <h4>6. Custodia, Almacenamiento y Abandono</h4>
+      <p>Por limitaciones de espacio en nuestras instalaciones y para mitigar los riesgos de almacenamiento de baterías, se establecen los siguientes plazos de retiro:</p>
+      <ul>
+        <li>El cliente cuenta con un plazo máximo de tres (3) meses calendario para recoger su equipo, contados desde el momento en que se le notifique el diagnóstico o la finalización del trabajo.</li>
+        <li>Cumplido este tiempo sin que el cliente retire el dispositivo (por desinterés o falta de presupuesto), el equipo se declarará legalmente en estado de abandono. Daviercell podrá disponer de él para procesos de reciclaje tecnológico o desecho seguro, perdiendo el cliente el derecho a reclamos o indemnizaciones.</li>
+      </ul>
+
+      <h4>7. Manejo e Insumos Ambientales (Baterías)</h4>
+      <p>Toda batería que sea retirada de un dispositivo por encontrarse inflada, desgastada o deformada representa un riesgo de incendio y contaminación. Por normatividad ambiental y seguridad de nuestro personal, estas piezas serán enviadas a desecho ecológico de manera inmediata y no se devolverán al cliente.</p>
+
+      <h4>8. Legalidad y Equipos con Reportes o Bloqueos</h4>
+      <p>En Daviercell operamos bajo estrictos principios de legalidad:</p>
+      <ul>
+        <li>No realizamos modificaciones de software ilegales, cambios de IMEI, remoción de cuentas iCloud/iOS, ni desbloqueos de operadores.</li>
+        <li>Si un dispositivo cuenta con un reporte por pérdida o hurto en las bases de datos de las autoridades, el cliente asumirá la total responsabilidad legal. Nos reservamos el derecho de retener el equipo y ponerlo a disposición de las autoridades competentes si es requerido.</li>
+      </ul>
+
+      <h4>9. Políticas de Devolución por Garantías Reiteradas</h4>
+      <p>Si un equipo ingresa por garantía en más de tres (3) ocasiones consecutivas por la misma falla técnica exacta y no es posible darle solución, se procederá de la siguiente manera:</p>
+      <ul>
+        <li><strong>Solo mano de obra:</strong> Se reintegrará el 70% del valor total abonado por el servicio.</li>
+        <li><strong>Con reemplazo de repuestos:</strong> Se retirarán las piezas nuevas instaladas por nuestro taller para nuestro inventario y se reembolsará el valor parcial correspondiente.</li>
+        <li><strong>Retención por gestión:</strong> El 30% restante del valor cobrado no será reembolsable y quedará a favor de Daviercell para cubrir los costos de diagnóstico, horas de trabajo técnico, uso de laboratorios e insumos consumidos.</li>
+      </ul>
+    </div>
+
+
+
+    <div class="aceptacion-terminos-bloque">
+      <p class="firma-davier">Davier</p>
+      <h3>Por favor llena el formulario y acepta los términos y condiciones</h3>
+      <form id="form-aceptacion" class="form-aceptacion-grid">
+        <div class="campo-aceptacion">
+          <label>Nombre completo</label>
+          <input type="text" name="nombre" required>
+        </div>
+        <div class="campo-aceptacion">
+          <label>Número de identificación</label>
+          <input type="text" name="identificacion" required>
+        </div>
+        <div class="campo-aceptacion">
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="campo-aceptacion">
+          <label>WhatsApp (incluye el indicativo ej: +57)</label>
+          <input type="text" name="whatsapp" required>
+        </div>
+        <div class="campo-aceptacion full-width">
+          <label>Referencia del equipo (Ej: iPhone 13 Pro)</label>
+          <input type="text" name="equipo" required>
+        </div>
+        <div class="campo-aceptacion full-width">
+          <label>¿Aceptas los términos y condiciones?</label>
+          <div class="opciones-acepto">
+            <label><input type="radio" name="acepta" value="acepto" required> Acepto</label>
+            <label><input type="radio" name="acepta" value="no_acepto"> No Acepto</label>
+          </div>
+        </div>
+        <button type="submit" class="boton-aceptacion-enviar full-width">Enviar Formulario</button>
+      </form>
+    </div>
+
+
+
+
+    <div id="detalle-condicion"></div>
+  </div>
+</section>
+
+<!-- PQRS -->
+<section id="pqrs" class="oculto">
+  <div class="faq-panel">
+    <div>
+      <span class="hero-eyebrow">Preguntas frecuentes</span>
+      <h2>Resolvemos tus dudas</h2>
+      <p>Encuentra aquí las respuestas a las preguntas más comunes sobre nuestros servicios, tiempos, garantías y más.</p>
+      <div id="lista-faq"></div>
+    </div>
+    <div class="faq-der">
+      <img class="img-mock" src="img/interrogante.png" alt="Preguntas frecuentes">
+      <div class="faq-caja">
+        <strong>¿No encuentras la respuesta?</strong>
+        <p>Escríbenos y te ayudamos.</p>
+        <a class="btn-primario sm" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20tengo%20una%20duda" target="_blank">Contactar ahora <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pqrs-panel">
+    <div>
+      <span class="hero-eyebrow">Tu opinión nos importa</span>
+      <h2>PQRS<br>Queremos escucharte</h2>
+      <p>Si tienes alguna queja, reclamo, sugerencia o felicitación, completa el siguiente formulario. Te responderemos a la mayor brevedad posible.</p>
+      <ul class="pqrs-tipos">
+        <li><i class="far fa-comment-dots"></i> Quejas</li>
+        <li><i class="fas fa-exclamation-circle"></i> Reclamos</li>
+        <li><i class="far fa-lightbulb"></i> Sugerencias</li>
+        <li><i class="far fa-smile"></i> Felicitaciones</li>
+      </ul>
+    </div>
+    <form id="form-pqrs" class="pqrs-form">
+      <input type="text" name="nombre" placeholder="Nombre completo *" required>
+      <input type="email" name="email" placeholder="Correo electrónico *" required>
+      <select name="tipo_solicitud" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option>Petición</option>
+        <option>Queja</option>
+        <option>Reclamo</option>
+        <option>Sugerencia</option>
+        <option>Felicitación</option>
+      </select>
+      <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <button type="submit">Enviar solicitud</button>
+    </form>
+  </div>
+</section>
+
+<!-- CALIFICACIONES -->
+<section id="calificaciones" class="oculto">
+  <div class="cal-wrap">
+    <span class="hero-eyebrow">Lo que dicen nuestros clientes</span>
+    <h2>Calificaciones</h2>
+    <p>La satisfacción de nuestros clientes es nuestra mejor carta de presentación. Gracias por confiar en Daviercell.</p>
+
+    <!-- TEXTOS DE EJEMPLO DEL MOCKUP: reemplazalos por resenas reales antes de publicar -->
+    <div class="cal-grid">
+      <div class="cal-score"><div class="cal-num">4.9</div><div class="cal-est">★★★★★</div><small>(Más de 300 opiniones)</small></div>
+      <div class="cal-card"><div class="cal-user"><div class="cal-av">C</div><div><strong>Camila R.</strong><span class="est">★★★★★</span></div></div><p>Excelente servicio, muy profesional y mi celular quedó como nuevo. ¡Totalmente recomendado!</p></div>
+      <div class="cal-card"><div class="cal-user"><div class="cal-av">A</div><div><strong>Andrés M.</strong><span class="est">★★★★★</span></div></div><p>Rápido, confiable y con garantía. El mejor servicio técnico en Cartagena.</p></div>
+      <div class="cal-card"><div class="cal-user"><div class="cal-av">L</div><div><strong>Laura G.</strong><span class="est">★★★★★</span></div></div><p>Muy buena atención y precios justos. Sin duda volveré.</p></div>
+    </div>
+
+    <div class="bloque-calificacion">
+      <h3>DAVIERCELL</h3>
+      <p>Califica nuestro servicio</p>
+      <form id="form-calificacion">
+        <div class="estrellas-calificacion" id="estrellas-container">
+          <i class="fas fa-star" onclick="calificar(1)"></i>
+          <i class="fas fa-star" onclick="calificar(2)"></i>
+          <i class="fas fa-star" onclick="calificar(3)"></i>
+          <i class="fas fa-star" onclick="calificar(4)"></i>
+          <i class="fas fa-star" onclick="calificar(5)"></i>
+        </div>
+        <input type="hidden" id="input-valor" value="0">
+        <button type="submit" id="boton-enviar-calificacion">Enviar Calificación</button>
+      </form>
+      <p id="mensaje-gracias" class="oculto">¡Gracias por tu calificación!</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACIDAD -->
+<section id="privacidad" class="oculto">
+  <div class="privacidad-tarjeta">
+  <h2>Políticas de Privacidad y Tratamiento de Datos</h2>
+  <p>La presente Política de Privacidad establece los términos en que Daviercell usa y protege la información que es proporcionada por nuestros usuarios al momento de utilizar este sitio web. Nuestra empresa está plenamente comprometida con la seguridad y el tratamiento responsable de los datos de sus usuarios, cumpliendo con la normatividad vigente en Colombia (Ley 1581 de 2012).</p>
+  <p>Cuando le solicitamos diligenciar campos de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que solo se empleará de acuerdo con los términos de este documento.</p>
+
+  <h3>1. Información que es recogida</h3>
+  <p>Nuestro sitio web podrá recopilar información personal necesaria para la prestación del servicio técnico y la gestión comercial, por ejemplo:</p>
+  <ul>
+    <li>Nombre completo.</li>
+    <li>Información de contacto (número de teléfono, WhatsApp y correo electrónico).</li>
+    <li>Datos sobre el dispositivo a reparar (marca, modelo, fallas reportadas).</li>
+    <li>Dirección de residencia (en caso de requerirse servicios a domicilio o envíos).</li>
+  </ul>
+
+  <h3>2. Uso de la información recogida</h3>
+  <p>En Daviercell empleamos la información con el fin de proporcionar el mejor servicio posible, específicamente para:</p>
+  <ul>
+    <li>Mantener un registro interno de usuarios y el historial de órdenes de servicio técnico.</li>
+    <li>Comunicarle el estado del diagnóstico, presupuestos, videos de control de calidad y finalización de la reparación de su equipo.</li>
+    <li>Enviar notificaciones importantes sobre las políticas de retiro de dispositivos.</li>
+    <li>Eventualmente, enviar mensajes informativos u ofertas especiales que consideremos relevantes para usted. Puede cancelar la recepción de estos mensajes en cualquier momento.</li>
+  </ul>
+
+  <h3>3. Seguridad de sus datos</h3>
+  <p>Daviercell está altamente comprometido con la seguridad de su información. Implementamos medidas técnicas y de seguridad digital para garantizar que no exista ningún acceso no autorizado, pérdida o alteración de sus datos personales.</p>
+
+  <h3>4. Uso de Cookies</h3>
+  <p>Este sitio web emplea cookies para identificar las páginas que son visitadas y su frecuencia. Esta información es utilizada únicamente para análisis estadístico que nos permita mejorar la experiencia en nuestra web. Usted puede configurar su navegador para aceptar o rechazar las cookies, o eliminarlas en cualquier momento desde su dispositivo.</p>
+
+  <h3>5. Enlaces a Terceros</h3>
+  <p>Nuestra página web podría contener enlaces a otros sitios de interés (como redes sociales o pasarelas de pago). Una vez que usted da clic en estos enlaces y abandona nuestra página, Daviercell no tiene control sobre el sitio al que es redirigido y, por lo tanto, no se hace responsable de los términos, privacidad ni de la protección de sus datos en esos sitios terceros.</p>
+
+  <h3>6. Control de su información personal (Derechos de Habeas Data)</h3>
+  <p>En cualquier momento, como titular de los datos, usted puede ejercer sus derechos para conocer, actualizar, rectificar o solicitar la eliminación de su información de nuestras bases de datos.</p>
+  <p>Daviercell no venderá, cederá ni distribuirá la información personal que es recopilada sin su consentimiento, salvo que sea estrictamente requerido por una orden judicial.</p>
+  </div>
+</section>
+
+<footer class="foot2">
+  <div class="foot-grid">
+    <div class="foot-marca">
+      <img src="javi.png" alt="DAVIERCELL">
+      <p>Reparamos tu celular, conectamos contigo.</p>
+      <div class="redes-iconos">
+        <a href="https://www.facebook.com/profile.php?id=61589917534078" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/daviercell/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/573205972997" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://vm.tiktok.com/ZS9YFqtqdn9D5-9AmPR/" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/channel/UCeSBLBEZMYw1h6n8QNp6Reg" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Enlaces rápidos</h4>
+      <a onclick="mostrarSeccion('inicio')">Inicio</a>
+      <a onclick="mostrarSeccion('servicios')">Servicios</a>
+      <a onclick="mostrarSeccion('tecnico')">Sobre el técnico</a>
+      <a onclick="mostrarSeccion('condiciones')">Condiciones</a>
+      <a onclick="mostrarSeccion('pqrs')">PQRS</a>
+      <a onclick="mostrarSeccion('calificaciones')">Calificaciones</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contacto</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Cartagena de Indias</p>
+      <p><i class="fas fa-phone-alt"></i> +57 320 597 2997</p>
+      <p><i class="far fa-envelope"></i> daviercell@gmail.com</p>
+      <p><i class="far fa-clock"></i> Atención de lunes a sábado<br>8:00 a.m. - 6:00 p.m.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 DAVIERCELL. Todos los derechos reservados.</p>
+    <a href="#" onclick="mostrarSeccion('privacidad')">Políticas de Privacidad y Tratamiento de Datos</a>
+  </div>
+</footer>
+
+<a href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20información" 
+   target="_blank" 
+   class="boton-whatsapp-flotante">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="app.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1392 @@
+/* =============================================
+   DAVIERCELL - Estilos generales
+   METODOLOGÍA: MOBILE FIRST
+   Breakpoints: 320 (base) / 480 / 768 / 1024 / 1366 / 1920
+============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #050d1f;
+  color: #ffffff;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =============================================
+   HEADER (base = celular 320px)
+============================================= */
+
+header {
+  background-color: #050d1f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 14px 16px;
+  position: relative;
+  border-bottom: none;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #14407a;
+}
+
+header img {
+  width: 130px;
+  mix-blend-mode: lighten;
+}
+
+header p {
+  display: none;
+}
+
+/* =============================================
+   BARRA LLÁMANOS (debajo del header)
+============================================= */
+
+.barra-llamanos {
+  background-color: #071733;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #333333;
+}
+
+.barra-llamanos i {
+  color: #19c8ff;
+  font-size: 1.2rem;
+}
+
+.barra-llamanos span {
+  color: #cccccc;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.barra-llamanos strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
+
+
+
+/* =============================================
+   MENÚ HAMBURGUESA (solo celular < 480px)
+============================================= */
+
+.menu-hamburguesa {
+  display: block;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  z-index: 100;
+}
+
+nav#nav-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background-color: #050d1f;
+  padding: 16px;
+  gap: 0;
+  border-top: 1px solid #222;
+  order: 3;
+}
+
+nav#nav-menu.nav-abierto {
+  display: flex;
+}
+
+nav#nav-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 0;
+  border-bottom: 1px solid #222;
+  width: 100%;
+  white-space: nowrap;
+}
+
+nav#nav-menu a:hover,
+nav#nav-menu a.activo {
+  color: #19c8ff;
+}
+
+nav#nav-menu a.activo {
+  font-weight: 700;
+}
+
+/* =============================================
+   SECCIONES (base = celular 320px)
+============================================= */
+
+section {
+  padding: 35px 16px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+section h2 {
+  color: #19c8ff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+}
+
+/* =============================================
+   HERO BANNER (base = celular 320px)
+============================================= */
+
+#inicio {
+  max-width: 100%;
+  padding: 0 0 35px 0;
+}
+
+.hero-davier {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #050d1f;
+}
+
+.hero-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+#circuitos-canvas-inicio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-filtro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.80));
+  z-index: 1;
+}
+
+.hero-contenido {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  padding: 0 16px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-contenido h1 {
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitulo {
+  color: #19c8ff;
+  font-size: 0.9rem;
+  margin-top: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.descripcion-contenedor-home {
+  max-width: 100%;
+  margin: 30px auto 0 auto;
+  padding: 0 16px;
+}
+
+/* =============================================
+   BANNERS SECUNDARIOS (base = celular 320px)
+============================================= */
+
+.seccion-banner-fijo {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #222222;
+}
+
+.seccion-banner-fijo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seccion-banner-filtro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+.seccion-banner-pie {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.8);
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-top: 1px solid rgba(25,200,255,0.2);
+}
+
+/* =============================================
+   POR QUÉ ELEGIRNOS (base = celular 320px)
+============================================= */
+
+.porque-iconos-lista p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 14px;
+  color: #cccccc;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-dorado {
+  color: #19c8ff;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   PERFIL TÉCNICO (base = celular 320px)
+============================================= */
+
+.perfil-tecnico-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+  background-color: #0a1d3d;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1.5px solid #14407a;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tecnico-tarjeta-foto {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #19c8ff;
+}
+
+.tecnico-tarjeta-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =============================================
+   TARJETAS DE SERVICIOS (base = celular 320px)
+============================================= */
+
+.servicio-card {
+  background-color: #0a1d3d;
+  border: 1.5px solid #14407a;
+  border-left: 4px solid #19c8ff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+
+.servicio-card:hover {
+  transform: translateX(6px);
+}
+
+.servicio-card h3 {
+  color: #ffffff;
+  font-weight: 800;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.servicio-card p {
+  color: #cccccc;
+  font-weight: 600;
+  line-height: 1.6;
+  font-size: 0.88rem;
+}
+
+/* =============================================
+   TARJETAS DE GARANTÍA (base = celular 320px)
+============================================= */
+
+.garantia-card {
+  background-color: #0a1d3d;
+  border: 1.5px solid #14407a;
+  border-left: 4px solid #19c8ff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+
+.garantia-card:hover {
+  transform: translateX(6px);
+}
+
+.garantia-card h3 {
+  color: #19c8ff;
+  font-weight: 800;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.garantia-card p {
+  color: #cccccc;
+  font-weight: 600;
+  line-height: 1.6;
+  font-size: 0.88rem;
+}
+
+/* =============================================
+   TÉCNICO INFO (base = celular 320px)
+============================================= */
+
+#info-tecnico h3 {
+  color: #19c8ff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+#info-tecnico p {
+  color: #cccccc;
+  font-weight: 600;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+/* =============================================
+   FORMULARIO (base = celular 320px)
+============================================= */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+form input,
+form textarea,
+form select {
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #14407a;
+  background-color: #0a1d3d;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+form textarea {
+  height: 70px;
+}
+
+form button {
+  padding: 12px;
+  background-color: #19c8ff;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* =============================================
+   FOOTER (base = celular 320px)
+============================================= */
+
+footer {
+  background-color: #050d1f;
+  padding: 24px 16px;
+  border-top: none;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #14407a;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 120px;
+  mix-blend-mode: lighten;
+  margin: 0 auto;
+}
+
+.footer-redes p {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.redes-iconos {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.redes-iconos a {
+  color: #000000;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.redes-iconos a:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #222222;
+  padding-top: 18px;
+  gap: 12px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #888888;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.footer-bottom a {
+  color: #19c8ff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* =============================================
+   SECCIONES OCULTAS
+============================================= */
+
+.oculto {
+  display: none;
+}
+
+/* =============================================
+   CONDICIONES (base = celular 320px)
+============================================= */
+
+.condiciones-menu {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  background-color: #0a1d3d;
+  border: 1.5px solid #14407a;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 24px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.condiciones-menu span {
+  color: #dddddd;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 1px solid #222222;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.condiciones-menu span:hover {
+  color: #19c8ff;
+}
+
+.condiciones-menu span.activo {
+  color: #19c8ff;
+  font-weight: bold;
+}
+
+.condicion-detalle {
+  background-color: #0a1d3d;
+  border: 1.5px solid #14407a;
+  border-left: 4px solid #19c8ff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 18px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.condicion-detalle h3 {
+  color: #19c8ff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.volver-condiciones {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #19c8ff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333333;
+  width: 100%;
+}
+
+.volver-condiciones:hover {
+  color: #ffffff;
+}
+
+.condicion-detalle p {
+  color: #cccccc;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.terminos-generales-bloque {
+  background-color: #0a1d3d;
+  border: 1.5px solid #14407a;
+  border-left: 4px solid #19c8ff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 18px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.terminos-generales-bloque h3 {
+  color: #19c8ff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.terminos-generales-bloque p {
+  color: #cccccc;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.terminos-generales-bloque h4 {
+  color: #19c8ff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.terminos-generales-bloque ul {
+  margin: 0 0 12px 0;
+  padding-left: 20px;
+}
+
+.terminos-generales-bloque ul li {
+  color: #cccccc;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.terminos-generales-bloque ul li strong {
+  color: #ffffff;
+}
+
+/* =============================================
+   FAQ (base = celular 320px)
+============================================= */
+
+.faq-subtitulo {
+  color: #cccccc;
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+#lista-faq {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.faq-item {
+  background-color: #0a1d3d;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+.faq-item:hover {
+  border: 1px solid #19c8ff;
+  background-color: #1f1f1f;
+}
+
+.faq-pregunta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 10px;
+}
+
+.faq-respuesta {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #222222;
+}
+
+.faq-respuesta p {
+  color: #cccccc;
+  font-weight: 500;
+  line-height: 1.6;
+  font-size: 0.88rem;
+}
+
+/* =============================================
+   SELECTOR DE EQUIPOS (base = celular 320px)
+============================================= */
+
+.selector-equipos-bloque {
+  text-align: center;
+  margin-top: 30px !important;
+  padding: 0 16px;
+}
+
+.selector-equipos-bloque h2 {
+  font-size: 1.3rem;
+  color: #19c8ff;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.equipos-botones-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.boton-equipo-card {
+  background-color: #0a1d3d;
+  border: 1.5px solid #14407a;
+  border-radius: 12px;
+  padding: 22px 16px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-equipo-card:hover {
+  transform: translateY(-5px);
+  border-color: #19c8ff;
+  box-shadow: 0 10px 20px rgba(25,200,255,0.1);
+}
+
+.boton-equipo-card i {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.icono-android { color: #3ddc84; }
+.icono-iphone { color: #ffffff; }
+
+.boton-equipo-card h3 {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.boton-equipo-card p {
+  color: #aaaaaa;
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* =============================================
+   BLOQUE RESEÑAS (base = celular 320px)
+============================================= */
+
+.bloque-resena-davier {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.info-negocio { text-align: center; min-width: auto; }
+.info-negocio img { border-radius: 50%; margin-bottom: 10px; border: 2px solid #19c8ff; }
+.sistema-estrellas { flex-grow: 1; width: 100%; }
+
+.estrellas {
+  margin: 15px 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.estrellas i { font-size: 1.9rem; color: #333; cursor: pointer; transition: color 0.3s ease; }
+.estrellas i.activo { color: #19c8ff; }
+
+.sistema-estrellas textarea {
+  width: 100%; padding: 14px; margin-top: 14px; height: 90px;
+  background: #000; border: 1px solid #444; color: #fff;
+  border-radius: 8px; resize: none; font-family: inherit;
+}
+
+.sistema-estrellas button {
+  margin-top: 14px; padding: 12px 22px; background-color: #19c8ff;
+  color: #000; border: none; border-radius: 6px; font-weight: bold;
+  cursor: pointer; transition: background 0.3s; width: 100%;
+}
+
+.sistema-estrellas button:hover { background-color: #fff; }
+
+/* =============================================
+   BLOQUE CALIFICACIÓN (base = celular 320px)
+============================================= */
+
+.bloque-calificacion {
+  text-align: center;
+  background-color: #0a1d3d;
+  padding: 22px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #14407a;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  margin: 28px auto;
+  max-width: 320px;
+  width: 100%;
+}
+
+.bloque-calificacion h3 { color: #19c8ff; font-weight: 800; margin-bottom: 5px; font-size: 1.05rem; }
+.bloque-calificacion p { font-weight: 600; }
+
+.estrellas-calificacion {
+  margin: 14px 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.estrellas-calificacion i { font-size: 1.7rem; color: #333; cursor: pointer; transition: color 0.3s ease; }
+.estrellas-calificacion i.activo { color: #19c8ff; }
+#mensaje-gracias { color: #19c8ff; font-weight: bold; margin-top: 10px; font-size: 0.9rem; }
+
+#boton-enviar-calificacion {
+  display: none;
+  margin-top: 14px; padding: 8px 20px; background-color: #19c8ff;
+  border: none; border-radius: 5px; color: #000; font-weight: bold; cursor: pointer;
+}
+
+/* =============================================
+   GARANTÍAS (base = celular 320px)
+============================================= */
+
+#lista-garantias {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  max-width: 100%;
+  padding: 0 16px;
+}
+
+#lista-garantias .garantia-card { margin-bottom: 0; }
+
+/* =============================================
+   SERVICIOS (base = celular 320px)
+============================================= */
+
+#lista-servicios {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 0 16px;
+  max-width: 100%;
+  width: 100%;
+}
+
+#servicios { max-width: 100%; }
+
+#servicios .seccion-banner-fijo {
+  height: 38vh; min-height: 220px;
+  border-radius: 0; border: none; margin-bottom: 24px;
+}
+
+#servicios .seccion-banner-fijo img { object-position: top center; }
+#servicios .seccion-banner-filtro { background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)); }
+#servicios .seccion-banner-pie { font-size: 1rem; font-weight: 800; letter-spacing: 1px; padding: 14px; }
+
+/* =============================================
+   BOTÓN FLOTANTE WHATSAPP (base = celular 320px)
+============================================= */
+
+.boton-whatsapp-flotante {
+  position: fixed;
+  bottom: 90px; right: 16px;
+  background-color: #25d366; color: #ffffff;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; text-decoration: none; z-index: 999;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: pulso-whatsapp 2s infinite;
+}
+
+.boton-whatsapp-flotante:hover { transform: scale(1.1); background-color: #1ebe5d; }
+
+@keyframes pulso-whatsapp {
+  0% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 30px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* =============================================
+   TÉCNICO (base = celular)
+============================================= */
+
+#tecnico { padding: 0; max-width: 100%; }
+
+.tecnico-hero-fondo {
+  position: relative; width: 100%;
+  padding: 35px 16px; overflow: hidden; background-color: #050d1f;
+}
+
+.tecnico-bg {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; z-index: 0;
+}
+
+#circuitos-canvas {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+}
+
+.tecnico-hero-filtro {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); z-index: 1;
+}
+
+#tecnico h2, #tecnico .perfil-tecnico-bloque {
+  position: relative; z-index: 2; margin: 0 auto;
+}
+#tecnico h2 { max-width: 100%; }
+
+#tecnico h2 { margin-bottom: 20px; }
+
+/* =============================================
+   CONDICIONES (base = celular)
+============================================= */
+
+#condiciones { padding: 0; max-width: 100%; }
+
+#circuitos-canvas-condiciones {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+}
+
+#condiciones h2, #condiciones .condiciones-menu, #condiciones #detalle-condicion {
+  position: relative; z-index: 2;
+}
+
+/* =============================================
+   POR QUÉ NOSOTROS (base = celular)
+============================================= */
+
+#porque { padding: 0; max-width: 100%; }
+
+#circuitos-canvas-porque {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+}
+
+#porque h2, #porque .seccion-banner-fijo, #porque .porque-iconos-lista {
+  position: relative; z-index: 2;
+}
+
+/* =============================================
+   PQRS (base = celular)
+============================================= */
+
+.form-pqrs-grid { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 750px; margin-left: auto; margin-right: auto; margin-top: 20px; }
+.form-pqrs-grid .full-width { grid-column: 1 / -1; }
+
+.boton-pqrs-enviar {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: auto;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+#pqrs { padding: 0; max-width: 100%; }
+
+#circuitos-canvas-pqrs {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+}
+
+#pqrs h2, #pqrs p, #pqrs .form-pqrs-grid { position: relative; z-index: 2; }
+#pqrs h2, #pqrs > .tecnico-hero-fondo > p { text-align: center; }
+#pqrs p { font-weight: 500; }
+
+/* =============================================
+   PRIVACIDAD (base = celular)
+============================================= */
+
+#privacidad {
+  background-color: #e9e9e9;
+  max-width: 100%;
+  padding: 30px 16px;
+}
+
+.privacidad-tarjeta {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+#privacidad h2 {
+  color: #000000;
+}
+
+#privacidad p {
+  color: #000000;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+#privacidad h3 {
+  color: #000000;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+#privacidad ul {
+  margin: 0 0 14px 0;
+  padding-left: 20px;
+}
+
+#privacidad ul li {
+  color: #000000;
+  font-weight: 500;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+/* =============================================
+   ACEPTACIÓN DE TÉRMINOS CON FIRMA (Condiciones)
+============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+.aceptacion-terminos-bloque {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px 30px;
+  margin-top: 18px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.firma-davier {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.aceptacion-terminos-bloque h3 {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.form-aceptacion-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  text-align: left;
+}
+
+.campo-aceptacion label {
+  display: block;
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.campo-aceptacion input[type="text"],
+.campo-aceptacion input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1.5px solid #333333;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 0.9rem;
+}
+
+.opciones-acepto {
+  display: flex;
+  gap: 20px;
+  margin-top: 6px;
+}
+
+.opciones-acepto label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #000000;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.boton-aceptacion-enviar {
+  padding: 14px;
+  background-color: #050d1f;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.boton-aceptacion-enviar:hover {
+  background-color: #333333;
+}
+
+/* =============================================================
+   BREAKPOINT 1: 480px — Tablets pequeñas
+   En 480px+ el hamburguesa desaparece y el menú vuelve horizontal
+============================================================= */
+@media (min-width: 480px) {
+
+  /* Ocultar hamburguesa */
+  .menu-hamburguesa {
+    display: none !important;
+  }
+
+  /* Menú horizontal visible siempre */
+  nav#nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    background: none !important;
+    padding: 0 !important;
+    border: none !important;
+    width: auto !important;
+    gap: 14px 18px !important;
+    order: 0 !important;
+  }
+
+  nav#nav-menu a {
+    font-size: 0.85rem;
+    padding: 0;
+    border-bottom: none;
+    width: auto;
+  }
+
+  header {
+    padding: 16px 24px;
+  }
+
+  header img { width: 150px; }
+
+  .hero-contenido h1 { font-size: 2.1rem; }
+  .hero-subtitulo { font-size: 1rem; }
+  .equipos-botones-flex { flex-direction: row; }
+  .boton-equipo-card { width: 48%; }
+  #lista-faq { grid-template-columns: 1fr 1fr; }
+
+  .footer-top { flex-direction: row; justify-content: space-between; text-align: left; }
+  .footer-redes p { text-align: right; }
+  .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+
+/* =============================================================
+   BREAKPOINT 2: 768px — Tablets estándar
+============================================================= */
+@media (min-width: 768px) {
+
+  section { padding: 50px 30px; max-width: 900px; }
+  section h2 { font-size: 1.6rem; margin-bottom: 26px; }
+  
+  .hero-contenido h1 { font-size: 2.8rem; }
+  .hero-subtitulo { font-size: 1.15rem; }
+  .descripcion-contenedor-home { max-width: 900px; padding: 0 30px; }
+  .seccion-banner-fijo { height: 220px; }
+  .seccion-banner-pie { font-size: 0.85rem; }
+
+  .perfil-tecnico-bloque { flex-direction: row; text-align: left; padding: 30px; }
+  .tecnico-tarjeta-foto { width: 190px; height: 190px; }
+  .condiciones-menu { grid-template-columns: 1fr 1fr; padding: 24px; }
+
+  #lista-garantias { grid-template-columns: 1fr 1fr; padding: 0 30px; }
+  #lista-servicios { grid-template-columns: 1fr 1fr; padding: 0 30px; }
+  #servicios .seccion-banner-fijo { height: 50vh; }
+  #servicios .seccion-banner-pie { font-size: 1.2rem; }
+
+  .form-pqrs-grid { grid-template-columns: 1fr 1fr; }
+  .bloque-resena-davier { flex-direction: row; text-align: left; }
+  .info-negocio { min-width: 160px; }
+
+  .boton-whatsapp-flotante { bottom: 110px; right: 22px; width: 55px; height: 55px; font-size: 1.8rem; }
+}
+
+
+/* =============================================================
+   BREAKPOINT 3: 1024px — Laptops pequeños
+============================================================= */
+@media (min-width: 1024px) {
+
+  header { padding: 20px 40px; }
+  header img { width: 180px; }
+
+  nav#nav-menu a { font-size: 0.95rem; letter-spacing: 1px; }
+
+  section { padding: 60px 20px; max-width: 1000px; }
+  section h2 { font-size: 1.8rem; margin-bottom: 30px; }
+
+  .hero-contenido { text-align: center; padding: 0 60px; }
+  .hero-contenido h1 { font-size: 3.8rem; letter-spacing: -1px; }
+  .hero-subtitulo { font-size: 1.4rem; letter-spacing: 2px; }
+  .descripcion-contenedor-home { max-width: 1000px; padding: 0 20px; }
+
+  .selector-equipos-bloque h2 { font-size: 1.8rem; }
+  .boton-equipo-card { width: 45%; padding: 30px 20px; }
+  .boton-equipo-card i { font-size: 3rem; }
+  .boton-equipo-card h3 { font-size: 1.4rem; }
+  .boton-equipo-card p { font-size: 0.9rem; }
+
+  #lista-garantias { grid-template-columns: 1fr 1fr 1fr; padding: 0 60px; }
+  #lista-servicios { grid-template-columns: 1fr 1fr; padding: 0 60px; }
+  #servicios .seccion-banner-fijo { height: 75vh; }
+  #servicios .seccion-banner-pie { font-size: 1.5rem; letter-spacing: 2px; padding: 20px; }
+
+  .condiciones-menu { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 30px; }
+  .boton-whatsapp-flotante { bottom: 200px; }
+}
+
+
+/* =============================================================
+   BREAKPOINT 4: 1366px — PC estándar
+============================================================= */
+@media (min-width: 1366px) {
+  section h2 { font-size: 1.9rem; }
+  .hero-contenido h1 { font-size: 4.2rem; }
+}
+
+
+/* =============================================================
+   BREAKPOINT 5: 1920px — Monitores grandes
+============================================================= */
+@media (min-width: 1920px) {
+  section { max-width: 1200px; }
+  .descripcion-contenedor-home { max-width: 1200px; }
+  #lista-garantias, #lista-servicios { max-width: 1200px; margin: 0 auto; }
+  .hero-contenido h1 { font-size: 4.6rem; }
+}
+
+/* =============================================
+   LLÁMANOS (header)
+============================================= */
+
+.header-llamanos {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+
+.header-llamanos i {
+  font-size: 1.4rem;
+  color: #19c8ff;
+}
+
+.llamanos-etiqueta {
+  display: block;
+  font-size: 0.75rem;
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.llamanos-numero {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
