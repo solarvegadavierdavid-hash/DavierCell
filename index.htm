@@ -13,6 +13,7 @@
   <meta name="geo.region" content="CO-BOL">
   <meta name="geo.placename" content="Cartagena de Indias">
   <meta property="og:title" content="DAVIERCELL | Reparación de Celulares en Cartagena">
+ 
   <meta property="og:description" content="Servicio técnico especializado en reparación de celulares, microelectrónica y software en Cartagena de Indias.">
   <meta property="og:url" content="https://daviercell.netlify.app/">
   <meta property="og:type" content="website">
@@ -365,12 +366,8 @@
     <h2>Calificaciones</h2>
     <p>La satisfacción de nuestros clientes es nuestra mejor carta de presentación. Gracias por confiar en Daviercell.</p>
 
-    <!-- TEXTOS DE EJEMPLO DEL MOCKUP: reemplazalos por resenas reales antes de publicar -->
-    <div class="cal-grid">
-      <div class="cal-score"><div class="cal-num">4.9</div><div class="cal-est">★★★★★</div><small>(Más de 300 opiniones)</small></div>
-      <div class="cal-card"><div class="cal-user"><div class="cal-av">C</div><div><strong>Camila R.</strong><span class="est">★★★★★</span></div></div><p>Excelente servicio, muy profesional y mi celular quedó como nuevo. ¡Totalmente recomendado!</p></div>
-      <div class="cal-card"><div class="cal-user"><div class="cal-av">A</div><div><strong>Andrés M.</strong><span class="est">★★★★★</span></div></div><p>Rápido, confiable y con garantía. El mejor servicio técnico en Cartagena.</p></div>
-      <div class="cal-card"><div class="cal-user"><div class="cal-av">L</div><div><strong>Laura G.</strong><span class="est">★★★★★</span></div></div><p>Muy buena atención y precios justos. Sin duda volveré.</p></div>
+    <div class="cal-grid" id="cal-grid">
+      <div class="cal-card"><p>Cargando opiniones...</p></div>
     </div>
 
     <div class="bloque-calificacion">
@@ -385,9 +382,11 @@
           <i class="fas fa-star" onclick="calificar(5)"></i>
         </div>
         <input type="hidden" id="input-valor" value="0">
-        <button type="submit" id="boton-enviar-calificacion">Enviar Calificación</button>
+        <input type="text" id="resena-nombre" placeholder="Tu nombre *" minlength="2" maxlength="60" required>
+        <textarea id="resena-comentario" placeholder="Cu&eacute;ntanos tu experiencia *" minlength="5" maxlength="400" required></textarea>
+        <button type="submit" id="boton-enviar-calificacion">Enviar Calificaci&oacute;n</button>
       </form>
-      <p id="mensaje-gracias" class="oculto">¡Gracias por tu calificación!</p>
+      <p id="mensaje-gracias" class="oculto">&iexcl;Gracias! Tu opini&oacute;n se publicar&aacute; despu&eacute;s de ser revisada.</p>
     </div>
   </div>
 </section>
@@ -475,6 +474,7 @@
 </a>
 
 <script src="app.js"></script>
+<script src="resenas.js"></script>
 
   </body>
 </html>
