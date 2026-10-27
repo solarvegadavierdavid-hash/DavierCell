@@ -32,19 +32,13 @@ async function enviarASupabase(datos) {
 // =============================================
 
 const servicios = [
-  { nombre: "Microsoldadura y Reconstrucción de Hardware", descripcion: "Mediante procesos de microsoldadura avanzada, intervenimos la placa base para rescatar circuitos integrados, reconstruir pistas dañadas y realizar diagnósticos profundos mediante esquemáticos profesional." },
+  { nombre: "Microsoldadura y Reconstrucción de Hardware", descripcion: "Mediante procesos de microsoldadura avanzada, intervenimos la placa base para rescatar circuitos integrados, reconstruir pistas dañadas y realizar diagnósticos profundos mediante esquemáticos profesionales." },
   { nombre: "Sustitución de Pines de Carga", descripcion: "Reemplazamos pines de carga dañados con precisión absoluta, respetando la integridad original del fabricante." },
   { nombre: "Cambio de Baterías de Alto Rendimiento", descripcion: "Instalamos baterías de alto rendimiento para que tu equipo recupere su autonomía original." },
   { nombre: "Instalación de Pantallas de Última Generación", descripcion: "Instalación quirúrgica de pantallas en cualquier modelo de celular o tablet con la máxima precisión." },
   { nombre: "Recuperación de Sistemas Operativos", descripcion: "Aplicamos soluciones de lógica avanzada para la recuperación de sistemas operativos bloqueados o dañados." },
   { nombre: "Corrección de Errores de Firmware", descripcion: "Identificamos y corregimos errores de firmware para restaurar el funcionamiento óptimo de tu dispositivo." },
   { nombre: "Optimización Avanzada de Software", descripcion: "Optimización integral del rendimiento para que el software de tu equipo opere con máxima eficiencia y seguridad." }
-];
-
-const garantias = [
-  { titulo: "Diagnóstico Basado en Datos", descripcion: "No adivinamos. Utilizamos herramientas de medición y análisis técnico para identificar la raíz exacta del problema." },
-  { titulo: "Compromiso con la Excelencia", descripcion: "La limpieza, el orden y la metodología de ingeniería son los pilares de cada una de nuestras entregas." },
-  { titulo: "Atención de Alto Nivel", descripcion: "Transparencia total. Comunicación clara y técnica sobre los procesos realizados en tu equipo." }
 ];
 
 const tecnico = {
@@ -83,18 +77,6 @@ if (listaServicios) {
       <div class="servicio-card">
         <h3>${servicio.nombre}</h3>
         <p>${servicio.descripcion}</p>
-      </div>
-    `;
-  });
-}
-
-const listaGarantias = document.getElementById("lista-garantias");
-if (listaGarantias) {
-  garantias.forEach(garantia => {
-    listaGarantias.innerHTML += `
-      <div class="garantia-card">
-        <h3>${garantia.titulo}</h3>
-        <p>${garantia.descripcion}</p>
       </div>
     `;
   });
