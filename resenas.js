@@ -37,7 +37,23 @@ async function cargarResenas() {
   }
 }
 
+let carruselTimer = null;
+let carruselPausado = false;
+
+function llenarResena(card, r) {
+  card.innerHTML = '';
+  const user = el('div', 'cal-user');
+  user.appendChild(el('div', 'cal-av', r.nombre.trim().charAt(0).toUpperCase()));
+  const info = document.createElement('div');
+  info.appendChild(el('strong', '', r.nombre));
+  info.appendChild(el('span', 'est', estrellasTexto(r.estrellas)));
+  user.appendChild(info);
+  card.appendChild(user);
+  card.appendChild(el('p', '', r.comentario));
+}
+
 function pintarResenas(grid, resenas) {
+  clearInterval(carruselTimer);
   grid.innerHTML = '';
 
   if (resenas.length === 0) {
@@ -56,18 +72,35 @@ function pintarResenas(grid, resenas) {
   score.appendChild(el('small', '', `(${total} ${total === 1 ? 'opini\u00f3n' : 'opiniones'})`));
   grid.appendChild(score);
 
-  resenas.slice(0, 6).forEach(r => {
-    const card = el('div', 'cal-card');
-    const user = el('div', 'cal-user');
-    user.appendChild(el('div', 'cal-av', r.nombre.trim().charAt(0).toUpperCase()));
-    const info = document.createElement('div');
-    info.appendChild(el('strong', '', r.nombre));
-    info.appendChild(el('span', 'est', estrellasTexto(r.estrellas)));
-    user.appendChild(info);
-    card.appendChild(user);
-    card.appendChild(el('p', '', r.comentario));
+  const esCelular = window.matchMedia('(max-width: 700px)').matches;
+  const visibles = Math.min(esCelular ? 1 : 3, total);
+  const slots = [];
+  for (let i = 0; i < visibles; i++) {
+    const card = el('div', 'cal-card cal-slide');
     grid.appendChild(card);
-  });
+    slots.push(card);
+  }
+
+  let inicio = 0;
+  function mostrar() {
+    slots.forEach((slot, i) => llenarResena(slot, resenas[(inicio + i) % total]));
+  }
+  mostrar();
+
+  if (total > visibles) {
+    grid.onmouseenter = () => { carruselPausado = true; };
+    grid.onmouseleave = () => { carruselPausado = false; };
+
+    carruselTimer = setInterval(() => {
+      if (carruselPausado || document.hidden) return;
+      slots.forEach(s => s.classList.add('cal-fuera'));
+      setTimeout(() => {
+        inicio = (inicio + 1) % total;
+        mostrar();
+        slots.forEach(s => s.classList.remove('cal-fuera'));
+      }, 400);
+    }, 5000);
+  }
 }
 
 function calificar(n) {
