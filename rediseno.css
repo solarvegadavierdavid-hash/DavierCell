@@ -211,3 +211,9 @@ footer .logo-footer{
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
 }
+
+/* Boton de reseñas siempre visible */
+#boton-enviar-calificacion {
+  display: inline-block !important;
+  margin-top: 10px;
+}

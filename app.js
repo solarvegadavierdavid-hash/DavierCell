@@ -278,41 +278,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const formCalificacion = document.getElementById('form-calificacion');
-  if (formCalificacion) {
-    formCalificacion.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const calificacion = document.getElementById('input-valor').value;
-      if (calificacion === '0') return;
-
-      const ok = await enviarASupabase({ calificacion: calificacion, tipo: 'calificacion' });
-
-      if (ok) {
-        document.getElementById('mensaje-gracias').classList.remove('oculto');
-        document.getElementById('boton-enviar-calificacion').style.display = 'none';
-      } else {
-        alert('No se pudo enviar tu calificación. Intenta de nuevo.');
-      }
-    });
-  }
-
   mostrarSeccion('inicio');
 });
 
-function calificar(n) {
-  const estrellas = document.querySelectorAll('.estrellas-calificacion i');
-  const inputValor = document.getElementById('input-valor');
-  const botonEnvio = document.getElementById('boton-enviar-calificacion');
-
-  inputValor.value = n;
-
-  estrellas.forEach((estrella, index) => {
-    index < n ? estrella.classList.add('activo') : estrella.classList.remove('activo');
-  });
-
-  botonEnvio.style.display = 'inline-block';
-  document.getElementById('estrellas-container').style.pointerEvents = 'none';
-}
 
 // =============================================
 // ANIMACIÓN DE CIRCUITOS (una sola función)
