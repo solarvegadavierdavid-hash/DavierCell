@@ -143,6 +143,13 @@
 
 <!-- TIENDA -->
 <section id="tienda" class="oculto">
+  <div id="tienda-hero" class="tienda-hero" aria-label="Productos destacados" hidden></div>
+  <div class="tienda-beneficios">
+    <div class="tb-item"><i class="fas fa-store"></i> Retiro en nuestro taller</div>
+    <div class="tb-item"><i class="fas fa-truck"></i> Env&iacute;os a toda Colombia</div>
+    <div class="tb-item"><i class="fas fa-gift"></i> Env&iacute;o gratis en Cartagena desde $400.000</div>
+    <div class="tb-item"><i class="fab fa-whatsapp"></i> Atenci&oacute;n por WhatsApp</div>
+  </div>
   <div class="tienda-wrap">
     <span class="hero-eyebrow">Tienda DAVIERCELL</span>
     <h2>Celulares, accesorios y repuestos</h2>
@@ -150,8 +157,8 @@
     <p class="tienda-envio"><i class="fas fa-truck"></i> Env&iacute;o gratis en Cartagena en compras mayores a $400.000</p>
     <p class="tienda-nota">Para otras ciudades, el costo del env&iacute;o se calcula seg&uacute;n tu destino.</p>
     <div class="tienda-barra">
-      <input type="search" id="tienda-buscar" placeholder="Buscar productos..." maxlength="60" aria-label="Buscar productos">
-      <select id="tienda-orden" aria-label="Ordenar productos">
+      <input type="search" id="tienda-buscar" autocomplete="off" placeholder="Buscar productos..." maxlength="60" aria-label="Buscar productos">
+      <select id="tienda-orden" autocomplete="off" aria-label="Ordenar productos">
         <option value="relevancia">Destacados primero</option>
         <option value="precio-asc">Precio: menor a mayor</option>
         <option value="precio-desc">Precio: mayor a menor</option>
@@ -504,6 +511,7 @@
 <script src="app.js"></script>
 <script src="resenas.js"></script>
 <script src="tienda.js"></script>
+<script src="tienda-hero.js"></script>
 
   </body>
 </html>

@@ -349,6 +349,10 @@
     });
   }
 
+  window.abrirProductoTienda = function (id) {
+    const p = estado.productos.find(function (x) { return x.id === id; });
+    if (p) abrirDetalle(p);
+  };
   const original = window.mostrarSeccion;
   if (typeof original === 'function') {
     window.mostrarSeccion = function (id) {

@@ -80,3 +80,54 @@
 .tm-desc { white-space: pre-line; color: var(--t-suave); line-height: 1.5; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 .tienda-nota { color: var(--t-suave); font-size: 0.9rem; margin-top: -8px; }
+
+/* PORTADA DE LA TIENDA */
+.tienda-envio { margin-bottom: 4px; }
+.tienda-nota { margin-top: 0; }
+.tienda-hero { position: relative; overflow: hidden; height: clamp(420px, 48vw, 520px); background: #040d1f; border-bottom: 1px solid var(--t-borde); }
+.tienda-hero::before { content: ""; position: absolute; inset: -30%; z-index: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(0,200,255,.35), transparent 40%), radial-gradient(circle at 80% 70%, rgba(10,132,255,.35), transparent 45%);
+  animation: hh-luz 14s ease-in-out infinite alternate; }
+.tienda-hero::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(4,13,31,.85), rgba(4,13,31,.3)); }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .4; z-index: 0; }
+@keyframes hh-luz { to { transform: translate(6%, -4%) scale(1.15); } }
+.hero-slide { position: absolute; inset: 0; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 32px 24px;
+  display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 24px;
+  opacity: 0; visibility: hidden; transition: opacity .7s ease, visibility .7s; }
+.hero-slide.activo { opacity: 1; visibility: visible; }
+.hero-slide.activo .hh-texto { animation: hh-sube .7s ease both; }
+@keyframes hh-sube { from { opacity: 0; transform: translateY(18px); } }
+.hh-texto { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.hh-badge { background: var(--t-oferta); color: #fff; font-weight: 700; font-size: .8rem; padding: 4px 12px; border-radius: 999px; }
+.hh-marca { color: var(--t-acento); text-transform: uppercase; letter-spacing: .06em; font-size: .85rem; }
+.hh-nombre { margin: 0; font-size: clamp(1.4rem, 3.2vw, 2.4rem); line-height: 1.15;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hh-precio .ahora { font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--t-acento); }
+.hh-precio .antes { margin-left: 10px; color: var(--t-suave); }
+.hh-img { justify-self: center; width: min(100%, 360px); aspect-ratio: 1; padding: 12px; background: #f4f7fb;
+  border-radius: 24px; box-shadow: 0 20px 60px rgba(0,200,255,.25); animation: hh-flota 5s ease-in-out infinite alternate; }
+.hh-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+@keyframes hh-flota { to { transform: translateY(-12px) rotate(-1.5deg); } }
+.hh-dots { position: absolute; bottom: 14px; left: 0; right: 0; z-index: 3; display: flex; justify-content: center; gap: 8px; }
+.hh-dot { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 0; background: rgba(255,255,255,.35); cursor: pointer; }
+.hh-dot.activo { background: var(--t-acento); width: 26px; border-radius: 999px; }
+@media (max-width: 700px) {
+  .tienda-hero { height: 560px; }
+  .hero-slide { grid-template-columns: 1fr; align-content: center; justify-items: center; text-align: center; gap: 12px; }
+  .hh-img { order: -1; width: 200px; }
+  .hh-texto { align-items: center; }
+}
+.tienda-beneficios { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; max-width: 1200px; margin: 16px auto 0; padding: 0 16px; }
+.tb-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--t-card); border: 1px solid var(--t-borde); border-radius: 12px; font-size: .9rem; }
+.tb-item i { color: var(--t-acento); font-size: 1.2rem; }
+.prod-card { transition: transform .25s ease, box-shadow .25s ease; animation: prod-entra .4s ease both; }
+.prod-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,200,255,.18); }
+.prod-img img { transition: transform .35s ease; }
+.prod-card:hover .prod-img img { transform: scale(1.06); }
+@keyframes prod-entra { from { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: reduce) {
+  .tienda-hero::before, .hh-img, .prod-card, .hero-slide.activo .hh-texto { animation: none !important; }
+  .hero-slide { transition: none; }
+  .hero-bg { display: none; }
+}
