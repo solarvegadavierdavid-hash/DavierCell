@@ -20,6 +20,7 @@
   <meta property="og:locale" content="es_CO">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="rediseno.css">
+  <link rel="stylesheet" href="tienda.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +37,7 @@
   <nav id="nav-menu">
     <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
     <a href="#" onclick="mostrarSeccion('servicios')">Servicios</a>
+    <a href="#" onclick="mostrarSeccion('tienda')">Tienda</a>
     <a href="#" onclick="mostrarSeccion('tecnico')">Sobre el técnico</a>
     <a href="#" onclick="mostrarSeccion('condiciones')">Condiciones</a>
     <a href="#" onclick="mostrarSeccion('pqrs')">PQRS</a>
@@ -136,6 +138,30 @@
   <div class="serv-detalle">
     <h3 class="sub">Servicios especializados</h3>
     <div id="lista-servicios"></div>
+  </div>
+</section>
+
+<!-- TIENDA -->
+<section id="tienda" class="oculto">
+  <div class="tienda-wrap">
+    <span class="hero-eyebrow">Tienda DAVIERCELL</span>
+    <h2>Celulares, accesorios y repuestos</h2>
+    <p>Elige tu producto y haz tu pedido. Retiro en nuestro taller en Cartagena y env&iacute;os a toda Colombia.</p>
+    <p class="tienda-envio"><i class="fas fa-truck"></i> Env&iacute;o gratis en compras mayores a $400.000</p>
+    <div class="tienda-barra">
+      <input type="search" id="tienda-buscar" placeholder="Buscar productos..." maxlength="60" aria-label="Buscar productos">
+      <select id="tienda-orden" aria-label="Ordenar productos">
+        <option value="relevancia">Destacados primero</option>
+        <option value="precio-asc">Precio: menor a mayor</option>
+        <option value="precio-desc">Precio: mayor a menor</option>
+        <option value="nombre">Nombre A-Z</option>
+      </select>
+    </div>
+    <div id="tienda-cats" class="tienda-chips"></div>
+    <div id="tienda-subcats" class="tienda-chips tienda-subchips"></div>
+    <p id="tienda-conteo" class="tienda-conteo"></p>
+    <div id="tienda-grid" class="tienda-grid"></div>
+    <button type="button" id="tienda-mas" class="btn-primario sm" hidden>Ver m&aacute;s productos</button>
   </div>
 </section>
 
@@ -448,6 +474,7 @@
       <h4>Enlaces rápidos</h4>
       <a onclick="mostrarSeccion('inicio')">Inicio</a>
       <a onclick="mostrarSeccion('servicios')">Servicios</a>
+      <a onclick="mostrarSeccion('tienda')">Tienda</a>
       <a onclick="mostrarSeccion('tecnico')">Sobre el técnico</a>
       <a onclick="mostrarSeccion('condiciones')">Condiciones</a>
       <a onclick="mostrarSeccion('pqrs')">PQRS</a>
@@ -475,6 +502,7 @@
 
 <script src="app.js"></script>
 <script src="resenas.js"></script>
+<script src="tienda.js"></script>
 
   </body>
 </html>
