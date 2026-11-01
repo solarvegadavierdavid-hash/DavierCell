@@ -321,39 +321,41 @@
 
 
 
-    <div class="aceptacion-terminos-bloque">
-      <p class="firma-davier">Davier</p>
-      <h3>Por favor llena el formulario y acepta los términos y condiciones</h3>
-      <form id="form-aceptacion" class="form-aceptacion-grid">
-        <div class="campo-aceptacion">
-          <label>Nombre completo</label>
-          <input type="text" name="nombre" required>
-        </div>
-        <div class="campo-aceptacion">
-          <label>Número de identificación</label>
-          <input type="text" name="identificacion" required>
-        </div>
-        <div class="campo-aceptacion">
-          <label>Email</label>
-          <input type="email" name="email" required>
-        </div>
-        <div class="campo-aceptacion">
-          <label>WhatsApp (incluye el indicativo ej: +57)</label>
-          <input type="text" name="whatsapp" required>
-        </div>
-        <div class="campo-aceptacion full-width">
-          <label>Referencia del equipo (Ej: iPhone 13 Pro)</label>
-          <input type="text" name="equipo" required>
-        </div>
-        <div class="campo-aceptacion full-width">
-          <label>¿Aceptas los términos y condiciones?</label>
-          <div class="opciones-acepto">
-            <label><input type="radio" name="acepta" value="acepto" required> Acepto</label>
-            <label><input type="radio" name="acepta" value="no_acepto"> No Acepto</label>
+    <div class="t-form-escena">
+      <div class="aceptacion-terminos-bloque t-form">
+        <img class="firma-img" src="img/firma-davier.webp" alt="Davier" width="470" height="136">
+        <h3>Por favor llena el formulario y acepta los <span>t&eacute;rminos y condiciones</span></h3>
+        <form id="form-aceptacion" class="form-aceptacion-grid">
+          <div class="campo-aceptacion">
+            <label for="f-nombre"><i class="fas fa-user"></i> Nombre completo</label>
+            <div class="entrada"><i class="fas fa-user"></i><input id="f-nombre" type="text" name="nombre" autocomplete="name" required></div>
           </div>
-        </div>
-        <button type="submit" class="boton-aceptacion-enviar full-width">Enviar Formulario</button>
-      </form>
+          <div class="campo-aceptacion">
+            <label for="f-id"><i class="fas fa-hashtag"></i> N&uacute;mero de identificaci&oacute;n</label>
+            <div class="entrada"><i class="fas fa-id-card"></i><input id="f-id" type="text" name="identificacion" inputmode="numeric" required></div>
+          </div>
+          <div class="campo-aceptacion">
+            <label for="f-email"><i class="fas fa-envelope"></i> Email</label>
+            <div class="entrada"><i class="fas fa-envelope"></i><input id="f-email" type="email" name="email" autocomplete="email" required></div>
+          </div>
+          <div class="campo-aceptacion">
+            <label for="f-wa"><i class="fab fa-whatsapp"></i> WhatsApp (incluye el indicativo ej: +57)</label>
+            <div class="entrada"><i class="fab fa-whatsapp"></i><input id="f-wa" type="text" name="whatsapp" inputmode="tel" required></div>
+          </div>
+          <div class="campo-aceptacion full-width">
+            <label for="f-equipo"><i class="fas fa-mobile-screen"></i> Referencia del equipo (Ej: iPhone 13 Pro)</label>
+            <div class="entrada"><i class="fas fa-mobile-screen"></i><input id="f-equipo" type="text" name="equipo" required></div>
+          </div>
+          <div class="campo-aceptacion full-width">
+            <label>&iquest;Aceptas los t&eacute;rminos y condiciones?</label>
+            <div class="opciones-acepto">
+              <label><input type="radio" name="acepta" value="acepto" required> Acepto</label>
+              <label><input type="radio" name="acepta" value="no_acepto"> No Acepto</label>
+            </div>
+          </div>
+          <button type="submit" class="boton-aceptacion-enviar full-width">Enviar Formulario</button>
+        </form>
+      </div>
     </div>
 
 

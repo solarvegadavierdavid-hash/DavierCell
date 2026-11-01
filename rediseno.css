@@ -278,3 +278,41 @@ footer .logo-footer{
   .form-aceptacion-grid { grid-template-columns: 1fr 1fr; }
   .campo-aceptacion.full-width, .boton-aceptacion-enviar { grid-column: 1 / -1; }
 }
+
+/* FORMULARIO DE ACEPTACION */
+.t-form-escena { position: relative; z-index: 2; max-width: 1500px; margin: 28px auto 0; padding: 56px clamp(16px, 4vw, 64px); border-radius: 28px; overflow: hidden;
+  background: url('img/fondo-formulario.webp') center / cover no-repeat,
+    linear-gradient(135deg, rgba(0,140,255,.6) 0, transparent 24%),
+    linear-gradient(315deg, rgba(0,140,255,.6) 0, transparent 24%),
+    radial-gradient(900px 500px at 50% 0%, rgba(10,110,255,.35), transparent 70%), #031030; }
+.aceptacion-terminos-bloque.t-form { max-width: none; margin: 0; padding: 18px clamp(18px, 4vw, 56px) 40px; text-align: center;
+  background: linear-gradient(180deg, rgba(8,40,110,.55), rgba(3,18,52,.78)); border: 2px solid #22d3ff; border-radius: 44px;
+  box-shadow: 0 0 0 1px rgba(34,211,255,.35), 0 0 36px rgba(0,150,255,.55), inset 0 0 44px rgba(0,120,255,.28); backdrop-filter: blur(4px); }
+.t-form .firma-img { display: block; width: min(420px, 70%); height: auto; margin: 0 auto 2px; }
+.aceptacion-terminos-bloque.t-form h3 { color: #fff; font-style: italic; font-weight: 700; font-size: clamp(1.05rem, 2vw, 1.55rem); text-align: center; margin: 0 0 28px; }
+.t-form h3 span { color: #19e0ff; }
+.t-form .form-aceptacion-grid { grid-template-columns: 1fr; gap: 22px 36px; text-align: left; margin-top: 0; }
+@media (min-width: 900px) { .t-form .form-aceptacion-grid { grid-template-columns: 1fr 1fr; } }
+.t-form .campo-aceptacion > label { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: #fff; font-weight: 600; font-size: .95rem; }
+.t-form .campo-aceptacion > label i { width: 22px; text-align: center; color: #19c8ff; font-size: 1.15rem; }
+.t-form .campo-aceptacion > label .fa-whatsapp { color: #25d366; }
+.t-form .entrada { position: relative; }
+.t-form .entrada > i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #6f8fb8; font-size: 1.3rem; pointer-events: none; }
+.aceptacion-terminos-bloque.t-form .entrada input { width: 100%; height: 62px; padding: 0 20px 0 62px; background: rgba(2,12,36,.85); color: #fff; font: inherit; font-size: 1rem;
+  border: 2px solid #1a8cff; border-radius: 18px; box-shadow: 0 0 14px rgba(0,140,255,.4), inset 0 0 12px rgba(0,100,255,.2); transition: border-color .2s, box-shadow .2s; }
+.aceptacion-terminos-bloque.t-form .entrada input:focus { outline: none; border-color: #19e0ff; box-shadow: 0 0 20px rgba(25,224,255,.65), inset 0 0 12px rgba(0,100,255,.25); }
+.t-form .opciones-acepto { display: flex; gap: 32px; margin-top: 8px; }
+.t-form .opciones-acepto label { display: flex; align-items: center; gap: 10px; margin: 0; color: #fff; font-size: 1rem; font-weight: 500; cursor: pointer; }
+.t-form .opciones-acepto input[type="radio"] { appearance: none; -webkit-appearance: none; display: grid; place-content: center; width: 30px; height: 30px; margin: 0; padding: 0;
+  border: 3px solid #1a8cff; border-radius: 50%; background: #0b2a5c; box-shadow: 0 0 10px rgba(0,140,255,.5); cursor: pointer; }
+.t-form .opciones-acepto input[type="radio"]::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: #fff; transform: scale(0); transition: transform .15s; }
+.t-form .opciones-acepto input[type="radio"]:checked { background: #1a8cff; border-color: #19e0ff; }
+.t-form .opciones-acepto input[type="radio"]:checked::before { transform: scale(1); }
+.aceptacion-terminos-bloque.t-form .boton-aceptacion-enviar { display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; height: 64px; margin-top: 6px;
+  border: 0; border-radius: 999px; background: linear-gradient(90deg, #0a5cff, #17c5f6); color: #fff; font-size: 1.3rem; font-weight: 700; cursor: pointer;
+  box-shadow: 0 0 26px rgba(23,197,246,.55); transition: filter .2s, transform .2s; }
+.aceptacion-terminos-bloque.t-form .boton-aceptacion-enviar::before { content: "\f1d8"; font-family: "Font Awesome 6 Free"; font-weight: 900; }
+.aceptacion-terminos-bloque.t-form .boton-aceptacion-enviar:hover:not(:disabled) { background: linear-gradient(90deg, #0a5cff, #17c5f6); color: #fff; filter: brightness(1.15); transform: translateY(-2px); }
+.aceptacion-terminos-bloque.t-form .boton-aceptacion-enviar[style*="background-color"] { background-image: none !important; }
+.aceptacion-terminos-bloque.t-form .boton-aceptacion-enviar:disabled { opacity: .75; cursor: wait; }
+@media (max-width: 600px) { .t-form-escena { padding: 20px 10px; } .aceptacion-terminos-bloque.t-form { border-radius: 28px; } .t-form .opciones-acepto { gap: 22px; } }
