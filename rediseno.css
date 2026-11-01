@@ -240,3 +240,41 @@ footer .logo-footer{
 @media (prefers-reduced-motion: reduce) {
   .cal-slide { transition: none; }
 }
+
+/* AMPLIAR PANTALLAS */
+:root { --margen: clamp(16px, 2.4vw, 48px); --ancho-max: 1920px; }
+
+.hero-nuevo-grid, .panel-especialistas, .serv-hero, .serv-grid, .serv-plat, .serv-detalle,
+.tec-wrap, .porque-wrap, .faq-panel, .pqrs-panel, .cal-wrap, .cond-intro,
+.foot-grid, .foot2 .footer-bottom { max-width: var(--ancho-max); }
+
+.hero-nuevo, .panel-especialistas, .serv-hero, .serv-grid, .serv-plat, .serv-detalle,
+.tec-wrap, .porque-wrap, .faq-panel, .pqrs-panel, .cal-wrap, footer.foot2,
+#condiciones .tecnico-hero-fondo { padding-left: var(--margen); padding-right: var(--margen); }
+
+.hero-desc { max-width: 560px; }
+.hero-imagen .img-mock { max-height: min(560px, 62vh); }
+.esp-texto p, .serv-hero p { max-width: 600px; }
+.esp-img .img-mock { max-width: 600px; }
+.faq-der .img-mock { max-width: 520px; }
+.cond-der .img-mock { width: 240px; }
+@media (min-width: 900px) { .porque-deco { width: 380px; } }
+
+@media (min-width: 800px) {
+  .serv-hero { grid-template-columns: 1fr minmax(0, 840px); gap: 48px; }
+  .tec-wrap { grid-template-columns: minmax(0, 520px) 1fr; gap: 48px; }
+}
+.tec-foto { max-width: 520px; }
+.tec-info p, .tec-lista { max-width: 760px; }
+
+#lista-servicios { max-width: none; padding: 0; }
+@media (min-width: 1400px) { #lista-servicios { grid-template-columns: repeat(3, 1fr); } }
+
+.condiciones-menu, .condicion-detalle, .terminos-generales-bloque, .privacidad-tarjeta { max-width: 1400px; }
+.aceptacion-terminos-bloque { max-width: 1100px; }
+.condicion-detalle p, .terminos-generales-bloque p, .terminos-generales-bloque li,
+#privacidad p, #privacidad li { max-width: 130ch; }
+@media (min-width: 900px) {
+  .form-aceptacion-grid { grid-template-columns: 1fr 1fr; }
+  .campo-aceptacion.full-width, .boton-aceptacion-enviar { grid-column: 1 / -1; }
+}
