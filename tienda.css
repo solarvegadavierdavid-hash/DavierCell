@@ -115,3 +115,11 @@
   .t-ben { padding: 10px 12px; font-size: .8rem; }
 }
 @media (prefers-reduced-motion: reduce) { .t-card { animation: none; transition: none; } }
+
+/* AMPLIAR A TODA LA PANTALLA */
+section#tienda { max-width: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+.t-wrap { max-width: 1920px; margin: 0 auto; padding: 24px clamp(16px, 2.4vw, 48px) 56px; }
+.t-banner, .t-beneficios, .t-layout { max-width: none; }
+.t-beneficios { margin: 22px 0 0; }
+.t-layout { margin: 26px 0 0; grid-template-columns: clamp(250px, 17vw, 310px) 1fr; }
+@media (max-width: 900px) { .t-layout { grid-template-columns: 1fr; } }
