@@ -1,0 +1,94 @@
+/* =============================================
+   DAVIERCELL - boton de tema y modo claro
+   Cargar DESPUES de style.css, rediseno.css y tienda.css
+============================================= */
+
+/* ---- Boton (en el header) ---- */
+.btn-tema { order: 1; margin-left: auto; flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
+  border: 1px solid rgba(0,170,255,.45); background: rgba(10,100,220,.2); color: #19c8ff; font-size: 1.05rem;
+  display: inline-flex; align-items: center; justify-content: center; transition: background .2s, transform .2s; }
+.btn-tema:hover { background: rgba(25,200,255,.25); transform: rotate(18deg); }
+.btn-tema:focus-visible { outline: 2px solid #19c8ff; outline-offset: 2px; }
+.menu-hamburguesa { order: 2; margin-left: 8px; }
+@media (min-width: 480px) {
+  .btn-tema { margin-left: 14px; }
+  nav#nav-menu { margin-left: auto; }
+}
+html { color-scheme: dark; }
+body { transition: background-color .3s ease, color .3s ease; }
+
+/* ---- Variables del modo claro ---- */
+html[data-tema="claro"] { color-scheme: light; --txt: #0b1d3f; --muted: #4a6285; --cyan: #0a6cff; --blue: #0a5cff; --line: rgba(10,100,220,.3); --card: #ffffff; }
+/* Header y footer conservan su aspecto oscuro de marca */
+html[data-tema="claro"] header, html[data-tema="claro"] footer { --txt: #e8f1ff; --muted: #9db4d6; --cyan: #19c8ff; --blue: #0a84ff; --line: rgba(0,170,255,.35); --card: rgba(9,28,62,.72); }
+
+html[data-tema="claro"] body { background: radial-gradient(1200px 600px at 75% -10%, #dbe8ff 0%, transparent 60%), #eef3fb; color: #0b1d3f; }
+html[data-tema="claro"] section h2 { color: #0b1d3f; }
+
+/* ---- Titulos y textos que estaban en blanco ---- */
+html[data-tema="claro"] .hero-texto h1, html[data-tema="claro"] .hero-stat strong, html[data-tema="claro"] .esp-texto h2,
+html[data-tema="claro"] .serv-hero h2, html[data-tema="claro"] .serv-card h3, html[data-tema="claro"] .porque-card strong,
+html[data-tema="claro"] .cond-texto h2, html[data-tema="claro"] .cal-num, html[data-tema="claro"] .plat-card,
+html[data-tema="claro"] #tecnico .tec-info h2, html[data-tema="claro"] #tecnico .porque-wrap h2,
+html[data-tema="claro"] #pqrs h2, html[data-tema="claro"] #calificaciones h2 { color: #0b1d3f; }
+html[data-tema="claro"] .marcas, html[data-tema="claro"] .tec-info h4, html[data-tema="claro"] .firma-tec { color: #3a5580; }
+html[data-tema="claro"] .tec-lista li, html[data-tema="claro"] .tec-cita, html[data-tema="claro"] .check-lista li,
+html[data-tema="claro"] .pqrs-tipos li { color: #16305f; }
+
+/* ---- Tarjetas y paneles ---- */
+html[data-tema="claro"] .hero-stats, html[data-tema="claro"] .esp-grid, html[data-tema="claro"] .serv-card,
+html[data-tema="claro"] .plat-card, html[data-tema="claro"] .tec-foto, html[data-tema="claro"] .porque-card,
+html[data-tema="claro"] .faq-caja, html[data-tema="claro"] .pqrs-form, html[data-tema="claro"] .cal-score,
+html[data-tema="claro"] .cal-card { box-shadow: 0 6px 22px rgba(10,60,160,.1); }
+html[data-tema="claro"] .faq-item { background: #fff !important; border: 1px solid rgba(10,100,220,.3) !important; box-shadow: 0 3px 12px rgba(10,60,160,.08); }
+html[data-tema="claro"] .faq-item:hover { background: #f4f8ff !important; border-color: #0a6cff !important; }
+html[data-tema="claro"] .faq-pregunta { color: #0b1d3f; }
+html[data-tema="claro"] .faq-respuesta { border-top-color: rgba(10,100,220,.2); }
+html[data-tema="claro"] .faq-respuesta p { color: #3a5580; }
+html[data-tema="claro"] .servicio-card, html[data-tema="claro"] .condiciones-menu, html[data-tema="claro"] .condicion-detalle,
+html[data-tema="claro"] .terminos-generales-bloque, html[data-tema="claro"] .bloque-calificacion { background: #fff; border-color: rgba(10,100,220,.3); box-shadow: 0 6px 22px rgba(10,60,160,.1); }
+html[data-tema="claro"] .servicio-card h3, html[data-tema="claro"] .terminos-generales-bloque ul li strong { color: #0b1d3f; }
+html[data-tema="claro"] .servicio-card p, html[data-tema="claro"] .condicion-detalle p, html[data-tema="claro"] .terminos-generales-bloque p,
+html[data-tema="claro"] .terminos-generales-bloque ul li { color: #3a5580; }
+html[data-tema="claro"] .condiciones-menu span { color: #16305f; border-bottom-color: rgba(10,100,220,.2); }
+html[data-tema="claro"] .condiciones-menu span:hover, html[data-tema="claro"] .condiciones-menu span.activo,
+html[data-tema="claro"] .condicion-detalle h3, html[data-tema="claro"] .terminos-generales-bloque h3,
+html[data-tema="claro"] .terminos-generales-bloque h4, html[data-tema="claro"] .volver-condiciones,
+html[data-tema="claro"] .bloque-calificacion h3, html[data-tema="claro"] #mensaje-gracias { color: #0a6cff; }
+html[data-tema="claro"] .volver-condiciones { border-bottom-color: rgba(10,100,220,.25); }
+html[data-tema="claro"] .tecnico-hero-fondo { background-color: transparent; }
+html[data-tema="claro"] .tecnico-hero-filtro { background: transparent; }
+html[data-tema="claro"] #circuitos-canvas-condiciones, html[data-tema="claro"] .hero-nuevo canvas { opacity: .3; }
+
+/* ---- Formularios claros (la aceptacion de terminos conserva su estilo neon) ---- */
+html[data-tema="claro"] form input, html[data-tema="claro"] form textarea, html[data-tema="claro"] form select,
+html[data-tema="claro"] .pqrs-form input, html[data-tema="claro"] .pqrs-form select, html[data-tema="claro"] .pqrs-form textarea { background: #fff; color: #0b1d3f; border-color: rgba(10,100,220,.4); }
+html[data-tema="claro"] .estrellas-calificacion i { color: #c5d3ea; }
+html[data-tema="claro"] .estrellas-calificacion i.activo { color: #0a6cff; }
+
+/* ---- Botones ---- */
+html[data-tema="claro"] .btn-primario { background: linear-gradient(90deg, #0a5cff, #19a8ff); color: #fff; }
+html[data-tema="claro"] .btn-secundario { border-color: #0a6cff; color: #0a6cff; }
+html[data-tema="claro"] .pqrs-form button { background: linear-gradient(90deg, #0a5cff, #19a8ff) !important; color: #fff !important; }
+html[data-tema="claro"] .cal-av { color: #fff; }
+
+/* ---- Imagenes pensadas sobre fondo oscuro: tarjetas con esquinas redondeadas ---- */
+html[data-tema="claro"] .img-mock { -webkit-mask-image: none; mask-image: none; border-radius: 22px; box-shadow: 0 10px 30px rgba(10,60,160,.25); }
+html[data-tema="claro"] .serv-hero-img::after { display: none; }
+html[data-tema="claro"] .porque-deco { display: none; }
+
+/* ---- Tienda ---- */
+html[data-tema="claro"] #tienda, html[data-tema="claro"] .t-modal { --t-card: #ffffff; --t-borde: rgba(10,100,220,.35); --t-suave: #4a6285; --t-acento: #0a6cff; }
+html[data-tema="claro"] #tienda { background: radial-gradient(1200px 520px at 50% -8%, rgba(10,110,255,.12), transparent 60%), #eef3fb; color: #0b1d3f; }
+html[data-tema="claro"] .t-panel, html[data-tema="claro"] .t-ben { background: #fff; color: #0b1d3f; box-shadow: 0 6px 22px rgba(10,60,160,.12); }
+html[data-tema="claro"] .t-segura { background: linear-gradient(135deg, #e3eeff, #fff); color: #0b1d3f; box-shadow: 0 6px 22px rgba(10,60,160,.12); }
+html[data-tema="claro"] .t-icono { background: rgba(10,100,220,.12); }
+html[data-tema="claro"] .t-cat .n { background: rgba(10,100,220,.15); color: #16305f; }
+html[data-tema="claro"] .t-cat.activo .n { background: rgba(3,18,48,.25); color: #031230; }
+html[data-tema="claro"] .t-buscar input, html[data-tema="claro"] .t-controles select, html[data-tema="claro"] .t-chip { background: #fff; color: #0b1d3f; }
+html[data-tema="claro"] .t-chip.activo { background: linear-gradient(90deg, #17c5f6, #1a9bf0); color: #031230; }
+html[data-tema="claro"] .t-card { background: #fff; border-color: rgba(10,100,220,.3); box-shadow: 0 4px 16px rgba(10,60,160,.1); }
+html[data-tema="claro"] .t-card:hover { box-shadow: 0 8px 26px rgba(10,100,220,.25); }
+html[data-tema="claro"] .t-pag { background: #fff; color: #0a6cff; }
+html[data-tema="claro"] .t-modal-caja { background: #fff; color: #0b1d3f; box-shadow: 0 0 40px rgba(10,60,160,.3); }
+html[data-tema="claro"] .t-modal-cerrar { color: #0b1d3f; }
