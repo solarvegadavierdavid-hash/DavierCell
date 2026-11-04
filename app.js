@@ -236,7 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
         email: (formPqrs.querySelector('[name="email"]')||{value:''}).value,
         celular: (formPqrs.querySelector('[name="celular"]')||{value:''}).value,
         rs: (formPqrs.querySelector('[name="rs"]')||{value:''}).value,
-        sede: (formPqrs.querySelector('[name="sede"]')||{value:''}).value,
         mensaje: '[' + (formPqrs.querySelector('[name="tipo_solicitud"]')||{value:''}).value + '] ' + (formPqrs.querySelector('[name="mensaje"]')||{value:''}).value,
         tipo: 'pqrs'
       };

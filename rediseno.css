@@ -361,3 +361,9 @@ section#privacidad { max-width: none; width: 100%; margin: 0; padding: 0; backgr
   #privacidad .pv-card { border-radius: 28px; }
   #privacidad .pv-panel { padding: 18px; border-radius: 22px; }
 }
+
+/* PQRS FORMULARIO */
+.pqrs-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .pqrs-fila { grid-template-columns: 1fr; } }
+.pqrs-form select:invalid { color: var(--muted); }
+.pqrs-form input::placeholder, .pqrs-form textarea::placeholder { color: var(--muted); opacity: .85; }

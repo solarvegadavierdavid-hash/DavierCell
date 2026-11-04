@@ -400,19 +400,25 @@
       </ul>
     </div>
     <form id="form-pqrs" class="pqrs-form">
-      <input type="text" name="nombre" placeholder="Nombre completo *" required>
-      <input type="email" name="email" placeholder="Correo electrónico *" required>
-      <select name="tipo_solicitud" required>
-        <option value="" disabled selected>Selecciona una opción</option>
-        <option>Petición</option>
-        <option>Queja</option>
-        <option>Reclamo</option>
-        <option>Sugerencia</option>
-        <option>Felicitación</option>
-      </select>
-      <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
-      <button type="submit">Enviar solicitud</button>
-    </form>
+          <div class="pqrs-fila">
+            <input type="text" name="nombre" placeholder="Nombre completo *" autocomplete="name" required>
+            <input type="email" name="email" placeholder="Correo electr&oacute;nico *" autocomplete="email" required>
+          </div>
+          <div class="pqrs-fila">
+            <input type="tel" name="celular" placeholder="Celular *" autocomplete="tel" inputmode="tel" required>
+            <input type="text" name="rs" placeholder="RS:" autocomplete="off">
+          </div>
+          <select name="tipo_solicitud" required>
+            <option value="" disabled selected>Selecciona el tipo de solicitud *</option>
+            <option>Petici&oacute;n</option>
+            <option>Queja</option>
+            <option>Reclamo</option>
+            <option>Sugerencia</option>
+            <option>Felicitaci&oacute;n</option>
+          </select>
+          <textarea name="mensaje" placeholder="Describe tu solicitud lo m&aacute;s detallado posible en este espacio. *" required></textarea>
+          <button type="submit">Enviar solicitud</button>
+        </form>
   </div>
 </section>
 
