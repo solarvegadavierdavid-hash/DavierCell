@@ -367,3 +367,14 @@ section#privacidad { max-width: none; width: 100%; margin: 0; padding: 0; backgr
 @media (max-width: 600px) { .pqrs-fila { grid-template-columns: 1fr; } }
 .pqrs-form select:invalid { color: var(--muted); }
 .pqrs-form input::placeholder, .pqrs-form textarea::placeholder { color: var(--muted); opacity: .85; }
+
+/* PQRS ADJUNTOS */
+.pqrs-adjuntos label { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; color: var(--muted); font-size: .85rem; font-weight: 600; }
+.pqrs-adjuntos label i { color: var(--cyan); }
+.pqrs-form input[type="file"] { padding: 8px 10px; cursor: pointer; }
+.pqrs-form input[type="file"]::file-selector-button { margin-right: 12px; padding: 8px 14px; border: 0; border-radius: 8px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan)); color: #04122b; font: inherit; font-weight: 700; cursor: pointer; }
+html[data-tema="claro"] .pqrs-form input[type="file"]::file-selector-button { color: #fff; }
+.pqrs-archivos-msg { display: block; margin-top: 6px; color: var(--muted); font-size: .78rem; line-height: 1.4; }
+.pqrs-archivos-msg.ok { color: var(--cyan); }
+.pqrs-archivos-msg.error { color: #ff6b6b; }

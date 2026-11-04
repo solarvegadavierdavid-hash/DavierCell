@@ -417,6 +417,11 @@
             <option>Felicitaci&oacute;n</option>
           </select>
           <textarea name="mensaje" placeholder="Describe tu solicitud lo m&aacute;s detallado posible en este espacio. *" required></textarea>
+          <div class="pqrs-adjuntos">
+            <label for="pqrs-archivos"><i class="fas fa-paperclip"></i> Adjuntar archivos (opcional)</label>
+            <input type="file" id="pqrs-archivos" name="archivos" multiple accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf">
+            <small id="pqrs-archivos-msg" class="pqrs-archivos-msg">M&aacute;ximo 3 archivos de 5 MB (JPG, PNG, WebP o PDF).</small>
+          </div>
           <button type="submit">Enviar solicitud</button>
         </form>
   </div>
@@ -567,6 +572,7 @@
 </a>
 
 <script src="app.js"></script>
+<script src="pqrs-archivos.js"></script>
 <script src="resenas.js"></script>
 <script src="tienda.js"></script>
 
