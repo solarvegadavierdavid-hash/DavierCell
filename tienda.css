@@ -123,3 +123,15 @@ section#tienda { max-width: none !important; width: 100% !important; margin: 0 !
 .t-beneficios { margin: 22px 0 0; }
 .t-layout { margin: 26px 0 0; grid-template-columns: clamp(250px, 17vw, 310px) 1fr; }
 @media (max-width: 900px) { .t-layout { grid-template-columns: 1fr; } }
+
+/* ZOOM DE PRODUCTO */
+.tm-zoom { position: relative; overflow: hidden; border-radius: 14px; background: #fff; cursor: zoom-in; touch-action: manipulation; }
+.tm-zoom.zoom { cursor: crosshair; touch-action: none; }
+.tm-zoom .tm-principal { border-radius: 0; transition: transform .15s ease-out, transform-origin .08s linear; will-change: transform; user-select: none; -webkit-user-drag: none; }
+.tm-zoom::after { content: "Pasa el mouse para ampliar"; position: absolute; right: 10px; bottom: 10px; padding: 4px 10px; border-radius: 999px;
+  background: rgba(3,18,48,.75); color: #fff; font-size: .72rem; pointer-events: none; transition: opacity .2s; }
+.tm-zoom.zoom::after { opacity: 0; }
+@media (hover: none) { .tm-zoom::after { content: "Toca para ampliar"; } }
+.t-foto.zoom { cursor: zoom-in; }
+.t-foto.zoom img { transition: transform .15s ease-out, transform-origin .08s linear; }
+@media (prefers-reduced-motion: reduce) { .tm-zoom .tm-principal, .t-foto.zoom img { transition: none; } }

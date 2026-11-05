@@ -184,7 +184,9 @@
     const foto = el('button', 't-foto');
     foto.type = 'button';
     foto.setAttribute('aria-label', 'Ver ' + p.nombre);
-    foto.appendChild(imagen(p.imagenes && p.imagenes[0], p.nombre));
+    const imgCard = imagen(p.imagenes && p.imagenes[0], p.nombre);
+    foto.appendChild(imgCard);
+    activarZoom(foto, imgCard, 2, false, false);
     if (!p.disponible) foto.appendChild(el('span', 't-badge agotado', 'Agotado'));
     else if (p.precio_oferta) foto.appendChild(el('span', 't-badge oferta', '-' + Math.round((1 - p.precio_oferta / p.precio) * 100) + '%'));
     foto.addEventListener('click', function () { abrirDetalle(p); });
@@ -226,6 +228,58 @@
 
   function pintarTodo() { pintarLateral(); pintarChips(); pintarGrid(); }
 
+  // Zoom con el cursor: la imagen se agranda y se desplaza siguiendo el mouse (o el dedo)
+  function activarZoom(caja, img, base, tactil, rueda) {
+    let activo = false;
+    let escala = base;
+    let tipo = 'mouse';
+
+    function tope() {
+      const r = img.naturalWidth && img.clientWidth ? img.naturalWidth / img.clientWidth : base;
+      return Math.max(1.5, Math.min(4, r * 1.6));
+    }
+    function mover(e) {
+      const r = caja.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      const x = Math.min(100, Math.max(0, (e.clientX - r.left) / r.width * 100));
+      const y = Math.min(100, Math.max(0, (e.clientY - r.top) / r.height * 100));
+      img.style.transformOrigin = x.toFixed(1) + '% ' + y.toFixed(1) + '%';
+    }
+    function entrar(e) {
+      if (img.dataset.fallo) return;
+      activo = true;
+      escala = Math.min(base, tope());
+      caja.classList.add('zoom');
+      mover(e);
+      img.style.transform = 'scale(' + escala.toFixed(2) + ')';
+    }
+    function salir() {
+      activo = false;
+      caja.classList.remove('zoom');
+      img.style.transform = '';
+      img.style.transformOrigin = '';
+    }
+
+    caja.addEventListener('pointerdown', function (e) { tipo = e.pointerType || 'mouse'; });
+    caja.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') entrar(e); });
+    caja.addEventListener('pointermove', function (e) { if (activo) mover(e); });
+    caja.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') salir(); });
+    if (tactil) {
+      caja.addEventListener('click', function (e) {
+        if (tipo === 'mouse') return;
+        if (activo) salir(); else entrar(e);
+      });
+    }
+    if (rueda) {
+      caja.addEventListener('wheel', function (e) {
+        if (!activo) return;
+        e.preventDefault();
+        escala = Math.max(1.4, Math.min(tope(), escala + (e.deltaY < 0 ? 0.3 : -0.3)));
+        img.style.transform = 'scale(' + escala.toFixed(2) + ')';
+        mover(e);
+      }, { passive: false });
+    }
+  }
   let modal = null;
   let ultimoFoco = null;
 
@@ -276,7 +330,10 @@
     const galeria = el('div', 'tm-galeria');
     const principal = imagen(p.imagenes && p.imagenes[0], p.nombre);
     principal.className = 'tm-principal';
-    galeria.appendChild(principal);
+    const zona = el('div', 'tm-zoom');
+    zona.appendChild(principal);
+    galeria.appendChild(zona);
+    activarZoom(zona, principal, 2.4, true, true);
     const fotos = (p.imagenes || []).filter(urlSegura).slice(0, 8);
     if (fotos.length > 1) {
       const minis = el('div', 'tm-minis');
