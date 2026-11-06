@@ -8,7 +8,7 @@
 (function () {
   'use strict';
 
-  const GA_ID = ''; // Ej: 'G-XXXXXXXXXX' (ID de medicion de GA4)
+  const GA_ID = 'G-DQ9LKGSTGC'; // Ej: 'G-XXXXXXXXXX' (ID de medicion de GA4)
   if (!/^G-[A-Z0-9]{6,}$/.test(GA_ID)) return;
 
   const CLAVE = 'dc-analitica';
