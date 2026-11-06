@@ -378,3 +378,5 @@ html[data-tema="claro"] .pqrs-form input[type="file"]::file-selector-button { co
 .pqrs-archivos-msg { display: block; margin-top: 6px; color: var(--muted); font-size: .78rem; line-height: 1.4; }
 .pqrs-archivos-msg.ok { color: var(--cyan); }
 .pqrs-archivos-msg.error { color: #ff6b6b; }
+.t-form .nota-datos { grid-column: 1 / -1; margin: 0; color: #b9cdee; font-size: .88rem; line-height: 1.5; }
+.t-form .nota-datos a { color: #19e0ff; text-decoration: underline; }

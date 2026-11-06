@@ -18,15 +18,13 @@
   <meta property="og:url" content="https://daviercell.netlify.app/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
+  <link rel="preload" href="fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fuentes.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="rediseno.css">
   <link rel="stylesheet" href="tienda.css">
   <link rel="stylesheet" href="tema-claro.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
   <script src="tema.js"></script>
 </head>
   
@@ -349,6 +347,7 @@
             <label for="f-equipo"><i class="fas fa-mobile-screen"></i> Referencia del equipo (Ej: iPhone 13 Pro)</label>
             <div class="entrada"><i class="fas fa-mobile-screen"></i><input id="f-equipo" type="text" name="equipo" required></div>
           </div>
+          <p class="nota-datos full-width">Al enviar este formulario autorizas a DAVIERCELL a tratar tus datos personales (nombre, identificaci&oacute;n, correo, WhatsApp y equipo) para gestionar la recepci&oacute;n y reparaci&oacute;n de tu equipo y contactarte sobre ella. Puedes consultar, actualizar o pedir la eliminaci&oacute;n de tus datos escribi&eacute;ndonos a solarvegadavierdavid@gmail.com. M&aacute;s informaci&oacute;n en la <a href="#" onclick="mostrarSeccion('privacidad'); return false;">Pol&iacute;tica de Privacidad</a>.</p>
           <div class="campo-aceptacion full-width">
             <label>&iquest;Aceptas los t&eacute;rminos y condiciones?</label>
             <div class="opciones-acepto">
@@ -469,59 +468,100 @@
             <img class="pv-escudo" src="img/privacidad-escudo.webp" alt="" width="120" height="127">
             <h2>Pol&iacute;ticas de Privacidad y Tratamiento de <span>Datos</span></h2>
           </div>
-          <p>La presente Pol&iacute;tica de Privacidad establece los t&eacute;rminos en que Daviercell usa y protege la informaci&oacute;n que es proporcionada por nuestros usuarios al momento de utilizar este sitio web. Nuestra empresa est&aacute; plenamente comprometida con la seguridad y el tratamiento responsable de los datos de sus usuarios, cumpliendo con la normatividad vigente en Colombia (Ley 1581 de 2012).</p>
-          <p>Cuando le solicitamos diligenciar campos de informaci&oacute;n personal con la cual usted pueda ser identificado, lo hacemos asegurando que solo se emplear&aacute; de acuerdo con los t&eacute;rminos de este documento.</p>
+          <p>La presente Política de Privacidad establece las condiciones bajo las cuales Daviercell recopila, almacena, utiliza y protege la información personal suministrada a través de este sitio web, sus formularios y demás canales de atención. El tratamiento se realiza de conformidad con la Ley 1581 de 2012, sus normas reglamentarias y las disposiciones colombianas aplicables.</p>
+          <p>Responsable del tratamiento: <strong>Davier David Solar Vega</strong> (nombre comercial Daviercell). Solicitudes de privacidad: <strong>solarvegadavierdavid@gmail.com</strong>. Última actualización: 4 de noviembre de 2026.</p>
         </div>
         <img class="pv-ilustracion" src="img/privacidad-ilustracion.webp" alt="Escudo de seguridad con candado sobre un port&aacute;til" width="540" height="352">
       </div>
 
       <div class="pv-paneles">
         <article class="pv-panel">
-          <div class="pv-panel-cab"><span class="pv-num">01</span><i class="fas fa-user"></i><h3>Informaci&oacute;n que es recogida</h3></div>
-          <p>Nuestro sitio web podr&aacute; recopilar informaci&oacute;n personal necesaria para la prestaci&oacute;n del servicio t&eacute;cnico y la gesti&oacute;n comercial, por ejemplo:</p>
+          <div class="pv-panel-cab"><span class="pv-num">01</span><i class="fas fa-user"></i><h3>Información que es recogida</h3></div>
+          <p>Según el servicio solicitado, podemos recoger:</p>
           <ul class="pv-lista">
             <li>Nombre completo.</li>
-            <li>Informaci&oacute;n de contacto (n&uacute;mero de tel&eacute;fono, WhatsApp y correo electr&oacute;nico).</li>
-            <li>Datos sobre el dispositivo a reparar (marca, modelo, fallas reportadas).</li>
-            <li>Direcci&oacute;n de residencia (en caso de requerirse servicios a domicilio o env&iacute;os).</li>
+            <li>Número de identificación, cuando sea necesario para identificar al cliente o formalizar el servicio.</li>
+            <li>Teléfono, WhatsApp y correo electrónico.</li>
+            <li>Dirección de residencia o entrega, cuando corresponda.</li>
+            <li>Marca, modelo y fallas reportadas del dispositivo, y datos de diagnósticos, presupuestos y órdenes de servicio.</li>
+            <li>Lo que usted escriba en solicitudes, consultas, peticiones, quejas y reclamos (PQRS).</li>
           </ul>
+          <p style="margin-top:12px"><strong>Archivos adjuntos:</strong> en el formulario de PQRS puede adjuntar fotografías y documentos PDF. Pueden contener datos personales y se usan únicamente para atender su solicitud. Se almacenan en un espacio privado, sin acceso público.</p>
+          <p>No solicitamos información personal que no sea necesaria para las finalidades aquí descritas.</p>
         </article>
 
         <article class="pv-panel">
-          <div class="pv-panel-cab"><span class="pv-num">02</span><i class="fas fa-gear"></i><h3>Uso de la informaci&oacute;n recogida</h3></div>
-          <p>En Daviercell empleamos la informaci&oacute;n con el fin de proporcionar el mejor servicio posible, espec&iacute;ficamente para:</p>
+          <div class="pv-panel-cab"><span class="pv-num">02</span><i class="fas fa-gear"></i><h3>Uso de la información recogida</h3></div>
+          <p>Usamos su información para:</p>
           <ul class="pv-lista">
-            <li>Mantener un registro interno de usuarios y el historial de &oacute;rdenes de servicio t&eacute;cnico.</li>
-            <li>Comunicarle el estado del diagn&oacute;stico, presupuestos, videos de control de calidad y finalizaci&oacute;n de la reparaci&oacute;n de su equipo.</li>
-            <li>Enviar notificaciones importantes sobre las pol&iacute;ticas de retiro de dispositivos.</li>
-            <li>Eventualmente, enviar mensajes informativos u ofertas especiales que consideremos relevantes para usted.</li>
+            <li>Gestionar solicitudes de servicio técnico, compras y atención comercial.</li>
+            <li>Elaborar diagnósticos, presupuestos y órdenes de servicio, e informarle su estado.</li>
+            <li>Comunicarle resultados, controles de calidad, entregas, retiros y envíos.</li>
+            <li>Atender garantías, PQRS y reclamaciones.</li>
+            <li>Mantener registros administrativos y cumplir obligaciones legales.</li>
+            <li>Prevenir usos indebidos de nuestros servicios.</li>
           </ul>
+          <p style="margin-top:12px"><strong>Comunicaciones comerciales:</strong> solo le enviaremos ofertas o novedades si usted lo autoriza de forma expresa, y puede retirar esa autorización cuando quiera sin que se afecte la atención de sus solicitudes.</p>
         </article>
 
         <article class="pv-panel">
           <div class="pv-panel-cab"><span class="pv-num">03</span><i class="fas fa-shield-halved"></i><h3>Seguridad de sus datos</h3></div>
-          <p>Daviercell est&aacute; altamente comprometido con la seguridad de su informaci&oacute;n. Implementamos medidas t&eacute;cnicas y de seguridad digital para garantizar que no exista ning&uacute;n acceso no autorizado, p&eacute;rdida o alteraci&oacute;n de sus datos personales.</p>
+          <p>Aplicamos medidas técnicas, administrativas y organizativas razonables para proteger la información contra pérdida, alteración, uso indebido o acceso no autorizado: control de acceso a las bases de datos, permisos restringidos, almacenamiento privado para los archivos adjuntos y conexión cifrada (HTTPS).</p>
+          <p>Ningún sistema conectado a Internet puede garantizar una seguridad absoluta. Por eso trabajamos de forma continua en prevenir y reducir los riesgos.</p>
         </article>
 
         <article class="pv-panel">
-          <div class="pv-panel-cab"><span class="pv-num">04</span><i class="fas fa-cookie-bite"></i><h3>Uso de Cookies</h3></div>
-          <p>Este sitio web emplea cookies para identificar las p&aacute;ginas que son visitadas y su frecuencia. Esta informaci&oacute;n es utilizada &uacute;nicamente para an&aacute;lisis estad&iacute;stico que nos permita mejorar la experiencia en nuestra web. Usted puede configurar su navegador para aceptar o rechazar las cookies, o eliminarlas en cualquier momento desde su dispositivo.</p>
+          <div class="pv-panel-cab"><span class="pv-num">04</span><i class="fas fa-cookie-bite"></i><h3>Cookies y almacenamiento local</h3></div>
+          <p>Este sitio utiliza el almacenamiento local de su navegador (<em>localStorage</em>) únicamente para recordar su preferencia entre modo claro y modo oscuro. No es una cookie de seguimiento y no se envía a ningún servidor.</p>
+          <p>Actualmente este sitio <strong>no utiliza herramientas de analítica ni cookies publicitarias</strong>. Si en el futuro incorporamos alguna, actualizaremos esta política y le pediremos su autorización antes de activarla.</p>
         </article>
 
         <article class="pv-panel">
-          <div class="pv-panel-cab"><span class="pv-num">05</span><i class="fas fa-link"></i><h3>Enlaces a Terceros</h3></div>
-          <p>Nuestra p&aacute;gina web podr&iacute;a contener enlaces a otros sitios de inter&eacute;s (como redes sociales o pasarelas de pago). Una vez que usted da clic en estos enlaces y abandona nuestra p&aacute;gina, Daviercell no tiene control sobre el sitio al que es redirigido y, por lo tanto, no se hace responsable de los t&eacute;rminos, privacidad ni de la protecci&oacute;n de sus datos en esos sitios terceros.</p>
+          <div class="pv-panel-cab"><span class="pv-num">05</span><i class="fas fa-link"></i><h3>Proveedores tecnológicos y terceros</h3></div>
+          <p>Para operar el sitio usamos proveedores que pueden tratar información en nuestro nombre:</p>
+          <ul class="pv-lista">
+            <li><strong>Infraestructura en la nube:</strong> base de datos, almacenamiento de formularios, reseñas, catálogo y archivos adjuntos, y alojamiento del sitio web. Como en cualquier sitio, el alojamiento recibe datos técnicos de la visita, como la dirección IP.</li>
+            <li><strong>WhatsApp y redes sociales:</strong> canales externos a los que usted accede por voluntad propia; se rigen por sus propias políticas.</li>
+          </ul>
+          <p style="margin-top:12px">Algunos de estos proveedores pueden procesar información fuera de Colombia. En ese caso, revisamos las condiciones y garantías aplicables a la transmisión o transferencia internacional de datos conforme a la normativa colombiana.</p>
         </article>
 
         <article class="pv-panel">
-          <div class="pv-panel-cab"><span class="pv-num">06</span><i class="fas fa-user-lock"></i><h3>Control de su informaci&oacute;n personal (Derechos de Habeas Data)</h3></div>
-          <p>En cualquier momento, como titular de los datos, usted puede ejercer sus derechos para conocer, actualizar, rectificar o solicitar la eliminaci&oacute;n de su informaci&oacute;n de nuestras bases de datos.</p>
-          <p>Daviercell no vender&aacute;, ceder&aacute; ni distribuir&aacute; la informaci&oacute;n personal que es recopilada sin su consentimiento, salvo que sea estrictamente requerido por una orden judicial.</p>
+          <div class="pv-panel-cab"><span class="pv-num">06</span><i class="fas fa-user-lock"></i><h3>Sus derechos y cómo ejercerlos</h3></div>
+          <p>Como titular de los datos, usted puede:</p>
+          <ul class="pv-lista">
+            <li>Conocer los datos que conservamos sobre usted y el uso que les damos.</li>
+            <li>Actualizar y rectificar información incompleta, inexacta o desactualizada.</li>
+            <li>Solicitar prueba de la autorización otorgada, cuando corresponda.</li>
+            <li>Solicitar la supresión de sus datos cuando sea procedente.</li>
+            <li>Revocar la autorización en los casos legalmente permitidos.</li>
+            <li>Presentar quejas ante la Superintendencia de Industria y Comercio, una vez agotado el trámite ante nosotros.</li>
+          </ul>
+          <p style="margin-top:12px"><strong>Canal:</strong> solarvegadavierdavid@gmail.com. Indique su nombre, un medio de contacto y su solicitud; podemos pedirle información adicional para verificar su identidad.</p>
+          <p><strong>Plazos:</strong> consultas, hasta 10 días hábiles (prorrogables 5 más, informando los motivos). Reclamos completos, hasta 15 días hábiles (prorrogables 8 más, informando los motivos). Los reclamos incompletos se tramitan según la Ley 1581 de 2012.</p>
+          <p>No venderemos, cederemos ni distribuiremos su información personal sin su consentimiento, salvo orden judicial o de autoridad competente.</p>
+        </article>
+
+        <article class="pv-panel">
+          <div class="pv-panel-cab"><span class="pv-num">07</span><i class="fas fa-clock-rotate-left"></i><h3>Conservación de la información</h3></div>
+          <p>Conservamos los datos mientras sea necesario para cumplir las finalidades para las que se recogieron, atender obligaciones contractuales, comerciales, contables o legales, y gestionar posibles reclamaciones. Los plazos dependen de la naturaleza de cada registro y de los criterios de necesidad y proporcionalidad.</p>
+          <p>Cuando desaparezcan esas finalidades y no exista obligación de conservarlos, los datos se suprimen o se anonimizan.</p>
+        </article>
+
+        <article class="pv-panel">
+          <div class="pv-panel-cab"><span class="pv-num">08</span><i class="fas fa-id-badge"></i><h3>Responsable del tratamiento</h3></div>
+          <ul class="pv-lista">
+            <li><strong>Nombre:</strong> Davier David Solar Vega.</li>
+            <li><strong>Nombre comercial:</strong> Daviercell.</li>
+            <li><strong>Dirección:</strong> Principal hacia el barrio El Sucre, Cra. 60 #3-18, 20 de Julio, Cartagena de Indias, Bolívar, Colombia.</li>
+            <li><strong>Correo:</strong> solarvegadavierdavid@gmail.com.</li>
+          </ul>
+          <p style="margin-top:12px">Podemos actualizar esta política por cambios normativos, tecnológicos u operativos. Las modificaciones se publican en este sitio con su fecha de actualización.</p>
         </article>
       </div>
 
       <div class="pv-pie">
-        <div class="pv-aviso"><i class="fas fa-shield-halved"></i><span>Puede cancelar la recepci&oacute;n de estos mensajes en cualquier momento.</span></div>
+        <div class="pv-aviso"><i class="fas fa-shield-halved"></i><span>Puede retirar su autorización para comunicaciones comerciales en cualquier momento.</span></div>
         <div class="pv-marca"><strong>DAVIERCELL</strong><span>Tu informaci&oacute;n, <em>nuestra prioridad</em></span></div>
       </div>
     </div>

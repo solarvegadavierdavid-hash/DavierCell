@@ -4,8 +4,6 @@
    Breakpoints: 320 (base) / 480 / 768 / 1024 / 1366 / 1920
 ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -1141,7 +1139,6 @@ footer::before {
    ACEPTACIÓN DE TÉRMINOS CON FIRMA (Condiciones)
 ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 .aceptacion-terminos-bloque {
   background-color: #ffffff;
   border-radius: 16px;
