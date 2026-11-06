@@ -131,6 +131,7 @@ function mostrarSeccion(idSeccion) {
   if (nav) nav.classList.remove('nav-abierto');
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.dispatchEvent(new CustomEvent('daviercell:seccion', { detail: { id: idSeccion } }));
 }
 
 function toggleMenu() {
@@ -209,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (ok) {
         boton.textContent = '¡Enviado con éxito!';
         boton.style.backgroundColor = '#28a745';
+        document.dispatchEvent(new CustomEvent('daviercell:form-ok', { detail: { form: 'aceptacion', lead: datos.acepta === 'acepto' } }));
         formAceptacion.reset();
         setTimeout(() => {
           boton.textContent = 'Enviar Formulario';
@@ -245,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (ok) {
         boton.textContent = '¡Enviado con éxito!';
         boton.style.backgroundColor = '#28a745';
+        document.dispatchEvent(new CustomEvent('daviercell:form-ok', { detail: { form: 'pqrs' } }));
         formPqrs.reset();
         setTimeout(() => {
           boton.textContent = 'Enviar solicitud';

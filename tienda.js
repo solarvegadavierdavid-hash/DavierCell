@@ -375,6 +375,8 @@
     cuerpo.appendChild(galeria);
     cuerpo.appendChild(info);
     modal.hidden = false;
+    const cat = estado.categorias.find(function (c) { return c.id === p.categoria_id; });
+    document.dispatchEvent(new CustomEvent('daviercell:producto', { detail: { codigo: p.codigo, nombre: p.nombre, categoria: cat ? cat.nombre : '' } }));
     document.body.style.overflow = 'hidden';
     $('tm-cerrar').focus();
     cargarDescripcion(p, desc);

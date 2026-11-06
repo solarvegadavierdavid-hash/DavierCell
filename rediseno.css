@@ -380,3 +380,14 @@ html[data-tema="claro"] .pqrs-form input[type="file"]::file-selector-button { co
 .pqrs-archivos-msg.error { color: #ff6b6b; }
 .t-form .nota-datos { grid-column: 1 / -1; margin: 0; color: #b9cdee; font-size: .88rem; line-height: 1.5; }
 .t-form .nota-datos a { color: #19e0ff; text-decoration: underline; }
+
+/* BANNER DE PREFERENCIAS DE PRIVACIDAD (analitica.js) */
+.dc-consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 9999; max-width: 760px; margin: 0 auto; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  padding: 16px 20px; background: rgba(4,18,46,.97); color: #fff; border: 1.5px solid rgba(34,150,255,.7); border-radius: 20px; box-shadow: 0 0 26px rgba(0,110,255,.35); }
+.dc-consent[hidden] { display: none !important; }
+.dc-consent p { flex: 1 1 320px; margin: 0; font-size: .9rem; line-height: 1.5; color: #dce9ff; }
+.dc-consent a { color: #19e0ff; text-decoration: underline; }
+.dc-consent-acciones { display: flex; gap: 10px; flex: 0 0 auto; }
+.dc-consent-btn { padding: 10px 22px; border: 1.5px solid #1a8cff; border-radius: 999px; background: transparent; color: #fff; font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; }
+.dc-consent-btn.principal { background: linear-gradient(90deg, #17c5f6, #1a9bf0); border-color: transparent; color: #031230; }
+.dc-consent-btn:focus-visible { outline: 3px solid #19e0ff; outline-offset: 2px; }

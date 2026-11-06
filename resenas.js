@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({ nombre, estrellas, comentario })
       });
       if (!r.ok) throw new Error('HTTP ' + r.status);
+      document.dispatchEvent(new CustomEvent('daviercell:form-ok', { detail: { form: 'calificacion' } }));
       form.style.display = 'none';
       document.getElementById('mensaje-gracias').classList.remove('oculto');
     } catch (err) {
