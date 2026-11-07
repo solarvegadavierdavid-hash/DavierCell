@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="rediseno.css">
   <link rel="stylesheet" href="tienda.css">
   <link rel="stylesheet" href="tema-claro.css">
+  <link rel="stylesheet" href="calificaciones.css">
   <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
   <script src="tema.js"></script>
 </head>
@@ -431,7 +432,7 @@
   <div class="cal-wrap">
     <span class="hero-eyebrow">Lo que dicen nuestros clientes</span>
     <h2>Calificaciones</h2>
-    <p>La satisfacción de nuestros clientes es nuestra mejor carta de presentación. Gracias por confiar en Daviercell.</p>
+    <p>La satisfacción de nuestros clientes es nuestra mejor carta de presentación.</p>
 
     <div class="cal-grid" id="cal-grid">
       <div class="cal-card"><p>Cargando opiniones...</p></div>
@@ -439,7 +440,7 @@
 
     <div class="bloque-calificacion">
       <h3>DAVIERCELL</h3>
-      <p>Califica nuestro servicio</p>
+      <p class="cal-titulo">Califica nuestro servicio</p>
       <form id="form-calificacion">
         <div class="estrellas-calificacion" id="estrellas-container">
           <i class="fas fa-star" onclick="calificar(1)"></i>
@@ -449,10 +450,11 @@
           <i class="fas fa-star" onclick="calificar(5)"></i>
         </div>
         <input type="hidden" id="input-valor" value="0">
-        <input type="text" id="resena-nombre" placeholder="Tu nombre *" minlength="2" maxlength="60" required>
-        <textarea id="resena-comentario" placeholder="Cu&eacute;ntanos tu experiencia *" minlength="5" maxlength="400" required></textarea>
+        <div class="cal-campo"><i class="far fa-user" aria-hidden="true"></i><input type="text" id="resena-nombre" placeholder="Tu nombre *" minlength="2" maxlength="60" required></div>
+        <div class="cal-campo"><i class="far fa-comment-dots" aria-hidden="true"></i><textarea id="resena-comentario" placeholder="Cu&eacute;ntanos tu experiencia *" minlength="5" maxlength="400" required></textarea></div>
         <button type="submit" id="boton-enviar-calificacion">Enviar Calificaci&oacute;n</button>
       </form>
+      <p class="cal-nota"><i class="fas fa-circle-info" aria-hidden="true"></i> Tu opini&oacute;n nos ayuda a seguir mejorando</p>
       <p id="mensaje-gracias" class="oculto">&iexcl;Gracias! Tu opini&oacute;n se publicar&aacute; despu&eacute;s de ser revisada.</p>
     </div>
   </div>

@@ -1,0 +1,94 @@
+/* CALIFICACIONES - tarjetas con fondo propio. Oscuro por defecto; el tema claro cambia las variables */
+#calificaciones {
+  --deco: 300px; --deco-opacidad: .35;
+  --c-fondo: radial-gradient(900px 420px at 50% 0%, #0b2a5c, transparent 70%), #050d1f;
+  --c-tarjeta: rgba(7,22,52,.94); --c-tarjeta-2: rgba(7,22,52,.94); --c-borde: rgba(0,170,255,.35); --c-sombra: 0 0 24px rgba(0,120,255,.22);
+  --c-titulo: #fff; --c-texto: #dce9ff; --c-suave: #9db4d6; --c-acento: #19c8ff;
+  --c-estrella: #ffc83d; --c-estrella-off: #5a6f94; --c-pill: rgba(25,200,255,.14); --c-comilla: rgba(25,200,255,.3);
+  --c-campo: rgba(5,13,31,.85); --c-campo-borde: rgba(0,170,255,.45); --c-icono: #7fa6d6; --c-foco: rgba(25,200,255,.25);
+  --c-boton: linear-gradient(90deg, #0a84ff, #19c8ff); --c-boton-texto: #04122b; --c-boton-sombra: 0 8px 20px rgba(10,132,255,.3);
+  --c-avatar: linear-gradient(135deg, #0a84ff, #19c8ff); --c-avatar-texto: #04122b; --c-linea: linear-gradient(90deg, #0a84ff, #19c8ff);
+}
+html[data-tema="claro"] #calificaciones {
+  --deco-opacidad: 1;
+  --c-fondo: radial-gradient(900px 420px at 50% 0%, #f4f9ff, transparent 70%), linear-gradient(180deg, #e6f1ff 0%, #d6e8ff 55%, #cde2ff 100%);
+  --c-tarjeta: #fff; --c-tarjeta-2: linear-gradient(135deg, #fff, #f1f7ff); --c-borde: rgba(40,120,255,.14); --c-sombra: 0 10px 30px rgba(20,80,180,.12);
+  --c-titulo: #0b1d3f; --c-texto: #1f3358; --c-suave: #5d6f8f; --c-acento: #1672f2;
+  --c-estrella: #f5a900; --c-estrella-off: #f6d98a; --c-pill: #e3efff; --c-comilla: #b9d4fb;
+  --c-campo: #fff; --c-campo-borde: #c3d4ee; --c-icono: #5d78a6; --c-foco: rgba(22,114,242,.18);
+  --c-boton: linear-gradient(90deg, #10c0ff, #0a6cff); --c-boton-texto: #fff; --c-boton-sombra: 0 8px 20px rgba(10,108,255,.3);
+  --c-avatar: linear-gradient(135deg, #0a84ff, #1672f2); --c-avatar-texto: #fff; --c-linea: linear-gradient(90deg, #10c0ff, #0a84ff);
+}
+
+#calificaciones { position: relative; overflow: hidden; color: var(--c-texto); background: var(--c-fondo); }
+#calificaciones::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: var(--deco-opacidad);
+  background: url('img/cal-circuito.svg') left 0 top 24px / var(--deco) auto no-repeat,
+    url('img/cal-celular-atras.svg') right -2% top 6px / var(--deco) auto no-repeat,
+    url('img/cal-celular-frente.svg') left -3% bottom -30px / var(--deco) auto no-repeat,
+    url('img/cal-herramientas.svg') right 2% bottom 6px / var(--deco) auto no-repeat; }
+#calificaciones .cal-wrap { position: relative; z-index: 1; text-align: center; padding-top: 34px; padding-bottom: 56px; }
+
+#calificaciones .hero-eyebrow { display: inline-flex; align-items: center; gap: 16px; color: var(--c-acento); font-size: clamp(.8rem, 1.4vw, 1.15rem); letter-spacing: .5px; }
+#calificaciones .hero-eyebrow::before, #calificaciones .hero-eyebrow::after { content: ""; width: clamp(36px, 8vw, 100px); height: 2px; background: var(--c-acento); }
+#calificaciones .cal-wrap h2 { margin: 4px 0 8px; color: var(--c-titulo); font-size: clamp(2.4rem, 5.4vw, 4.2rem); font-weight: 800; line-height: 1.05; }
+#calificaciones .cal-wrap > p { position: relative; max-width: none; margin: 0 auto 22px; padding-bottom: 20px; color: var(--c-texto); font-size: clamp(1rem, 1.6vw, 1.3rem); }
+#calificaciones .cal-wrap > p::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 100px; height: 5px; margin-left: -50px; border-radius: 99px; background: var(--c-linea); }
+
+/* Resumen y opiniones */
+#calificaciones .cal-grid { display: flex; align-items: stretch; gap: 16px; max-width: 1380px; margin: 0 auto; text-align: left; }
+#calificaciones .cal-score, #calificaciones .cal-card { background: var(--c-tarjeta); border: 1px solid var(--c-borde); border-radius: 20px; padding: 18px 24px; box-shadow: var(--c-sombra); }
+#calificaciones .cal-score { flex: 0 0 clamp(250px, 24%, 372px); text-align: center; background: var(--c-tarjeta-2); }
+#calificaciones .cal-card { position: relative; flex: 1 1 0; min-width: 0; }
+#calificaciones .cal-num { color: var(--c-titulo); font-size: clamp(3rem, 5vw, 4.4rem); font-weight: 800; line-height: 1; }
+#calificaciones .cal-est { margin: 2px 0; color: var(--c-estrella); font-size: 1.5rem; letter-spacing: 4px; }
+#calificaciones .cal-score small { display: block; color: var(--c-texto); font-size: 1rem; font-weight: 500; }
+#calificaciones .cal-pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 6px 24px; border-radius: 999px; background: var(--c-pill); color: var(--c-titulo); font-size: .95rem; font-weight: 600; }
+#calificaciones .cal-pill i { color: var(--c-acento); }
+#calificaciones .cal-user { gap: 14px; margin-bottom: 12px; }
+#calificaciones .cal-av { width: 58px; height: 58px; font-size: 1.5rem; color: var(--c-avatar-texto); background: var(--c-avatar); }
+#calificaciones .cal-card strong { color: var(--c-titulo); font-size: 1.3rem; font-weight: 700; }
+#calificaciones .cal-card .est { color: var(--c-estrella); font-size: 1.15rem; letter-spacing: 2px; }
+#calificaciones .cal-card p { color: var(--c-texto); font-size: 1.1rem; line-height: 1.5; }
+#calificaciones .cal-slide::after { content: "\201D"; position: absolute; top: 4px; right: 24px; color: var(--c-comilla); font: 800 5.2rem/1 Georgia, serif; pointer-events: none; }
+
+/* Formulario */
+#calificaciones .bloque-calificacion { max-width: 840px; width: 100%; margin: 28px auto 0; padding: 26px clamp(18px, 5vw, 40px) 22px; text-align: center;
+  background: var(--c-tarjeta); border: 1px solid var(--c-borde); border-radius: 24px; box-shadow: var(--c-sombra); }
+#calificaciones .bloque-calificacion h3 { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 0; color: var(--c-acento); font-size: 1.7rem; font-weight: 800; letter-spacing: .5px; }
+#calificaciones .bloque-calificacion h3::before, #calificaciones .bloque-calificacion h3::after { content: ""; flex: 1; max-width: 190px; height: 2px; background: var(--c-acento); }
+#calificaciones #form-calificacion { gap: 0; margin-top: 4px; }
+#calificaciones .cal-titulo { margin: 0; color: var(--c-titulo); font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 800; }
+#calificaciones .estrellas-calificacion { gap: clamp(10px, 2.6vw, 26px); margin: 8px 0 16px; }
+#calificaciones .estrellas-calificacion i { color: var(--c-estrella-off); font-size: clamp(2.2rem, 5vw, 3.2rem); filter: drop-shadow(0 2px 3px rgba(245,169,0,.25)); transition: color .2s, transform .2s; }
+#calificaciones .estrellas-calificacion i.activo { color: var(--c-estrella); }
+#calificaciones .estrellas-calificacion:hover i { color: var(--c-estrella); }
+#calificaciones .estrellas-calificacion i:hover ~ i { color: var(--c-estrella-off); }
+#calificaciones .estrellas-calificacion i:hover { transform: scale(1.12); }
+
+#calificaciones .cal-campo { position: relative; margin-bottom: 14px; text-align: left; }
+#calificaciones .cal-campo i { position: absolute; top: 19px; left: 18px; color: var(--c-icono); font-size: 1.15rem; pointer-events: none; }
+#calificaciones .cal-campo input, #calificaciones .cal-campo textarea { display: block; width: 100%; margin: 0; padding: 16px 18px 16px 52px; color: var(--c-titulo); font: inherit; font-size: 1.05rem;
+  background: var(--c-campo); border: 1.5px solid var(--c-campo-borde); border-radius: 12px; box-shadow: none; outline: none; transition: border-color .2s, box-shadow .2s; }
+#calificaciones .cal-campo textarea { min-height: 92px; resize: vertical; }
+#calificaciones .cal-campo input::placeholder, #calificaciones .cal-campo textarea::placeholder { color: var(--c-suave); opacity: 1; }
+#calificaciones .cal-campo input:focus, #calificaciones .cal-campo textarea:focus { border-color: var(--c-acento); box-shadow: 0 0 0 3px var(--c-foco); }
+
+#calificaciones #boton-enviar-calificacion { display: flex !important; align-items: center; justify-content: center; gap: 12px; width: 100%; margin: 4px 0 0; padding: 17px 20px;
+  color: var(--c-boton-texto); font: inherit; font-size: 1.25rem; font-weight: 700; cursor: pointer; background: var(--c-boton); border: 0; border-radius: 14px; box-shadow: var(--c-boton-sombra); }
+#calificaciones #boton-enviar-calificacion::before { content: "\f1d8"; font-family: "Font Awesome 6 Free"; font-weight: 900; }
+#calificaciones #boton-enviar-calificacion:disabled { opacity: .7; cursor: wait; }
+#calificaciones #boton-enviar-calificacion:focus-visible { outline: 3px solid var(--c-titulo); outline-offset: 3px; }
+#calificaciones .cal-nota { display: flex; align-items: center; justify-content: center; text-align: center; gap: 10px; margin: 16px 0 0; color: var(--c-texto); font-size: 1rem; font-weight: 500; }
+#calificaciones .cal-nota i { color: var(--c-acento); font-size: 1.2rem; }
+#calificaciones #mensaje-gracias { margin-top: 12px; color: var(--c-acento); font-size: 1.15rem; }
+
+@media (max-width: 899px) {
+  #calificaciones .cal-grid { flex-direction: column; }
+  #calificaciones .cal-score { flex: 0 0 auto; }
+}
+@media (max-width: 700px) {
+  #calificaciones { --deco: 150px; }
+  #calificaciones::before { opacity: calc(var(--deco-opacidad) * .6); }
+  #calificaciones .cal-slide::after { font-size: 4rem; right: 16px; }
+  #calificaciones .bloque-calificacion h3 { font-size: 1.3rem; }
+}

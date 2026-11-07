@@ -69,7 +69,14 @@ function pintarResenas(grid, resenas) {
   const score = el('div', 'cal-score');
   score.appendChild(el('div', 'cal-num', promedio.toFixed(1)));
   score.appendChild(el('div', 'cal-est', estrellasTexto(Math.round(promedio))));
-  score.appendChild(el('small', '', `(${total} ${total === 1 ? 'opini\u00f3n' : 'opiniones'})`));
+  score.appendChild(el('small', '', `${total} ${total === 1 ? 'opini\u00f3n' : 'opiniones'}`));
+  const premio = el('div', 'cal-pill');
+  const trofeo = document.createElement('i');
+  trofeo.className = 'fas fa-trophy';
+  trofeo.setAttribute('aria-hidden', 'true');
+  premio.appendChild(trofeo);
+  premio.appendChild(document.createTextNode(' Valoraci\u00f3n promedio'));
+  score.appendChild(premio);
   grid.appendChild(score);
 
   const esCelular = window.matchMedia('(max-width: 700px)').matches;
