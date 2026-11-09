@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daviercell.netlify.app/sitemap.xml
