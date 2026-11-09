@@ -80,6 +80,10 @@ html[data-tema="claro"] #calificaciones {
 #calificaciones #boton-enviar-calificacion:focus-visible { outline: 3px solid var(--c-titulo); outline-offset: 3px; }
 #calificaciones .cal-nota { display: flex; align-items: center; justify-content: center; text-align: center; gap: 10px; margin: 16px 0 0; color: var(--c-texto); font-size: 1rem; font-weight: 500; }
 #calificaciones .cal-nota i { color: var(--c-acento); font-size: 1.2rem; }
+#calificaciones .cal-legal { margin: 2px 0 12px; color: var(--c-texto); font-size: .85rem; font-weight: 500; line-height: 1.5; text-align: left; }
+#calificaciones .cal-legal a { color: var(--c-acento); text-decoration: underline; }
+#calificaciones .cal-autoriza { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 14px; color: var(--c-titulo); font-size: .92rem; line-height: 1.4; text-align: left; cursor: pointer; }
+#calificaciones .cal-autoriza input[type="checkbox"] { flex: 0 0 auto; width: 20px; height: 20px; min-width: 20px; margin: 1px 0 0; padding: 0; accent-color: var(--c-acento); box-shadow: none; cursor: pointer; }
 #calificaciones .cal-aviso { margin: 4px 0 12px; padding: 10px 14px; border-radius: 10px; color: #ff6b6b; background: rgba(255,107,107,.12); border: 1px solid rgba(255,107,107,.45); font-size: .98rem; font-weight: 600; text-align: center; }
 html[data-tema="claro"] #calificaciones .cal-aviso { color: #b42318; background: #fdecea; border-color: #f4b4ad; }
 #calificaciones .cal-aviso[hidden] { display: none; }

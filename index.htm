@@ -440,6 +440,10 @@
             <input type="file" id="pqrs-archivos" name="archivos" multiple accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf">
             <small id="pqrs-archivos-msg" class="pqrs-archivos-msg">M&aacute;ximo 3 archivos de 5 MB (JPG, PNG, WebP o PDF).</small>
           </div>
+          <div class="pqrs-legal">
+            <p class="nota-datos">Responsable del tratamiento: Davier David Solar Vega (DAVIERCELL). Usaremos tu nombre, correo, celular y los archivos que adjuntes solo para atender y responder tu solicitud. Responder es voluntario, pero sin los campos marcados con * no podremos atenderla. Puedes conocer, actualizar, rectificar o pedir la supresi&oacute;n de tus datos, o revocar tu autorizaci&oacute;n, escribiendo a solarvegadavierdavid@gmail.com. M&aacute;s informaci&oacute;n en la <a href="#" data-seccion="privacidad">Pol&iacute;tica de Privacidad</a>.</p>
+            <label class="check-autoriza"><input type="checkbox" name="autoriza" required><span>Autorizo el tratamiento de mis datos personales para este fin. *</span></label>
+          </div>
           <button type="submit">Enviar solicitud</button>
         </form>
   </div>
@@ -470,6 +474,8 @@
         <input type="hidden" id="input-valor" value="0">
         <div class="cal-campo"><i class="far fa-user" aria-hidden="true"></i><input type="text" id="resena-nombre" placeholder="Tu nombre *" minlength="2" maxlength="60" required></div>
         <div class="cal-campo"><i class="far fa-comment-dots" aria-hidden="true"></i><textarea id="resena-comentario" placeholder="Cu&eacute;ntanos tu experiencia *" minlength="5" maxlength="400" required></textarea></div>
+        <p class="cal-legal">Tu nombre y tu comentario se publicar&aacute;n en esta p&aacute;gina despu&eacute;s de que los revisemos. Responsable del tratamiento: Davier David Solar Vega (DAVIERCELL). Puedes pedir que actualicemos o retiremos tu rese&ntilde;a escribiendo a solarvegadavierdavid@gmail.com. M&aacute;s informaci&oacute;n en la <a href="#" data-seccion="privacidad">Pol&iacute;tica de Privacidad</a>.</p>
+        <label class="cal-autoriza"><input type="checkbox" id="resena-autoriza" required><span>Autorizo la publicaci&oacute;n de mi nombre y comentario y el tratamiento de mis datos. *</span></label>
         <p id="resena-aviso" class="cal-aviso" role="alert" hidden></p>
         <button type="submit" id="boton-enviar-calificacion">Enviar Calificaci&oacute;n</button>
       </form>
@@ -506,6 +512,7 @@
             <li>Dirección de residencia o entrega, cuando corresponda.</li>
             <li>Marca, modelo y fallas reportadas del dispositivo, y datos de diagnósticos, presupuestos y órdenes de servicio.</li>
             <li>Lo que usted escriba en solicitudes, consultas, peticiones, quejas y reclamos (PQRS).</li>
+            <li>Nombre, calificación y comentario cuando deja una reseña en la sección Calificaciones.</li>
             <li>Datos técnicos y de uso del sitio (páginas vistas, clics en WhatsApp, tipo de dispositivo y ubicación aproximada), solo si usted acepta la analítica.</li>
           </ul>
           <p style="margin-top:12px"><strong>Archivos adjuntos:</strong> en el formulario de PQRS puede adjuntar fotografías y documentos PDF. Pueden contener datos personales y se usan únicamente para atender su solicitud. Se almacenan en un espacio privado, sin acceso público.</p>
@@ -521,9 +528,11 @@
             <li>Comunicarle resultados, controles de calidad, entregas, retiros y envíos.</li>
             <li>Atender garantías, PQRS y reclamaciones.</li>
             <li>Mantener registros administrativos y cumplir obligaciones legales.</li>
+            <li>Publicar, después de revisarlas, las reseñas de nuestros clientes (nombre y comentario) en la sección Calificaciones.</li>
             <li>Prevenir usos indebidos de nuestros servicios.</li>
             <li>Mejorar el sitio con estadísticas de uso, solo si usted acepta la analítica.</li>
           </ul>
+          <p style="margin-top:12px"><strong>Autorización:</strong> al enviar un formulario usted autoriza el tratamiento de sus datos para la finalidad que ese formulario indica. Responder es voluntario; si no completa los campos obligatorios no podremos atender su solicitud. Puede pedir que retiremos su reseña o revocar su autorización en cualquier momento escribiendo a solarvegadavierdavid@gmail.com.</p>
           <p style="margin-top:12px"><strong>Comunicaciones comerciales:</strong> solo le enviaremos ofertas o novedades si usted lo autoriza de forma expresa, y puede retirar esa autorización cuando quiera sin que se afecte la atención de sus solicitudes.</p>
         </article>
 
@@ -555,14 +564,14 @@
           </ul>
           <p style="margin-top:12px"><strong>Qué se mide (solo si acepta):</strong> las secciones y los productos que consulta, los clics en los botones de WhatsApp y los formularios enviados (solo que se enviaron), junto con datos técnicos como el tipo de dispositivo, el navegador, el origen de la visita y la ubicación aproximada.</p>
           <p><strong>Qué no se envía a la analítica:</strong> su nombre, identificación, teléfono, correo, dirección, el contenido de sus solicitudes ni sus fotografías o archivos. Tampoco activamos las señales de Google ni la personalización de anuncios.</p>
-          <p>Google recibe estos datos técnicos y de uso, y puede tratarlos fuera de Colombia (ver panel 06). Los datos de analítica se conservan durante el período configurado en nuestra cuenta de Google Analytics.</p>
+          <p>Google recibe estos datos técnicos y de uso, y puede tratarlos fuera de Colombia (ver panel 06). Los datos de analítica se conservan 14 meses en nuestra cuenta de Google Analytics.</p>
         </article>
 
         <article class="pv-panel">
           <div class="pv-panel-cab"><span class="pv-num">06</span><i class="fas fa-link"></i><h3>Proveedores tecnológicos y terceros</h3></div>
           <p>Para operar el sitio usamos proveedores que pueden tratar información en nuestro nombre:</p>
           <ul class="pv-lista">
-            <li><strong>Infraestructura en la nube:</strong> base de datos, almacenamiento de formularios, reseñas, catálogo y archivos adjuntos, y alojamiento del sitio web. Como en cualquier sitio, el alojamiento recibe datos técnicos de la visita, como la dirección IP.</li>
+            <li><strong>Infraestructura en la nube:</strong> base de datos, almacenamiento de formularios, reseñas, catálogo y archivos adjuntos, y alojamiento del sitio web y de las fotografías de los productos. Como en cualquier sitio, el alojamiento recibe datos técnicos de la visita, como la dirección IP.</li>
             <li><strong>Google Analytics 4 (Google):</strong> medición estadística del uso del sitio, únicamente si usted la autoriza (ver panel 05). Google recibe datos técnicos y de uso de su visita.</li>
             <li><strong>WhatsApp y redes sociales:</strong> canales externos a los que usted accede por voluntad propia; se rigen por sus propias políticas.</li>
           </ul>

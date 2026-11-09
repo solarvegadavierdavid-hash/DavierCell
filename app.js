@@ -273,6 +273,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Enlaces internos declarativos: <a data-seccion="privacidad"> abre esa seccion (sin onclick en linea)
+  document.addEventListener('click', (e) => {
+    const enlace = e.target.closest ? e.target.closest('[data-seccion]') : null;
+    if (!enlace) return;
+    e.preventDefault();
+    mostrarSeccion(enlace.dataset.seccion);
+  });
+
   mostrarSeccion('inicio');
 });
 
