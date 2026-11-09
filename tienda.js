@@ -73,7 +73,7 @@
     try {
       const res = await Promise.all([
         pedir('categorias?select=id,padre_id,nombre,slug,orden&order=orden.asc'),
-        pedir('productos?select=id,categoria_id,codigo,nombre,descripcion_corta,marca,etiquetas,precio,precio_oferta,disponible,stock,imagenes,destacado&order=nombre.asc&limit=1000')
+        pedir('productos?select=id,categoria_id,codigo,nombre,descripcion_corta,marca,etiquetas,precio,precio_oferta,disponible,imagenes,destacado&order=nombre.asc&limit=1000')
       ]);
       estado.categorias = res[0];
       estado.productos = res[1].map(function (p) {
@@ -359,9 +359,9 @@
     if (p.precio_oferta) precio.appendChild(el('s', 'antes', peso.format(p.precio)));
     info.appendChild(precio);
 
-    let disp = 'Disponible';
-    if (!p.disponible) disp = 'Agotado';
-    else if (p.stock !== null && p.stock <= 5) disp = p.stock === 1 ? 'Queda 1 unidad' : 'Quedan ' + p.stock + ' unidades';
+    // La disponibilidad la define el campo "disponible" (se maneja a mano). No se muestra el numero de stock:
+    // la venta se cierra por WhatsApp y nadie lo descuenta solo, asi que un numero se desactualizaria.
+    const disp = p.disponible ? 'Disponible · confirma por WhatsApp' : 'Agotado';
     info.appendChild(el('span', 'tm-disp' + (p.disponible ? '' : ' no'), disp));
 
     const desc = el('div', 'tm-desc', p.descripcion_corta || '');
