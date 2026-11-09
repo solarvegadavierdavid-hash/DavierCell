@@ -1,3 +1,9 @@
 node_modules/
 .env
 *.zip
+
+# Catalogo de proveedor y datos privados: nunca al repositorio ni a Netlify
+IRP_CATALOGO_para_Claude/
+IRP_CATALOGO_paquete/
+catalogo_trabajo/
+.venv/
