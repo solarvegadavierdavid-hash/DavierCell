@@ -80,6 +80,9 @@ html[data-tema="claro"] #calificaciones {
 #calificaciones #boton-enviar-calificacion:focus-visible { outline: 3px solid var(--c-titulo); outline-offset: 3px; }
 #calificaciones .cal-nota { display: flex; align-items: center; justify-content: center; text-align: center; gap: 10px; margin: 16px 0 0; color: var(--c-texto); font-size: 1rem; font-weight: 500; }
 #calificaciones .cal-nota i { color: var(--c-acento); font-size: 1.2rem; }
+#calificaciones .cal-aviso { margin: 4px 0 12px; padding: 10px 14px; border-radius: 10px; color: #ff6b6b; background: rgba(255,107,107,.12); border: 1px solid rgba(255,107,107,.45); font-size: .98rem; font-weight: 600; text-align: center; }
+html[data-tema="claro"] #calificaciones .cal-aviso { color: #b42318; background: #fdecea; border-color: #f4b4ad; }
+#calificaciones .cal-aviso[hidden] { display: none; }
 #calificaciones #mensaje-gracias { margin-top: 12px; color: var(--c-acento); font-size: 1.15rem; }
 
 @media (max-width: 899px) {

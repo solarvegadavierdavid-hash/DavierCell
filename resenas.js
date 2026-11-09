@@ -130,8 +130,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nombre = document.getElementById('resena-nombre').value.trim();
     const comentario = document.getElementById('resena-comentario').value.trim();
     const boton = document.getElementById('boton-enviar-calificacion');
+    const aviso = document.getElementById('resena-aviso');
+    const avisar = (texto) => { aviso.textContent = texto; aviso.hidden = !texto; };
+    avisar('');
 
-    if (!estrellas) { alert('Selecciona de 1 a 5 estrellas.'); return; }
+    if (!estrellas) { avisar('Selecciona de 1 a 5 estrellas.'); return; }
 
     boton.disabled = true;
     boton.textContent = 'Enviando...';
@@ -150,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error enviando resena:', err);
       boton.disabled = false;
       boton.textContent = 'Enviar Calificaci\u00f3n';
-      alert('No se pudo enviar tu calificaci\u00f3n. Intenta de nuevo.');
+      avisar('No se pudo enviar tu calificaci\u00f3n. Intenta de nuevo.');
     }
   });
 });
