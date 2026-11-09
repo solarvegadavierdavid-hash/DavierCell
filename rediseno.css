@@ -46,16 +46,7 @@ html{scroll-behavior:smooth}
 #servicios,#tecnico,#pqrs,#calificaciones{max-width:100%!important;padding:0!important}
 .acento{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sm{padding:10px 22px!important;font-size:.82rem!important}
-
-/* Teléfonos (ilustración SVG) */
-.tel-par{position:relative;width:360px;max-width:100%;height:420px;margin:0 auto}
 .tel{position:absolute;width:200px;height:400px;filter:drop-shadow(0 0 28px rgba(25,200,255,.45))}
-.t1{left:0;top:24px;transform:rotate(-6deg)}
-.t2{left:140px;top:0;transform:rotate(5deg)}
-.tel-par.chico{width:230px;height:250px}
-.chico .tel{width:110px;height:220px}
-.chico .t2{left:90px}
-.interro{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:4.5rem;font-weight:800;color:#fff;text-shadow:0 0 25px var(--cyan);z-index:3}
 
 /* Especialistas */
 .panel-especialistas{max-width:1200px;margin:10px auto 0;padding:40px 20px}
@@ -126,9 +117,6 @@ html{scroll-behavior:smooth}
 .cond-texto p{color:var(--muted);line-height:1.65;margin-bottom:20px}
 .cond-der{display:flex;gap:30px;align-items:center;justify-content:center;flex-wrap:wrap}
 .escudo{width:150px;filter:drop-shadow(0 0 25px rgba(25,200,255,.5))}
-.check-lista{list-style:none;display:grid;gap:12px}
-.check-lista li{color:#e8f1ff;font-size:.88rem;display:flex;gap:10px;align-items:center}
-.check-lista li::before{content:"\f058";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--cyan)}
 
 /* FAQ + PQRS */
 .faq-panel,.pqrs-panel{max-width:1200px;margin:0 auto;padding:36px 20px;display:grid;gap:26px;align-items:start}
@@ -270,7 +258,7 @@ footer .logo-footer{
 #lista-servicios { max-width: none; padding: 0; }
 @media (min-width: 1400px) { #lista-servicios { grid-template-columns: repeat(3, 1fr); } }
 
-.condiciones-menu, .condicion-detalle, .terminos-generales-bloque, .privacidad-tarjeta { max-width: 1400px; }
+.condiciones-menu, .condicion-detalle, .terminos-generales-bloque { max-width: 1400px; }
 .aceptacion-terminos-bloque { max-width: 1100px; }
 .condicion-detalle p, .terminos-generales-bloque p, .terminos-generales-bloque li,
 #privacidad p, #privacidad li { max-width: 130ch; }
@@ -281,7 +269,7 @@ footer .logo-footer{
 
 /* FORMULARIO DE ACEPTACION */
 .t-form-escena { position: relative; z-index: 2; max-width: 1500px; margin: 28px auto 0; padding: 56px clamp(16px, 4vw, 64px); border-radius: 28px; overflow: hidden;
-  background: url('img/fondo-formulario.webp') center / cover no-repeat,
+  background:
     linear-gradient(135deg, rgba(0,140,255,.6) 0, transparent 24%),
     linear-gradient(315deg, rgba(0,140,255,.6) 0, transparent 24%),
     radial-gradient(900px 500px at 50% 0%, rgba(10,110,255,.35), transparent 70%), #031030; }
@@ -320,7 +308,7 @@ footer .logo-footer{
 /* PRIVACIDAD */
 section#privacidad { max-width: none; width: 100%; margin: 0; padding: 0; background: #030c22; }
 #privacidad .pv-escena { padding: clamp(16px, 2.4vw, 48px);
-  background: url('img/fondo-privacidad.webp') center / cover no-repeat,
+  background:
     linear-gradient(120deg, rgba(0,120,255,.5) 0, transparent 18%),
     linear-gradient(300deg, rgba(0,120,255,.55) 0, transparent 20%),
     radial-gradient(1000px 520px at 70% 0, rgba(10,100,255,.35), transparent 70%), #030c22; }

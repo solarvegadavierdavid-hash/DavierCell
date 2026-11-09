@@ -32,8 +32,7 @@ html[data-tema="claro"] .cond-texto h2, html[data-tema="claro"] .cal-num, html[d
 html[data-tema="claro"] #tecnico .tec-info h2, html[data-tema="claro"] #tecnico .porque-wrap h2,
 html[data-tema="claro"] #pqrs h2, html[data-tema="claro"] #calificaciones h2 { color: #0b1d3f; }
 html[data-tema="claro"] .marcas, html[data-tema="claro"] .tec-info h4, html[data-tema="claro"] .firma-tec { color: #3a5580; }
-html[data-tema="claro"] .tec-lista li, html[data-tema="claro"] .tec-cita, html[data-tema="claro"] .check-lista li,
-html[data-tema="claro"] .pqrs-tipos li { color: #16305f; }
+html[data-tema="claro"] .tec-lista li, html[data-tema="claro"] .tec-cita, html[data-tema="claro"] .pqrs-tipos li { color: #16305f; }
 
 /* ---- Tarjetas y paneles ---- */
 html[data-tema="claro"] .hero-stats, html[data-tema="claro"] .esp-grid, html[data-tema="claro"] .serv-card,

@@ -95,10 +95,6 @@ header p {
   font-weight: 700;
 }
 
-
-
-
-
 /* =============================================
    MENÚ HAMBURGUESA (solo celular < 480px)
 ============================================= */
@@ -176,28 +172,6 @@ section h2 {
   padding: 0 0 35px 0;
 }
 
-.hero-davier {
-  position: relative;
-  width: 100%;
-  height: 55vh;
-  min-height: 380px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #050d1f;
-}
-
-.hero-fondo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
 #circuitos-canvas-inicio {
   position: absolute;
   top: 0;
@@ -205,147 +179,6 @@ section h2 {
   width: 100%;
   height: 100%;
   z-index: 0;
-}
-
-.hero-filtro {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.80));
-  z-index: 1;
-}
-
-.hero-contenido {
-  position: absolute;
-  z-index: 2;
-  text-align: center;
-  padding: 0 16px;
-  width: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.hero-contenido h1 {
-  color: #ffffff;
-  font-size: 1.7rem;
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-}
-
-.hero-subtitulo {
-  color: #19c8ff;
-  font-size: 0.9rem;
-  margin-top: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-.descripcion-contenedor-home {
-  max-width: 100%;
-  margin: 30px auto 0 auto;
-  padding: 0 16px;
-}
-
-/* =============================================
-   BANNERS SECUNDARIOS (base = celular 320px)
-============================================= */
-
-.seccion-banner-fijo {
-  position: relative;
-  width: 100%;
-  height: 160px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  border-radius: 10px;
-  border: 1px solid #222222;
-}
-
-.seccion-banner-fijo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.seccion-banner-filtro {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-}
-
-.seccion-banner-pie {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.8);
-  color: #ffffff;
-  padding: 10px;
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-top: 1px solid rgba(25,200,255,0.2);
-}
-
-/* =============================================
-   POR QUÉ ELEGIRNOS (base = celular 320px)
-============================================= */
-
-.porque-iconos-lista p {
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 14px;
-  color: #cccccc;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.check-dorado {
-  color: #19c8ff;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
-/* =============================================
-   PERFIL TÉCNICO (base = celular 320px)
-============================================= */
-
-.perfil-tecnico-bloque {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  text-align: center;
-  background-color: #0a1d3d;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1.5px solid #14407a;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.tecnico-tarjeta-foto {
-  flex-shrink: 0;
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid #19c8ff;
-}
-
-.tecnico-tarjeta-foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* =============================================
@@ -375,39 +208,6 @@ section h2 {
 }
 
 .servicio-card p {
-  color: #cccccc;
-  font-weight: 600;
-  line-height: 1.6;
-  font-size: 0.88rem;
-}
-
-/* =============================================
-   TARJETAS DE GARANTÍA (base = celular 320px)
-============================================= */
-
-.garantia-card {
-  background-color: #0a1d3d;
-  border: 1.5px solid #14407a;
-  border-left: 4px solid #19c8ff;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  transition: transform 0.2s ease;
-}
-
-.garantia-card:hover {
-  transform: translateX(6px);
-}
-
-.garantia-card h3 {
-  color: #19c8ff;
-  font-weight: 800;
-  margin-bottom: 8px;
-  font-size: 1.05rem;
-}
-
-.garantia-card p {
   color: #cccccc;
   font-weight: 600;
   line-height: 1.6;
@@ -497,30 +297,6 @@ footer::before {
   width: 100%;
   height: 1.5px;
   background-color: #14407a;
-}
-
-.footer-top {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.footer-logo img {
-  width: 120px;
-  mix-blend-mode: lighten;
-  margin: 0 auto;
-}
-
-.footer-redes p {
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-  text-align: center;
 }
 
 .redes-iconos {
@@ -725,18 +501,6 @@ footer::before {
   color: #ffffff;
 }
 
-/* =============================================
-   FAQ (base = celular 320px)
-============================================= */
-
-.faq-subtitulo {
-  color: #cccccc;
-  font-weight: 500;
-  margin-bottom: 20px;
-  font-size: 0.88rem;
-  line-height: 1.6;
-}
-
 #lista-faq {
   display: grid;
   grid-template-columns: 1fr;
@@ -783,92 +547,6 @@ footer::before {
   font-size: 0.88rem;
 }
 
-/* =============================================
-   SELECTOR DE EQUIPOS (base = celular 320px)
-============================================= */
-
-.selector-equipos-bloque {
-  text-align: center;
-  margin-top: 30px !important;
-  padding: 0 16px;
-}
-
-.selector-equipos-bloque h2 {
-  font-size: 1.3rem;
-  color: #19c8ff;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-
-.equipos-botones-flex {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  justify-content: center;
-  margin-top: 16px;
-}
-
-.boton-equipo-card {
-  background-color: #0a1d3d;
-  border: 1.5px solid #14407a;
-  border-radius: 12px;
-  padding: 22px 16px;
-  width: 100%;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.boton-equipo-card:hover {
-  transform: translateY(-5px);
-  border-color: #19c8ff;
-  box-shadow: 0 10px 20px rgba(25,200,255,0.1);
-}
-
-.boton-equipo-card i {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-  display: block;
-}
-
-.icono-android { color: #3ddc84; }
-.icono-iphone { color: #ffffff; }
-
-.boton-equipo-card h3 {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 1.15rem;
-  margin-bottom: 6px;
-}
-
-.boton-equipo-card p {
-  color: #aaaaaa;
-  font-weight: 600;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-/* =============================================
-   BLOQUE RESEÑAS (base = celular 320px)
-============================================= */
-
-.bloque-resena-davier {
-  background: #111;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #333;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: center;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.info-negocio { text-align: center; min-width: auto; }
-.info-negocio img { border-radius: 50%; margin-bottom: 10px; border: 2px solid #19c8ff; }
-.sistema-estrellas { flex-grow: 1; width: 100%; }
-
 .estrellas {
   margin: 15px 0;
   display: flex;
@@ -878,20 +556,6 @@ footer::before {
 
 .estrellas i { font-size: 1.9rem; color: #333; cursor: pointer; transition: color 0.3s ease; }
 .estrellas i.activo { color: #19c8ff; }
-
-.sistema-estrellas textarea {
-  width: 100%; padding: 14px; margin-top: 14px; height: 90px;
-  background: #000; border: 1px solid #444; color: #fff;
-  border-radius: 8px; resize: none; font-family: inherit;
-}
-
-.sistema-estrellas button {
-  margin-top: 14px; padding: 12px 22px; background-color: #19c8ff;
-  color: #000; border: none; border-radius: 6px; font-weight: bold;
-  cursor: pointer; transition: background 0.3s; width: 100%;
-}
-
-.sistema-estrellas button:hover { background-color: #fff; }
 
 /* =============================================
    BLOQUE CALIFICACIÓN (base = celular 320px)
@@ -941,8 +605,6 @@ footer::before {
   padding: 0 16px;
 }
 
-#lista-garantias .garantia-card { margin-bottom: 0; }
-
 /* =============================================
    SERVICIOS (base = celular 320px)
 ============================================= */
@@ -957,15 +619,6 @@ footer::before {
 }
 
 #servicios { max-width: 100%; }
-
-#servicios .seccion-banner-fijo {
-  height: 38vh; min-height: 220px;
-  border-radius: 0; border: none; margin-bottom: 24px;
-}
-
-#servicios .seccion-banner-fijo img { object-position: top center; }
-#servicios .seccion-banner-filtro { background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)); }
-#servicios .seccion-banner-pie { font-size: 1rem; font-weight: 800; letter-spacing: 1px; padding: 14px; }
 
 /* =============================================
    BOTÓN FLOTANTE WHATSAPP (base = celular 320px)
@@ -1009,11 +662,6 @@ footer::before {
   padding: 35px 16px; overflow: hidden; background-color: #050d1f;
 }
 
-.tecnico-bg {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center; z-index: 0;
-}
-
 #circuitos-canvas {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
 }
@@ -1023,7 +671,7 @@ footer::before {
   background: rgba(0,0,0,0.5); z-index: 1;
 }
 
-#tecnico h2, #tecnico .perfil-tecnico-bloque {
+#tecnico h2 {
   position: relative; z-index: 2; margin: 0 auto;
 }
 #tecnico h2 { max-width: 100%; }
@@ -1054,23 +702,8 @@ footer::before {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
 }
 
-#porque h2, #porque .seccion-banner-fijo, #porque .porque-iconos-lista {
+#porque h2 {
   position: relative; z-index: 2;
-}
-
-/* =============================================
-   PQRS (base = celular)
-============================================= */
-
-.form-pqrs-grid { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 750px; margin-left: auto; margin-right: auto; margin-top: 20px; }
-.form-pqrs-grid .full-width { grid-column: 1 / -1; }
-
-.boton-pqrs-enviar {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: auto;
-  padding: 8px 10px;
-  font-size: 0.9rem;
 }
 
 #pqrs { padding: 0; max-width: 100%; }
@@ -1079,7 +712,7 @@ footer::before {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
 }
 
-#pqrs h2, #pqrs p, #pqrs .form-pqrs-grid { position: relative; z-index: 2; }
+#pqrs h2, #pqrs p { position: relative; z-index: 2; }
 #pqrs h2, #pqrs > .tecnico-hero-fondo > p { text-align: center; }
 #pqrs p { font-weight: 500; }
 
@@ -1091,15 +724,6 @@ footer::before {
   background-color: #e9e9e9;
   max-width: 100%;
   padding: 30px 16px;
-}
-
-.privacidad-tarjeta {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 30px 24px;
-  max-width: 900px;
-  margin: 0 auto;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
 
 #privacidad h2 {
@@ -1261,18 +885,9 @@ footer::before {
   }
 
   header img { width: 150px; }
-
-  .hero-contenido h1 { font-size: 2.1rem; }
-  .hero-subtitulo { font-size: 1rem; }
-  .equipos-botones-flex { flex-direction: row; }
-  .boton-equipo-card { width: 48%; }
   #lista-faq { grid-template-columns: 1fr 1fr; }
-
-  .footer-top { flex-direction: row; justify-content: space-between; text-align: left; }
-  .footer-redes p { text-align: right; }
   .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
 }
-
 
 /* =============================================================
    BREAKPOINT 2: 768px — Tablets estándar
@@ -1281,29 +896,13 @@ footer::before {
 
   section { padding: 50px 30px; max-width: 900px; }
   section h2 { font-size: 1.6rem; margin-bottom: 26px; }
-  
-  .hero-contenido h1 { font-size: 2.8rem; }
-  .hero-subtitulo { font-size: 1.15rem; }
-  .descripcion-contenedor-home { max-width: 900px; padding: 0 30px; }
-  .seccion-banner-fijo { height: 220px; }
-  .seccion-banner-pie { font-size: 0.85rem; }
-
-  .perfil-tecnico-bloque { flex-direction: row; text-align: left; padding: 30px; }
-  .tecnico-tarjeta-foto { width: 190px; height: 190px; }
   .condiciones-menu { grid-template-columns: 1fr 1fr; padding: 24px; }
 
   #lista-garantias { grid-template-columns: 1fr 1fr; padding: 0 30px; }
   #lista-servicios { grid-template-columns: 1fr 1fr; padding: 0 30px; }
-  #servicios .seccion-banner-fijo { height: 50vh; }
-  #servicios .seccion-banner-pie { font-size: 1.2rem; }
-
-  .form-pqrs-grid { grid-template-columns: 1fr 1fr; }
-  .bloque-resena-davier { flex-direction: row; text-align: left; }
-  .info-negocio { min-width: 160px; }
 
   .boton-whatsapp-flotante { bottom: 110px; right: 22px; width: 55px; height: 55px; font-size: 1.8rem; }
 }
-
 
 /* =============================================================
    BREAKPOINT 3: 1024px — Laptops pequeños
@@ -1318,72 +917,24 @@ footer::before {
   section { padding: 60px 20px; max-width: 1000px; }
   section h2 { font-size: 1.8rem; margin-bottom: 30px; }
 
-  .hero-contenido { text-align: center; padding: 0 60px; }
-  .hero-contenido h1 { font-size: 3.8rem; letter-spacing: -1px; }
-  .hero-subtitulo { font-size: 1.4rem; letter-spacing: 2px; }
-  .descripcion-contenedor-home { max-width: 1000px; padding: 0 20px; }
-
-  .selector-equipos-bloque h2 { font-size: 1.8rem; }
-  .boton-equipo-card { width: 45%; padding: 30px 20px; }
-  .boton-equipo-card i { font-size: 3rem; }
-  .boton-equipo-card h3 { font-size: 1.4rem; }
-  .boton-equipo-card p { font-size: 0.9rem; }
-
   #lista-garantias { grid-template-columns: 1fr 1fr 1fr; padding: 0 60px; }
   #lista-servicios { grid-template-columns: 1fr 1fr; padding: 0 60px; }
-  #servicios .seccion-banner-fijo { height: 75vh; }
-  #servicios .seccion-banner-pie { font-size: 1.5rem; letter-spacing: 2px; padding: 20px; }
 
   .condiciones-menu { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 30px; }
   .boton-whatsapp-flotante { bottom: 200px; }
 }
-
 
 /* =============================================================
    BREAKPOINT 4: 1366px — PC estándar
 ============================================================= */
 @media (min-width: 1366px) {
   section h2 { font-size: 1.9rem; }
-  .hero-contenido h1 { font-size: 4.2rem; }
 }
-
 
 /* =============================================================
    BREAKPOINT 5: 1920px — Monitores grandes
 ============================================================= */
 @media (min-width: 1920px) {
   section { max-width: 1200px; }
-  .descripcion-contenedor-home { max-width: 1200px; }
   #lista-garantias, #lista-servicios { max-width: 1200px; margin: 0 auto; }
-  .hero-contenido h1 { font-size: 4.6rem; }
-}
-
-/* =============================================
-   LLÁMANOS (header)
-============================================= */
-
-.header-llamanos {
-  display: none;
-  align-items: center;
-  gap: 10px;
-  color: #ffffff;
-}
-
-.header-llamanos i {
-  font-size: 1.4rem;
-  color: #19c8ff;
-}
-
-.llamanos-etiqueta {
-  display: block;
-  font-size: 0.75rem;
-  color: #cccccc;
-  font-weight: 500;
-}
-
-.llamanos-numero {
-  display: block;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #ffffff;
 }
