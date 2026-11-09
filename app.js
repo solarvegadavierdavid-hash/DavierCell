@@ -167,6 +167,17 @@ function mostrarCondicion(id) {
   detalle.scrollIntoView({ behavior: 'smooth' });
 }
 
+function toggleTerminos() {
+  const cuerpo = document.getElementById('cond-terminos-completos');
+  const boton = document.getElementById('cond-leer');
+  if (!cuerpo || !boton) return;
+  const abrir = cuerpo.hidden;
+  cuerpo.hidden = !abrir;
+  boton.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+  boton.querySelector('.cond-leer-txt').textContent = abrir ? 'Ocultar términos' : 'Leer términos completos';
+  if (abrir) cuerpo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 function volverMenuCondiciones() {
   const menu = document.querySelector('.condiciones-menu');
   const terminos = document.querySelector('.terminos-generales-bloque');

@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="tienda.css">
   <link rel="stylesheet" href="tema-claro.css">
   <link rel="stylesheet" href="calificaciones.css">
+  <link rel="stylesheet" href="condiciones.css">
   <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
   <script src="tema.js"></script>
 </head>
@@ -235,40 +236,41 @@
 
 <!-- CONDICIONES -->
 <section id="condiciones" class="oculto">
-  <div class="tecnico-hero-fondo">
-    <canvas id="circuitos-canvas-condiciones"></canvas>
+  <div class="tecnico-hero-fondo cond-escena">
+    <canvas id="circuitos-canvas-condiciones" aria-hidden="true"></canvas>
     <div class="tecnico-hero-filtro"></div>
     <div class="cond-intro">
       <div class="cond-texto">
-        <span class="hero-eyebrow">Condiciones de servicio</span>
-        <h2>Todo lo que necesitas saber</h2>
+        <span class="hero-eyebrow"><i class="fas fa-shield-halved" aria-hidden="true"></i> Condiciones de servicio</span>
+        <h2>Todo lo que necesitas <span class="cond-saber">saber</span></h2>
         <p>Para brindarte un servicio transparente y seguro, te invitamos a leer nuestras condiciones. Aquí encontrarás toda la información sobre garantías, tiempos de entrega, políticas de reparación y más.</p>
-        <a class="btn-primario sm" href="#" onclick="document.querySelector('.condiciones-menu').scrollIntoView({behavior:'smooth'});return false;">Ver condiciones completas <i class="fas fa-arrow-right"></i></a>
+        <a class="cond-boton" href="#" onclick="document.querySelector('.condiciones-menu').scrollIntoView({behavior:'smooth'});return false;"><i class="fas fa-book-open" aria-hidden="true"></i> Ver condiciones completas <i class="fas fa-chevron-right" aria-hidden="true"></i></a>
       </div>
       <div class="cond-der">
-        <img class="img-mock" src="img/escudo.png" alt="Garantía">
-        <ul class="check-lista">
-          <li>Garantía en reparaciones</li>
-          <li>Tiempos de entrega</li>
-          <li>Política de repuestos</li>
-          <li>Responsabilidad del cliente</li>
-        </ul>
+        <img class="cond-ilustracion" src="img/cond-celular-escudo.svg" alt="Celular protegido con un escudo de garantía" width="600" height="560">
+        <p class="cond-lema">Tu confianza<br>es nuestra prioridad</p>
       </div>
     </div>
     <div class="condiciones-menu">
-      <span onclick="mostrarCondicion('revision-presupuesto')"><i class="fas fa-file-invoice-dollar"></i> Revisión y presupuesto</span>
-      <span onclick="mostrarCondicion('pago-reparacion')"><i class="fas fa-credit-card"></i> Pago de reparación</span>
-      <span onclick="mostrarCondicion('equipos-abandonados')"><i class="fas fa-mobile-alt"></i> Equipos abandonados</span>
-      <span onclick="mostrarCondicion('reparacion')"><i class="fas fa-tools"></i> Reparación</span>
-      <span onclick="mostrarCondicion('garantia')"><i class="fas fa-shield-alt"></i> Garantía</span>
-      <span onclick="mostrarCondicion('desbloqueo')"><i class="fas fa-lock-open"></i> Desbloqueo</span>
-      <span onclick="mostrarCondicion('revision-calidad')"><i class="fas fa-check-circle"></i> Revisión de calidad</span>
+      <button type="button" class="cond-item" onclick="mostrarCondicion('revision-presupuesto')"><b class="cond-icono"><i class="fas fa-file-circle-check" aria-hidden="true"></i></b><strong class="cond-nombre">Revisión y presupuesto</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" onclick="mostrarCondicion('reparacion')"><b class="cond-icono"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></b><strong class="cond-nombre">Reparación</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" onclick="mostrarCondicion('pago-reparacion')"><b class="cond-icono"><i class="fas fa-credit-card" aria-hidden="true"></i></b><strong class="cond-nombre">Pago de reparación</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" onclick="mostrarCondicion('garantia')"><b class="cond-icono"><i class="fas fa-shield-halved" aria-hidden="true"></i></b><strong class="cond-nombre">Garantía</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" onclick="mostrarCondicion('equipos-abandonados')"><b class="cond-icono"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></b><strong class="cond-nombre">Equipos abandonados</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" onclick="mostrarCondicion('desbloqueo')"><b class="cond-icono"><i class="fas fa-lock" aria-hidden="true"></i></b><strong class="cond-nombre">Desbloqueo</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" onclick="mostrarCondicion('revision-calidad')"><b class="cond-icono"><i class="fas fa-award" aria-hidden="true"></i></b><strong class="cond-nombre">Revisión de calidad</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
     </div>
 
     <div class="terminos-generales-bloque">
-      <h3>DAVIERCELL TÉRMINOS Y CONDICIONES</h3>
-      <p>Al ingresar y autorizar la revisión o reparación de su dispositivo en nuestro centro de servicios en Cartagena, el cliente acepta de manera expresa las siguientes políticas comerciales, operativas y de respaldo, en cumplimiento del Estatuto del Consumidor (Ley 1480 de 2011) y la legislación comercial de Colombia.</p>
-
+      <div class="cond-banner">
+        <div class="cond-banner-icono"><img src="img/cond-documento-escudo.svg" alt="" width="300" height="250"></div>
+        <div class="cond-banner-texto">
+          <h3><span class="cond-marca">Daviercell</span> Términos y Condiciones</h3>
+          <p>Al ingresar y autorizar la revisión o reparación de su dispositivo en nuestro centro de servicios en Cartagena, el cliente acepta de manera expresa las siguientes políticas comerciales, operativas y de respaldo, en cumplimiento del Estatuto del Consumidor (Ley 1480 de 2011) y la legislación comercial de Colombia.</p>
+        </div>
+        <button type="button" id="cond-leer" class="cond-leer" aria-expanded="false" aria-controls="cond-terminos-completos" onclick="toggleTerminos()"><span class="cond-leer-txt">Leer términos completos</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <div id="cond-terminos-completos" class="cond-terminos-completos" hidden>
       <h4>1. Respaldo de Información y Datos Personales</h4>
       <p>Daviercell se enfoca exclusivamente en la reparación física o lógica del dispositivo. No nos hacemos responsables por la pérdida, alteración o borrado de fotos, contactos, aplicaciones o configuraciones que contenga el equipo. Es deber obligatorio del cliente realizar una copia de seguridad (backup) antes de entregar el equipo en nuestro taller.</p>
 
@@ -319,6 +321,7 @@
         <li><strong>Con reemplazo de repuestos:</strong> Se retirarán las piezas nuevas instaladas por nuestro taller para nuestro inventario y se reembolsará el valor parcial correspondiente.</li>
         <li><strong>Retención por gestión:</strong> El 30% restante del valor cobrado no será reembolsable y quedará a favor de Daviercell para cubrir los costos de diagnóstico, horas de trabajo técnico, uso de laboratorios e insumos consumidos.</li>
       </ul>
+      </div>
     </div>
 
 
