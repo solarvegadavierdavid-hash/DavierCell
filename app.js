@@ -94,7 +94,7 @@ const listaFaq = document.getElementById("lista-faq");
 if (listaFaq) {
   faqs.forEach((faq, index) => {
     listaFaq.innerHTML += `
-      <div class="faq-item" onclick="toggleFaq(${index})">
+      <div class="faq-item" data-faq="${index}">
         <div class="faq-pregunta">
           <span>${faq.pregunta}</span>
           <span class="faq-mas">+</span>
@@ -121,7 +121,7 @@ function mostrarSeccion(idSeccion) {
   const enlacesNav = document.querySelectorAll('nav a');
   enlacesNav.forEach(enlace => {
     enlace.classList.remove('activo');
-    if ((enlace.getAttribute('onclick') || '').includes(idSeccion)) { enlace.classList.add('activo'); }
+    if (enlace.dataset.seccion === idSeccion) { enlace.classList.add('activo'); }
   });
 
   if (idSeccion === 'inicio') iniciarCircuitosEn('circuitos-canvas-inicio');
@@ -159,7 +159,7 @@ function mostrarCondicion(id) {
 
   detalle.innerHTML = `
     <div class="condicion-detalle">
-      <span class="volver-condiciones" onclick="volverMenuCondiciones()"><i class="fas fa-arrow-left"></i> Volver al menú</span>
+      <span class="volver-condiciones" data-accion="volver-condiciones"><i class="fas fa-arrow-left"></i> Volver al menú</span>
       <h3>${condicion.titulo}</h3>
       <p>${condicion.texto}</p>
     </div>
@@ -279,6 +279,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!enlace) return;
     e.preventDefault();
     mostrarSeccion(enlace.dataset.seccion);
+  });
+
+  // Resto de acciones declarativas (sin onclick en linea, para poder usar una politica de seguridad estricta)
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest ? e.target.closest('[data-condicion], [data-accion], [data-faq], [data-calificar]') : null;
+    if (!t) return;
+    if (t.dataset.condicion) { mostrarCondicion(t.dataset.condicion); return; }
+    if (t.dataset.faq !== undefined) { toggleFaq(parseInt(t.dataset.faq, 10)); return; }
+    if (t.dataset.calificar) { calificar(parseInt(t.dataset.calificar, 10)); return; }
+    const accion = t.dataset.accion;
+    if (accion === 'menu') toggleMenu();
+    else if (accion === 'terminos') toggleTerminos();
+    else if (accion === 'volver-condiciones') volverMenuCondiciones();
+    else if (accion === 'ir-menu-condiciones') {
+      e.preventDefault();
+      const menu = document.querySelector('.condiciones-menu');
+      if (menu) menu.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 
   mostrarSeccion('inicio');

@@ -75,6 +75,7 @@ html[data-tema="claro"] .cal-av { color: #fff; }
 html[data-tema="claro"] .img-mock { -webkit-mask-image: none; mask-image: none; border-radius: 22px; box-shadow: 0 10px 30px rgba(10,60,160,.25); }
 html[data-tema="claro"] .serv-hero-img::after { display: none; }
 html[data-tema="claro"] .porque-deco { display: none; }
+@media (min-width: 900px) { html[data-tema="claro"] .porque-wrap { display: block; } }
 
 /* ---- Tienda ---- */
 html[data-tema="claro"] #tienda, html[data-tema="claro"] .t-modal { --t-card: #ffffff; --t-borde: rgba(10,100,220,.35); --t-suave: #4a6285; --t-acento: #0a6cff; }

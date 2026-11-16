@@ -1,0 +1,12 @@
+# Archivos que nunca deben poder abrirse desde internet (respuesta 404 forzada)
+/.git/*       /404.html  404!
+/.github/*    /404.html  404!
+/.vscode/*    /404.html  404!
+/.env*        /404.html  404!
+/*.sql        /404.html  404!
+/*.md         /404.html  404!
+/*.key        /404.html  404!
+/*.zip        /404.html  404!
+/*.log        /404.html  404!
+/_privado/*   /404.html  404!
+/netlify.toml /404.html  404!

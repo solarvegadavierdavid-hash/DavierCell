@@ -39,6 +39,8 @@
   <link rel="stylesheet" href="rediseno.css">
   <link rel="stylesheet" href="tienda.css">
   <link rel="stylesheet" href="tema-claro.css">
+  <link rel="stylesheet" href="carrito.css">
+  <link rel="stylesheet" href="cuenta.css">
   <link rel="stylesheet" href="calificaciones.css">
   <link rel="stylesheet" href="condiciones.css">
   <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
@@ -49,17 +51,17 @@
 <header>
   <img class="logo-header" src="img/daviercell.webp" alt="DAVIERCELL" width="800" height="275">
   <button type="button" id="btn-tema" class="btn-tema" aria-label="Cambiar a modo claro" aria-pressed="false" title="Modo claro"><i class="fas fa-sun" aria-hidden="true"></i></button>
-  <button class="menu-hamburguesa" onclick="toggleMenu()">
+  <button class="menu-hamburguesa" data-accion="menu">
     <i class="fas fa-bars"></i>
   </button>
   <nav id="nav-menu">
-    <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
-    <a href="#" onclick="mostrarSeccion('servicios')">Servicios</a>
-    <a href="#" onclick="mostrarSeccion('tienda')">Tienda</a>
-    <a href="#" onclick="mostrarSeccion('tecnico')">Sobre el técnico</a>
-    <a href="#" onclick="mostrarSeccion('condiciones')">Condiciones</a>
-    <a href="#" onclick="mostrarSeccion('pqrs')">PQRS</a>
-    <a href="#" onclick="mostrarSeccion('calificaciones')">Calificaciones</a>
+    <a href="#" data-seccion="inicio">Inicio</a>
+    <a href="#" data-seccion="servicios">Servicios</a>
+    <a href="#" data-seccion="tienda">Tienda</a>
+    <a href="#" data-seccion="tecnico">Sobre el técnico</a>
+    <a href="#" data-seccion="condiciones">Condiciones</a>
+    <a href="#" data-seccion="pqrs">PQRS</a>
+    <a href="#" data-seccion="calificaciones">Calificaciones</a>
     <a class="btn-contactar" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer">Contactar</a>
   </nav>
 </header>
@@ -85,7 +87,7 @@
         </ul>
         <div class="hero-botones">
           <a class="btn-primario" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer">Solicitar servicio</a>
-          <a class="btn-secundario" href="#" onclick="mostrarSeccion('servicios'); return false;">Conocer servicios <i class="fas fa-arrow-right"></i></a>
+          <a class="btn-secundario" href="#" data-seccion="servicios">Conocer servicios <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
       <div class="hero-imagen">
@@ -106,7 +108,7 @@
         <h2>Especialistas en<br><span class="acento">Android y iPhone</span></h2>
         <p>Trabajamos con las principales marcas y modelos del mercado, con repuestos de calidad y atención especializada.</p>
         <div class="hero-botones">
-          <a class="btn-primario sm" href="#" onclick="mostrarSeccion('servicios'); return false;">Ver servicios <i class="fas fa-arrow-right"></i></a>
+          <a class="btn-primario sm" href="#" data-seccion="servicios">Ver servicios <i class="fas fa-arrow-right"></i></a>
           <a class="btn-secundario sm" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20necesito%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer">Contactar ahora</a>
         </div>
       </div>
@@ -142,7 +144,7 @@
 
   <div class="serv-plat">
     <a class="plat-card" href="https://wa.me/573205972997?text=Hola%20DAVIERCELL%2C%20tengo%20un%20Android" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-android" style="color:#3ddc84"></i>
+      <i class="fab fa-android ic-android"></i>
       <div><strong>Android</strong><span>Samsung, Xiaomi, Motorola y más.</span></div>
       <i class="fas fa-arrow-right"></i>
     </a>
@@ -259,7 +261,7 @@
         <span class="hero-eyebrow"><i class="fas fa-shield-halved" aria-hidden="true"></i> Condiciones de servicio</span>
         <h2>Todo lo que necesitas <span class="cond-saber">saber</span></h2>
         <p>Para brindarte un servicio transparente y seguro, te invitamos a leer nuestras condiciones. Aquí encontrarás toda la información sobre garantías, tiempos de entrega, políticas de reparación y más.</p>
-        <a class="cond-boton" href="#" onclick="document.querySelector('.condiciones-menu').scrollIntoView({behavior:'smooth'});return false;"><i class="fas fa-book-open" aria-hidden="true"></i> Ver condiciones completas <i class="fas fa-chevron-right" aria-hidden="true"></i></a>
+        <a class="cond-boton" href="#" data-accion="ir-menu-condiciones"><i class="fas fa-book-open" aria-hidden="true"></i> Ver condiciones completas <i class="fas fa-chevron-right" aria-hidden="true"></i></a>
       </div>
       <div class="cond-der">
         <img class="cond-ilustracion" src="img/cond-celular-escudo.svg" alt="Celular protegido con un escudo de garantía" width="600" height="560">
@@ -267,13 +269,13 @@
       </div>
     </div>
     <div class="condiciones-menu">
-      <button type="button" class="cond-item" onclick="mostrarCondicion('revision-presupuesto')"><b class="cond-icono"><i class="fas fa-file-circle-check" aria-hidden="true"></i></b><strong class="cond-nombre">Revisión y presupuesto</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
-      <button type="button" class="cond-item" onclick="mostrarCondicion('reparacion')"><b class="cond-icono"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></b><strong class="cond-nombre">Reparación</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
-      <button type="button" class="cond-item" onclick="mostrarCondicion('pago-reparacion')"><b class="cond-icono"><i class="fas fa-credit-card" aria-hidden="true"></i></b><strong class="cond-nombre">Pago de reparación</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
-      <button type="button" class="cond-item" onclick="mostrarCondicion('garantia')"><b class="cond-icono"><i class="fas fa-shield-halved" aria-hidden="true"></i></b><strong class="cond-nombre">Garantía</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
-      <button type="button" class="cond-item" onclick="mostrarCondicion('equipos-abandonados')"><b class="cond-icono"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></b><strong class="cond-nombre">Equipos abandonados</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
-      <button type="button" class="cond-item" onclick="mostrarCondicion('desbloqueo')"><b class="cond-icono"><i class="fas fa-lock" aria-hidden="true"></i></b><strong class="cond-nombre">Desbloqueo</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
-      <button type="button" class="cond-item" onclick="mostrarCondicion('revision-calidad')"><b class="cond-icono"><i class="fas fa-award" aria-hidden="true"></i></b><strong class="cond-nombre">Revisión de calidad</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" data-condicion="revision-presupuesto"><b class="cond-icono"><i class="fas fa-file-circle-check" aria-hidden="true"></i></b><strong class="cond-nombre">Revisión y presupuesto</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" data-condicion="reparacion"><b class="cond-icono"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></b><strong class="cond-nombre">Reparación</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" data-condicion="pago-reparacion"><b class="cond-icono"><i class="fas fa-credit-card" aria-hidden="true"></i></b><strong class="cond-nombre">Pago de reparación</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" data-condicion="garantia"><b class="cond-icono"><i class="fas fa-shield-halved" aria-hidden="true"></i></b><strong class="cond-nombre">Garantía</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" data-condicion="equipos-abandonados"><b class="cond-icono"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></b><strong class="cond-nombre">Equipos abandonados</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" data-condicion="desbloqueo"><b class="cond-icono"><i class="fas fa-lock" aria-hidden="true"></i></b><strong class="cond-nombre">Desbloqueo</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
+      <button type="button" class="cond-item" data-condicion="revision-calidad"><b class="cond-icono"><i class="fas fa-award" aria-hidden="true"></i></b><strong class="cond-nombre">Revisión de calidad</strong><b class="cond-ir"><i class="fas fa-arrow-right" aria-hidden="true"></i></b></button>
     </div>
 
     <div class="terminos-generales-bloque">
@@ -283,7 +285,7 @@
           <h3><span class="cond-marca">Daviercell</span> Términos y Condiciones</h3>
           <p>Al ingresar y autorizar la revisión o reparación de su dispositivo en nuestro centro de servicios en Cartagena, el cliente acepta de manera expresa las siguientes políticas comerciales, operativas y de respaldo, en cumplimiento del Estatuto del Consumidor (Ley 1480 de 2011) y la legislación comercial de Colombia.</p>
         </div>
-        <button type="button" id="cond-leer" class="cond-leer" aria-expanded="false" aria-controls="cond-terminos-completos" onclick="toggleTerminos()"><span class="cond-leer-txt">Leer términos completos</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+        <button type="button" id="cond-leer" class="cond-leer" aria-expanded="false" aria-controls="cond-terminos-completos" data-accion="terminos"><span class="cond-leer-txt">Leer términos completos</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></button>
       </div>
       <div id="cond-terminos-completos" class="cond-terminos-completos" hidden>
       <h4>1. Respaldo de Información y Datos Personales</h4>
@@ -366,7 +368,7 @@
             <label for="f-equipo"><i class="fas fa-mobile-screen"></i> Referencia del equipo (Ej: iPhone 13 Pro)</label>
             <div class="entrada"><i class="fas fa-mobile-screen"></i><input id="f-equipo" type="text" name="equipo" required></div>
           </div>
-          <p class="nota-datos full-width">Al enviar este formulario autorizas a DAVIERCELL a tratar tus datos personales (nombre, identificaci&oacute;n, correo, WhatsApp y equipo) para gestionar la recepci&oacute;n y reparaci&oacute;n de tu equipo y contactarte sobre ella. Puedes consultar, actualizar o pedir la eliminaci&oacute;n de tus datos escribi&eacute;ndonos a solarvegadavierdavid@gmail.com. M&aacute;s informaci&oacute;n en la <a href="#" onclick="mostrarSeccion('privacidad'); return false;">Pol&iacute;tica de Privacidad</a>.</p>
+          <p class="nota-datos full-width">Al enviar este formulario autorizas a DAVIERCELL a tratar tus datos personales (nombre, identificaci&oacute;n, correo, WhatsApp y equipo) para gestionar la recepci&oacute;n y reparaci&oacute;n de tu equipo y contactarte sobre ella. Puedes consultar, actualizar o pedir la eliminaci&oacute;n de tus datos escribi&eacute;ndonos a solarvegadavierdavid@gmail.com. M&aacute;s informaci&oacute;n en la <a href="#" data-seccion="privacidad">Pol&iacute;tica de Privacidad</a>.</p>
           <div class="campo-aceptacion full-width">
             <label>&iquest;Aceptas los t&eacute;rminos y condiciones?</label>
             <div class="opciones-acepto">
@@ -465,11 +467,11 @@
       <p class="cal-titulo">Califica nuestro servicio</p>
       <form id="form-calificacion">
         <div class="estrellas-calificacion" id="estrellas-container">
-          <i class="fas fa-star" onclick="calificar(1)"></i>
-          <i class="fas fa-star" onclick="calificar(2)"></i>
-          <i class="fas fa-star" onclick="calificar(3)"></i>
-          <i class="fas fa-star" onclick="calificar(4)"></i>
-          <i class="fas fa-star" onclick="calificar(5)"></i>
+          <i class="fas fa-star" data-calificar="1"></i>
+          <i class="fas fa-star" data-calificar="2"></i>
+          <i class="fas fa-star" data-calificar="3"></i>
+          <i class="fas fa-star" data-calificar="4"></i>
+          <i class="fas fa-star" data-calificar="5"></i>
         </div>
         <input type="hidden" id="input-valor" value="0">
         <div class="cal-campo"><i class="far fa-user" aria-hidden="true"></i><input type="text" id="resena-nombre" placeholder="Tu nombre *" minlength="2" maxlength="60" required></div>
@@ -515,7 +517,7 @@
             <li>Nombre, calificación y comentario cuando deja una reseña en la sección Calificaciones.</li>
             <li>Datos técnicos y de uso del sitio (páginas vistas, clics en WhatsApp, tipo de dispositivo y ubicación aproximada), solo si usted acepta la analítica.</li>
           </ul>
-          <p style="margin-top:12px"><strong>Archivos adjuntos:</strong> en el formulario de PQRS puede adjuntar fotografías y documentos PDF. Pueden contener datos personales y se usan únicamente para atender su solicitud. Se almacenan en un espacio privado, sin acceso público.</p>
+          <p class="mt12"><strong>Archivos adjuntos:</strong> en el formulario de PQRS puede adjuntar fotografías y documentos PDF. Pueden contener datos personales y se usan únicamente para atender su solicitud. Se almacenan en un espacio privado, sin acceso público.</p>
           <p>No solicitamos información personal que no sea necesaria para las finalidades aquí descritas.</p>
         </article>
 
@@ -532,8 +534,8 @@
             <li>Prevenir usos indebidos de nuestros servicios.</li>
             <li>Mejorar el sitio con estadísticas de uso, solo si usted acepta la analítica.</li>
           </ul>
-          <p style="margin-top:12px"><strong>Autorización:</strong> al enviar un formulario usted autoriza el tratamiento de sus datos para la finalidad que ese formulario indica. Responder es voluntario; si no completa los campos obligatorios no podremos atender su solicitud. Puede pedir que retiremos su reseña o revocar su autorización en cualquier momento escribiendo a solarvegadavierdavid@gmail.com.</p>
-          <p style="margin-top:12px"><strong>Comunicaciones comerciales:</strong> solo le enviaremos ofertas o novedades si usted lo autoriza de forma expresa, y puede retirar esa autorización cuando quiera sin que se afecte la atención de sus solicitudes.</p>
+          <p class="mt12"><strong>Autorización:</strong> al enviar un formulario usted autoriza el tratamiento de sus datos para la finalidad que ese formulario indica. Responder es voluntario; si no completa los campos obligatorios no podremos atender su solicitud. Puede pedir que retiremos su reseña o revocar su autorización en cualquier momento escribiendo a solarvegadavierdavid@gmail.com.</p>
+          <p class="mt12"><strong>Comunicaciones comerciales:</strong> solo le enviaremos ofertas o novedades si usted lo autoriza de forma expresa, y puede retirar esa autorización cuando quiera sin que se afecte la atención de sus solicitudes.</p>
         </article>
 
         <article class="pv-panel">
@@ -546,10 +548,10 @@
           <div class="pv-panel-cab"><span class="pv-num">04</span><i class="fas fa-cookie-bite"></i><h3>Cookies y almacenamiento local</h3></div>
           <p>Este sitio guarda pequeñas preferencias en su navegador. Hay dos grupos:</p>
           <ul class="pv-lista">
-            <li><strong>Necesario, siempre activo:</strong> el almacenamiento local (<em>localStorage</em>) recuerda su elección de modo claro u oscuro (<em>dc-tema</em>) y su decisión sobre la analítica (<em>dc-analitica</em>). No es una cookie de seguimiento y no se envía a ningún servidor.</li>
+            <li><strong>Necesario, siempre activo:</strong> el almacenamiento local (<em>localStorage</em>) recuerda su elección de modo claro u oscuro (<em>dc-tema</em>), su decisión sobre la analítica (<em>dc-analitica</em>) y los productos de su carrito de compras (<em>dc-carrito</em>: solo el código y la cantidad de cada producto, nunca datos personales). No es una cookie de seguimiento y no se envía a ningún servidor.</li>
             <li><strong>Analítica, solo con su autorización:</strong> las cookies <em>_ga</em> y <em>_ga_*</em> de Google Analytics. Antes de que usted acepte, no existen. Más detalle en el panel 05.</li>
           </ul>
-          <p style="margin-top:12px">No usamos cookies publicitarias ni de seguimiento entre sitios.</p>
+          <p class="mt12">No usamos cookies publicitarias ni de seguimiento entre sitios.</p>
         </article>
 
         <article class="pv-panel">
@@ -562,7 +564,7 @@
             <li>Si pulsa <strong>Rechazar</strong>, no se mide nada y se eliminan esas cookies si existían.</li>
             <li>Su decisión se recuerda en su propio navegador. Puede cambiarla cuando quiera con el enlace «Preferencias de privacidad» al final de la página.</li>
           </ul>
-          <p style="margin-top:12px"><strong>Qué se mide (solo si acepta):</strong> las secciones y los productos que consulta, los clics en los botones de WhatsApp y los formularios enviados (solo que se enviaron), junto con datos técnicos como el tipo de dispositivo, el navegador, el origen de la visita y la ubicación aproximada.</p>
+          <p class="mt12"><strong>Qué se mide (solo si acepta):</strong> las secciones y los productos que consulta, los clics en los botones de WhatsApp y los formularios enviados (solo que se enviaron), junto con datos técnicos como el tipo de dispositivo, el navegador, el origen de la visita y la ubicación aproximada.</p>
           <p><strong>Qué no se envía a la analítica:</strong> su nombre, identificación, teléfono, correo, dirección, el contenido de sus solicitudes ni sus fotografías o archivos. Tampoco activamos las señales de Google ni la personalización de anuncios.</p>
           <p>Google recibe estos datos técnicos y de uso, y puede tratarlos fuera de Colombia (ver panel 06). Los datos de analítica se conservan 14 meses en nuestra cuenta de Google Analytics.</p>
         </article>
@@ -575,7 +577,7 @@
             <li><strong>Google Analytics 4 (Google):</strong> medición estadística del uso del sitio, únicamente si usted la autoriza (ver panel 05). Google recibe datos técnicos y de uso de su visita.</li>
             <li><strong>WhatsApp y redes sociales:</strong> canales externos a los que usted accede por voluntad propia; se rigen por sus propias políticas.</li>
           </ul>
-          <p style="margin-top:12px">Algunos de estos proveedores pueden procesar información fuera de Colombia. En ese caso, revisamos las condiciones y garantías aplicables a la transmisión o transferencia internacional de datos conforme a la normativa colombiana.</p>
+          <p class="mt12">Algunos de estos proveedores pueden procesar información fuera de Colombia. En ese caso, revisamos las condiciones y garantías aplicables a la transmisión o transferencia internacional de datos conforme a la normativa colombiana.</p>
         </article>
 
         <article class="pv-panel">
@@ -589,7 +591,7 @@
             <li>Revocar la autorización en los casos legalmente permitidos.</li>
             <li>Presentar quejas ante la Superintendencia de Industria y Comercio, una vez agotado el trámite ante nosotros.</li>
           </ul>
-          <p style="margin-top:12px"><strong>Canal:</strong> solarvegadavierdavid@gmail.com. Indique su nombre, un medio de contacto y su solicitud; podemos pedirle información adicional para verificar su identidad.</p>
+          <p class="mt12"><strong>Canal:</strong> solarvegadavierdavid@gmail.com. Indique su nombre, un medio de contacto y su solicitud; podemos pedirle información adicional para verificar su identidad.</p>
           <p><strong>Plazos:</strong> consultas, hasta 10 días hábiles (prorrogables 5 más, informando los motivos). Reclamos completos, hasta 15 días hábiles (prorrogables 8 más, informando los motivos). Los reclamos incompletos se tramitan según la Ley 1581 de 2012.</p>
           <p>No venderemos, cederemos ni distribuiremos su información personal sin su consentimiento, salvo orden judicial o de autoridad competente.</p>
         </article>
@@ -608,7 +610,7 @@
             <li><strong>Dirección:</strong> Principal hacia el barrio El Sucre, Cra. 60 #3-18, 20 de Julio, Cartagena de Indias, Bolívar, Colombia.</li>
             <li><strong>Correo:</strong> solarvegadavierdavid@gmail.com.</li>
           </ul>
-          <p style="margin-top:12px">Podemos actualizar esta política por cambios normativos, tecnológicos u operativos. Las modificaciones se publican en este sitio con su fecha de actualización.</p>
+          <p class="mt12">Podemos actualizar esta política por cambios normativos, tecnológicos u operativos. Las modificaciones se publican en este sitio con su fecha de actualización.</p>
         </article>
       </div>
 
@@ -635,13 +637,13 @@
     </div>
     <div class="foot-col">
       <h4>Enlaces rápidos</h4>
-      <a onclick="mostrarSeccion('inicio')">Inicio</a>
-      <a onclick="mostrarSeccion('servicios')">Servicios</a>
-      <a onclick="mostrarSeccion('tienda')">Tienda</a>
-      <a onclick="mostrarSeccion('tecnico')">Sobre el técnico</a>
-      <a onclick="mostrarSeccion('condiciones')">Condiciones</a>
-      <a onclick="mostrarSeccion('pqrs')">PQRS</a>
-      <a onclick="mostrarSeccion('calificaciones')">Calificaciones</a>
+      <a data-seccion="inicio">Inicio</a>
+      <a data-seccion="servicios">Servicios</a>
+      <a data-seccion="tienda">Tienda</a>
+      <a data-seccion="tecnico">Sobre el técnico</a>
+      <a data-seccion="condiciones">Condiciones</a>
+      <a data-seccion="pqrs">PQRS</a>
+      <a data-seccion="calificaciones">Calificaciones</a>
     </div>
     <div class="foot-col">
       <h4>Contacto</h4>
@@ -652,9 +654,19 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 DAVIERCELL. Todos los derechos reservados.</p>
-    <a href="#" onclick="mostrarSeccion('privacidad')">Políticas de Privacidad y Tratamiento de Datos</a>
+    <p>© 2026 DAVIERCELL. Todos los derechos reservados. Desarrollado por Davier Inge.</p>
+    <a href="#" data-seccion="privacidad">Políticas de Privacidad y Tratamiento de Datos</a>
     <a href="#" id="pref-privacidad" hidden>Preferencias de privacidad</a>
+    <a href="#" id="mi-cuenta" hidden>Iniciar sesión</a>
+  </div>
+  <div class="foot-pagos">
+    <ul>
+      <li class="pse" aria-label="PSE" title="PSE">PSE</li>
+      <li aria-label="Bitcoin" title="Bitcoin"><i class="fab fa-bitcoin ic-btc" aria-hidden="true"></i><span>bitcoin</span></li>
+      <li aria-label="Visa" title="Visa"><i class="fab fa-cc-visa ic-visa" aria-hidden="true"></i></li>
+      <li aria-label="Mastercard" title="Mastercard"><i class="fab fa-cc-mastercard ic-mc" aria-hidden="true"></i></li>
+      <li class="wompi" aria-label="Wompi" title="Wompi">wompi</li>
+    </ul>
   </div>
 </footer>
 
@@ -664,9 +676,12 @@
   <i class="fab fa-whatsapp"></i>
 </a>
 
+<script src="config.js"></script>
 <script src="app.js"></script>
 <script src="pqrs-archivos.js"></script>
 <script src="resenas.js"></script>
+<script src="carrito.js"></script>
+<script src="cuenta.js"></script>
 <script src="tienda.js"></script>
 <script src="analitica.js"></script>
 

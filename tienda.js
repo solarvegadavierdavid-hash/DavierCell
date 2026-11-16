@@ -196,6 +196,15 @@
     const pr = el('div', 't-precio');
     pr.appendChild(el('strong', '', peso.format(precioFinal(p))));
     if (p.precio_oferta) pr.appendChild(el('s', '', peso.format(p.precio)));
+    if (p.disponible && window.DCCarrito) {
+      const add = el('button', 't-add');
+      add.type = 'button';
+      add.setAttribute('aria-label', 'Agregar ' + p.nombre + ' al carrito');
+      add.title = 'Agregar al carrito';
+      add.appendChild(window.DCCarrito.imagen());
+      add.addEventListener('click', function () { window.DCCarrito.agregar(p, add); });
+      pr.appendChild(add);
+    }
     info.appendChild(pr);
     const ver = el('button', 't-ver');
     ver.type = 'button';
@@ -236,7 +245,7 @@
 
     function tope() {
       const r = img.naturalWidth && img.clientWidth ? img.naturalWidth / img.clientWidth : base;
-      return Math.max(1.5, Math.min(4, r * 1.6));
+      return Math.max(1.5, Math.min(3, r * 1.6));
     }
     function mover(e) {
       const r = caja.getBoundingClientRect();
@@ -274,7 +283,7 @@
       caja.addEventListener('wheel', function (e) {
         if (!activo) return;
         e.preventDefault();
-        escala = Math.max(1.4, Math.min(tope(), escala + (e.deltaY < 0 ? 0.3 : -0.3)));
+        escala = Math.max(1.3, Math.min(tope(), escala + (e.deltaY < 0 ? 0.2 : -0.2)));
         img.style.transform = 'scale(' + escala.toFixed(2) + ')';
         mover(e);
       }, { passive: false });
@@ -333,7 +342,7 @@
     const zona = el('div', 'tm-zoom');
     zona.appendChild(principal);
     galeria.appendChild(zona);
-    activarZoom(zona, principal, 2.4, true, true);
+    activarZoom(zona, principal, 1.7, true, true);
     const fotos = (p.imagenes || []).filter(urlSegura).slice(0, 8);
     if (fotos.length > 1) {
       const minis = el('div', 'tm-minis');
@@ -366,6 +375,14 @@
 
     const desc = el('div', 'tm-desc', p.descripcion_corta || '');
     info.appendChild(desc);
+    if (p.disponible && window.DCCarrito) {
+      const agregar = el('button', 'tm-agregar');
+      agregar.type = 'button';
+      agregar.appendChild(window.DCCarrito.imagen());
+      agregar.appendChild(document.createTextNode(' Agregar al carrito'));
+      agregar.addEventListener('click', function () { window.DCCarrito.agregar(p, agregar); });
+      info.appendChild(agregar);
+    }
     const wa = el('a', 'btn-primario', 'Consultar por WhatsApp');
     wa.href = enlaceWhatsApp(p);
     wa.target = '_blank';

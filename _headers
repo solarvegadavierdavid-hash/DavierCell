@@ -1,0 +1,12 @@
+# Cabeceras de seguridad de DAVIERCELL (Netlify las aplica a todo el sitio).
+# Si algun dia se agrega un servicio externo, hay que anadirlo aqui o el navegador lo bloqueara.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://challenges.cloudflare.com; style-src 'self'; img-src 'self' data: https://fpqdtuyoujlodjqvpzkz.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://fpqdtuyoujlodjqvpzkz.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), accelerometer=(), gyroscope=(), magnetometer=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  X-Permitted-Cross-Domain-Policies: none

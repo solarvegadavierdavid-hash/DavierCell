@@ -126,6 +126,18 @@
     evento('view_products', { item_id: d.codigo, item_name: d.nombre, item_category: d.categoria });
   });
 
+  // Carrito: eventos estandar de GA4 (add_to_cart y begin_checkout), tambien solo con autorizacion
+  document.addEventListener('daviercell:carrito', function (e) {
+    const d = e.detail || {};
+    if (d.accion === 'agregar') {
+      evento('add_to_cart', { currency: 'COP', value: d.precio, items: [{ item_id: d.codigo, item_name: d.nombre, price: d.precio, quantity: 1 }] });
+    } else if (d.accion === 'checkout') {
+      evento('begin_checkout', { currency: 'COP', value: d.valor, items: (d.productos || []).map(function (x) {
+        return { item_id: x.codigo, item_name: x.nombre, price: x.precio, quantity: x.cantidad };
+      }) });
+    }
+  });
+
   document.addEventListener('click', function (e) {
     const a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
     if (!a) return;

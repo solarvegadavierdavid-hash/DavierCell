@@ -1,0 +1,51 @@
+/* CUENTAS DE CLIENTES DAVIERCELL - ventana de registro / ingreso / perfil (se carga despues de tema-claro.css) */
+.ct-modal { --t-borde: rgba(30,130,255,.55); --t-suave: #9db4d6; --t-acento: #17c5f6; --t-oferta: #ff5a5f;
+  position: fixed; inset: 0; z-index: 10002; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.ct-modal[hidden] { display: none !important; }
+.ct-fondo { position: absolute; inset: 0; background: rgba(2,8,22,.85); animation: ct-fade .2s ease both; }
+.ct-caja { position: relative; width: 100%; max-width: 440px; max-height: 92vh; overflow-y: auto; padding: 26px 24px 22px;
+  background: #061431; color: #e9f1ff; border: 1px solid var(--t-borde); border-radius: 22px; box-shadow: 0 0 40px rgba(0,120,255,.35); animation: ct-sube .25s ease both; }
+.ct-caja h2 { margin: 0 28px 6px 0; padding: 0; font-size: 1.4rem; color: inherit; }
+.ct-sub { margin: 0 0 14px; color: var(--t-suave); font-size: .9rem; line-height: 1.5; }
+.ct-cerrar { position: absolute; top: 10px; right: 14px; background: none; border: 0; color: inherit; font-size: 2rem; line-height: 1; cursor: pointer; border-radius: 8px; }
+.ct-form { display: flex; flex-direction: column; gap: 12px; }
+.ct-fila { display: flex; flex-direction: column; gap: 5px; }
+.ct-fila label { font-size: .85rem; font-weight: 600; }
+.ct-fila input { height: 44px; padding: 0 14px; background: rgba(2,10,26,.8); color: inherit; border: 1px solid var(--t-borde); border-radius: 12px; font: inherit; font-size: 1rem; }
+.ct-fila input:focus, .ct-check input:focus-visible { outline: 3px solid #17c5f6; outline-offset: 1px; }
+.ct-fila small { color: var(--t-suave); font-size: .78rem; }
+.ct-check { display: flex; align-items: flex-start; gap: 10px; font-size: .82rem; line-height: 1.45; color: var(--t-suave); }
+.ct-check input { margin-top: 3px; width: 18px; height: 18px; flex: 0 0 auto; accent-color: #17c5f6; }
+.ct-check a { color: #19e0ff; text-decoration: underline; }
+.ct-captcha { display: flex; justify-content: center; min-height: 66px; }
+.ct-aviso { margin: 0 0 12px; padding: 10px 14px; border-radius: 10px; font-size: .88rem; line-height: 1.45; }
+.ct-aviso.error { background: rgba(255,90,95,.14); color: #ffb3b5; border: 1px solid rgba(255,90,95,.5); }
+.ct-aviso.ok { background: rgba(25,195,125,.14); color: #8bf0c0; border: 1px solid rgba(25,195,125,.5); }
+.ct-aviso a { color: inherit; text-decoration: underline; font-weight: 700; }
+.ct-aviso[hidden] { display: none !important; }
+.ct-btn { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border: 0; border-radius: 999px; cursor: pointer;
+  background: linear-gradient(90deg, #17c5f6, #0a7bff); color: #031230; font: inherit; font-weight: 700; transition: filter .2s; }
+.ct-btn:hover { filter: brightness(1.1); }
+.ct-btn:disabled { opacity: .55; cursor: wait; }
+.ct-btn.sec { background: rgba(10,90,220,.3); color: inherit; border: 1px solid var(--t-borde); }
+.ct-btn.peligro { background: transparent; color: #ff8a8e; border: 1px solid rgba(255,90,95,.55); }
+.ct-btn.peligro:hover { background: rgba(255,90,95,.15); }
+.ct-acciones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ct-pie { margin: 2px 0 0; text-align: center; color: var(--t-suave); font-size: .85rem; overflow-wrap: anywhere; }
+.ct-link { background: none; border: 0; padding: 0; color: #19e0ff; font: inherit; text-decoration: underline; cursor: pointer; }
+.ct-cerrar:focus-visible, .ct-btn:focus-visible, .ct-link:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+@keyframes ct-fade { from { opacity: 0; } }
+@keyframes ct-sube { from { opacity: 0; transform: translateY(14px); } }
+@media (max-width: 480px) { .ct-caja { padding: 22px 16px 18px; } .ct-acciones { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ct-fondo, .ct-caja { animation: none; } }
+
+/* Tema claro */
+html[data-tema="claro"] .ct-modal { --t-borde: rgba(10,100,220,.35); --t-suave: #4a6285; --t-acento: #0a6cff; }
+html[data-tema="claro"] .ct-caja { background: #fff; color: #0b1d3f; box-shadow: 0 0 40px rgba(10,60,160,.3); }
+html[data-tema="claro"] .ct-fondo { background: rgba(10,29,63,.55); }
+html[data-tema="claro"] .ct-fila input { background: #f4f8ff; color: #0b1d3f; }
+html[data-tema="claro"] .ct-check a, html[data-tema="claro"] .ct-link { color: #0a6cff; }
+html[data-tema="claro"] .ct-btn.sec { background: #eaf2ff; color: #0a6cff; }
+html[data-tema="claro"] .ct-aviso.error { color: #a31b21; }
+html[data-tema="claro"] .ct-aviso.ok { color: #12704a; }
+html[data-tema="claro"] .ct-btn.peligro { color: #c0262d; }

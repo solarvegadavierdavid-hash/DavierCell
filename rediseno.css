@@ -171,6 +171,20 @@ footer.foot2{background:#040a18;padding:36px 20px 20px}
 .foot2 .redes-iconos{justify-content:flex-start}
 .foot2 .redes-iconos a{background:transparent;color:var(--cyan);border:1px solid var(--line)}
 .foot2 .footer-bottom{max-width:1200px;margin:0 auto}
+/* Medios de pago (esquina derecha del pie; el cobro se coordina por WhatsApp) */
+.foot-pagos{max-width:var(--ancho-max,1200px);margin:16px auto 0;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.foot-pagos ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px}
+.foot-pagos li{display:flex;align-items:center;justify-content:center;gap:6px;min-width:76px;height:42px;padding:0 12px;background:#fff;border:1px solid #e1e6ef;border-radius:6px;color:#111;font-weight:800;font-size:.9rem}
+.foot-pagos li i{font-size:1.9rem}
+.foot-pagos li.pse{color:#0b4ea2;letter-spacing:1px;font-size:1.05rem}
+/* Clases que reemplazan estilos en linea (necesario para una politica de seguridad estricta) */
+.mt12{margin-top:12px}
+.ic-android{color:#3ddc84}
+.foot-pagos .ic-btc{color:#f7931a}
+.foot-pagos .ic-visa{color:#1a1f71}
+.foot-pagos .ic-mc{color:#eb001b}
+.foot-pagos li.wompi{font-size:1.1rem;letter-spacing:-.3px}
+@media(max-width:600px){.foot-pagos{align-items:center;text-align:center}.foot-pagos ul{justify-content:center}}
 
 /* ==== imagenes del mockup ==== */
 .img-mock{display:block;max-width:100%;height:auto;-webkit-mask-image:radial-gradient(ellipse at center,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 60%,transparent 100%)}
@@ -181,7 +195,15 @@ footer.foot2{background:#040a18;padding:36px 20px 20px}
 .serv-hero-img .img-mock{width:100%;height:100%;min-height:220px;object-fit:cover;-webkit-mask-image:none;mask-image:none}
 .porque-wrap{position:relative}
 .porque-deco{display:none}
-@media(min-width:900px){.porque-deco{display:block;position:absolute;right:20px;top:-10px;width:300px;opacity:.9}}
+@media(min-width:900px){
+  /* Texto a la izquierda, foto a la derecha en su propia columna y tarjetas debajo: la foto ya no se monta sobre las tarjetas */
+  .porque-wrap{display:grid;grid-template-columns:minmax(0,1fr) clamp(280px,30vw,380px);column-gap:32px;grid-template-rows:auto auto 1fr auto;align-items:start}
+  .porque-deco{display:block;position:static;grid-column:2;grid-row:1 / span 3;align-self:center;width:100%;opacity:.9}
+  .porque-wrap>.hero-eyebrow{grid-column:1;grid-row:1;justify-self:start}
+  .porque-wrap>h2{grid-column:1;grid-row:2}
+  .porque-wrap>p{grid-column:1;grid-row:3}
+  .porque-wrap>.porque-grid{grid-column:1 / -1;grid-row:4}
+}
 
 /* ==== Logo DAVIERCELL ==== */
 header .logo-header{
@@ -246,7 +268,6 @@ footer .logo-footer{
 .esp-img .img-mock { max-width: 600px; }
 .faq-der .img-mock { max-width: 520px; }
 .cond-der .img-mock { width: 240px; }
-@media (min-width: 900px) { .porque-deco { width: 380px; } }
 
 @media (min-width: 800px) {
   .serv-hero { grid-template-columns: 1fr minmax(0, 840px); gap: 48px; }
