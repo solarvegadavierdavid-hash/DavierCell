@@ -119,8 +119,11 @@
   .t-banner { aspect-ratio: 870 / 178; border-radius: 14px; }
   .t-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .t-principal { padding: 14px; }
-  .t-beneficios { gap: 10px; }
-  .t-ben { padding: 10px 12px; font-size: .8rem; }
+  /* Celular: las 4 cajitas iguales (misma altura y misma letra); icono arriba y texto centrado
+     para que el texto use todo el ancho y no se alargue una sola caja */
+  .t-beneficios { gap: 10px; grid-auto-rows: 1fr; }
+  .t-ben { flex-direction: column; justify-content: center; text-align: center; gap: 6px; padding: 12px 10px; min-height: 0; font-size: .8rem; }
+  .t-ben i { width: auto; font-size: 1.35rem; }
 }
 @media (prefers-reduced-motion: reduce) { .t-card { animation: none; transition: none; } }
 
