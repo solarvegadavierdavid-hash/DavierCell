@@ -1,3 +1,7 @@
+# Dominio propio: la direccion vieja de Netlify lleva a daviercell.com (301 permanente, conserva la ruta).
+# Va primero para que Google traslade el posicionamiento al dominio nuevo.
+https://daviercell.netlify.app/*  https://daviercell.com/:splat  301!
+
 # Archivos que nunca deben poder abrirse desde internet (respuesta 404 forzada)
 /.git/*       /404.html  404!
 /.github/*    /404.html  404!
