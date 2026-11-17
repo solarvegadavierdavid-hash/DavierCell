@@ -107,8 +107,16 @@
   .t-beneficios { grid-template-columns: repeat(2, 1fr); }
   .t-modal-cuerpo { grid-template-columns: 1fr; }
 }
+/* Banner por tamano de pantalla: la imagen siempre llena la altura y se recorta solo por la derecha,
+   asi el carrito y "Tienda DavierCell" nunca se cortan.
+   - PC (>1024): banner completo.
+   - Tablet (601-1024): carrito + texto + celular, para que las letras no queden diminutas.
+   - Celular (<=600): solo carrito + "Tienda DavierCell" + texto. */
+@media (max-width: 1024px) {
+  .t-banner { aspect-ratio: 1185 / 178; min-height: 0; background-size: auto 100%; background-position: left center; }
+}
 @media (max-width: 600px) {
-  .t-banner { aspect-ratio: auto; min-height: 120px; background-position: 12% center; border-radius: 18px; }
+  .t-banner { aspect-ratio: 870 / 178; border-radius: 14px; }
   .t-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .t-principal { padding: 14px; }
   .t-beneficios { gap: 10px; }
