@@ -74,7 +74,10 @@
         pedir('productos?select=id,categoria_id,codigo,nombre,descripcion_corta,marca,etiquetas,precio,precio_oferta,disponible,imagenes,destacado&order=nombre.asc&limit=1000')
       ]);
       estado.categorias = res[0];
-      estado.productos = res[1].map(function (p) {
+      // Solo productos cuya categoria esta activa (la base ya oculta las categorias desactivadas)
+      const activas = {};
+      estado.categorias.forEach(function (c) { activas[c.id] = true; });
+      estado.productos = res[1].filter(function (p) { return activas[p.categoria_id]; }).map(function (p) {
         p.busqueda = norm([p.nombre, p.marca, p.codigo, (p.etiquetas || []).join(' ')].join(' '));
         return p;
       });
