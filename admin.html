@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Panel | DAVIERCELL</title>
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="stylesheet" href="fonts/fuentes.css">
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="ad-top">
+    <div class="ad-marca"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> DAVIERCELL <span>Panel</span></div>
+    <nav class="ad-tabs" id="ad-tabs" hidden>
+      <button type="button" class="ad-tab activo" data-tab="productos"><i class="fas fa-box" aria-hidden="true"></i> Productos</button>
+      <button type="button" class="ad-tab" data-tab="categorias"><i class="fas fa-sitemap" aria-hidden="true"></i> Categorías</button>
+      <button type="button" class="ad-tab" data-tab="resenas"><i class="fas fa-star" aria-hidden="true"></i> Reseñas <b id="ad-pend" hidden></b></button>
+    </nav>
+    <div class="ad-usuario">
+      <a href="/" target="_blank" rel="noopener" class="ad-link"><i class="fas fa-store" aria-hidden="true"></i> Ver tienda</a>
+      <span id="ad-correo"></span>
+      <button type="button" id="ad-salir" class="ad-btn sec" hidden>Salir</button>
+    </div>
+  </header>
+
+  <main class="ad-main">
+    <p id="ad-cargando" class="ad-centro">Cargando…</p>
+
+    <!-- Ingreso -->
+    <section id="v-login" class="ad-caja" hidden>
+      <h1>Ingreso de administrador</h1>
+      <p class="ad-sub">Solo para el dueño de la tienda.</p>
+      <form id="f-login" class="ad-form">
+        <label>Correo<input type="email" id="l-email" autocomplete="username" required maxlength="120"></label>
+        <label>Contraseña<input type="password" id="l-pass" autocomplete="current-password" required maxlength="72"></label>
+        <div id="l-captcha" class="ad-captcha"></div>
+        <button type="submit" class="ad-btn">Entrar</button>
+        <p class="ad-nota">¿Olvidaste la contraseña? Recupérala desde la tienda: pie de página → Iniciar sesión → Olvidé mi contraseña.</p>
+      </form>
+    </section>
+
+    <!-- 2FA -->
+    <section id="v-2fa" class="ad-caja" hidden>
+      <h1 id="m-titulo">Verificación en dos pasos</h1>
+      <div id="m-alta" hidden>
+        <p class="ad-sub">Primera vez: escanea este código con Google Authenticator o Microsoft Authenticator.</p>
+        <img id="m-qr" class="ad-qr" alt="Código QR para la app de autenticación" width="200" height="200">
+        <p class="ad-nota">¿No puedes escanear? Escribe esta clave en la app: <code id="m-secreto"></code></p>
+      </div>
+      <p id="m-pide" class="ad-sub" hidden>Escribe el código de 6 dígitos que muestra tu app.</p>
+      <form id="f-2fa" class="ad-form">
+        <label>Código<input type="text" id="m-codigo" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required></label>
+        <button type="submit" class="ad-btn">Verificar</button>
+      </form>
+    </section>
+
+    <!-- Sin permiso -->
+    <section id="v-no" class="ad-caja" hidden>
+      <h1>Sin permiso</h1>
+      <p class="ad-sub">Esta cuenta no es administradora de la tienda.</p>
+    </section>
+
+    <!-- Panel -->
+    <section id="v-panel" hidden>
+      <!-- PRODUCTOS -->
+      <div id="t-productos" class="ad-tabpanel">
+        <div class="ad-barra">
+          <div class="ad-buscar"><i class="fas fa-magnifying-glass" aria-hidden="true"></i><input type="search" id="p-buscar" placeholder="Buscar por nombre, código o marca" maxlength="60" aria-label="Buscar productos"></div>
+          <select id="p-cat" aria-label="Filtrar por categoría"></select>
+          <select id="p-estado" aria-label="Filtrar por estado">
+            <option value="todos">Todos</option>
+            <option value="visibles">Visibles en la tienda</option>
+            <option value="ocultos">Ocultos</option>
+            <option value="agotados">Agotados</option>
+            <option value="oferta">En oferta</option>
+            <option value="destacados">Destacados</option>
+            <option value="sinfoto">Sin foto</option>
+          </select>
+          <button type="button" id="p-nuevo" class="ad-btn"><i class="fas fa-plus" aria-hidden="true"></i> Nuevo producto</button>
+          <button type="button" id="p-exportar" class="ad-btn sec"><i class="fas fa-file-export" aria-hidden="true"></i> Exportar CSV</button>
+        </div>
+        <p id="p-resumen" class="ad-resumen"></p>
+        <div id="p-lista" class="ad-lista"></div>
+        <div class="ad-paginas" id="p-paginas" hidden>
+          <button type="button" id="p-ant" class="ad-btn sec" aria-label="Página anterior">‹</button>
+          <span id="p-pag"></span>
+          <button type="button" id="p-sig" class="ad-btn sec" aria-label="Página siguiente">›</button>
+        </div>
+      </div>
+
+      <!-- CATEGORIAS -->
+      <div id="t-categorias" class="ad-tabpanel" hidden>
+        <div class="ad-barra">
+          <p class="ad-sub">Los productos se asignan a una subcategoría. Las categorías desactivadas no se muestran en la tienda.</p>
+          <button type="button" id="c-nueva" class="ad-btn"><i class="fas fa-plus" aria-hidden="true"></i> Nueva categoría principal</button>
+        </div>
+        <div id="c-lista"></div>
+      </div>
+
+      <!-- RESENAS -->
+      <div id="t-resenas" class="ad-tabpanel" hidden>
+        <div class="ad-barra">
+          <select id="r-filtro" aria-label="Filtrar reseñas">
+            <option value="pendientes">Pendientes de aprobar</option>
+            <option value="aprobadas">Publicadas</option>
+            <option value="todas">Todas</option>
+          </select>
+        </div>
+        <div id="r-lista" class="ad-resenas"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Editor de producto -->
+  <div id="ed" class="ad-modal" hidden>
+    <div class="ad-fondo" data-cerrar></div>
+    <div class="ad-dialogo" role="dialog" aria-modal="true" aria-labelledby="ed-titulo">
+      <button type="button" class="ad-x" data-cerrar aria-label="Cerrar">×</button>
+      <h2 id="ed-titulo">Producto</h2>
+      <form id="f-ed" class="ad-form ad-grid">
+        <label>Código<input type="text" id="e-codigo" required pattern="[A-Za-z0-9\-]{3,24}" maxlength="24"></label>
+        <label class="ancho">Nombre<input type="text" id="e-nombre" required minlength="2" maxlength="140"></label>
+        <label>Categoría<select id="e-cat" required></select></label>
+        <label>Marca<input type="text" id="e-marca" maxlength="60"></label>
+        <label>Precio (COP)<input type="number" id="e-precio" required min="1" step="1" inputmode="numeric"></label>
+        <label>Precio de oferta (opcional)<input type="number" id="e-oferta" min="1" step="1" inputmode="numeric"></label>
+        <label>Stock interno (opcional, no se muestra)<input type="number" id="e-stock" min="0" step="1" inputmode="numeric"></label>
+        <div class="ad-checks ancho">
+          <label class="ad-check"><input type="checkbox" id="e-disp"> Disponible (si no, sale "Agotado")</label>
+          <label class="ad-check"><input type="checkbox" id="e-activo"> Visible en la tienda</label>
+          <label class="ad-check"><input type="checkbox" id="e-dest"> Destacado</label>
+        </div>
+        <label class="ancho">Descripción corta (la ve el cliente)<textarea id="e-corta" rows="3" maxlength="400"></textarea></label>
+        <label class="ancho">Descripción larga (opcional)<textarea id="e-larga" rows="4" maxlength="3000"></textarea></label>
+        <label class="ancho">Palabras de búsqueda (separadas por coma)<input type="text" id="e-tags" maxlength="300"></label>
+        <div class="ancho">
+          <div class="ad-fotos-cab">
+            <strong>Fotos</strong>
+            <span class="ad-nota">La primera es la principal. Se convierten a WebP (máx. 1200 px).</span>
+            <label class="ad-btn sec ad-subir"><i class="fas fa-upload" aria-hidden="true"></i> Agregar fotos<input type="file" id="e-archivos" accept="image/jpeg,image/png,image/webp" multiple hidden></label>
+          </div>
+          <p id="e-subiendo" class="ad-nota" hidden></p>
+          <div id="e-fotos" class="ad-fotos"></div>
+        </div>
+        <p id="e-error" class="ad-error ancho" role="alert" hidden></p>
+        <div class="ad-acciones ancho">
+          <button type="button" class="ad-btn sec" data-cerrar>Cancelar</button>
+          <button type="submit" class="ad-btn" id="e-guardar">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="ad-toast" class="ad-toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="supabase-config.js"></script>
+  <script src="config.js"></script>
+  <script src="vendor/supabase/supabase.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

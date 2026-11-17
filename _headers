@@ -10,3 +10,11 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), accelerometer=(), gyroscope=(), magnetometer=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
   X-Permitted-Cross-Domain-Policies: none
+
+# Panel de administracion: fuera de buscadores y sin guardar en cache
+/admin.html
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+/admin
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

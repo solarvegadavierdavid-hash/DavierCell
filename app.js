@@ -1,9 +1,4 @@
-// =============================================
-// DAVIERCELL - Configuración Supabase
-// =============================================
-
-const SUPABASE_URL = 'https://fpqdtuyoujlodjqvpzkz.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwcWR0dXlvdWpsb2RqcXZwemt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwMTY0NjksImV4cCI6MjA5ODU5MjQ2OX0.80MpUmSk5jp8wXtEwZFj-hNcUMmNnBOA438U1IUcH8M';
+// SUPABASE_URL y SUPABASE_KEY vienen de supabase-config.js
 
 async function enviarASupabase(datos) {
   try {
