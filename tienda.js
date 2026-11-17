@@ -11,11 +11,9 @@
   const HEADERS = { apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY };
   const peso = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
   const ICONOS = {
-    todos: 'fa-store', celulares: 'fa-mobile-screen-button', tablets: 'fa-tablet-screen-button', portatiles: 'fa-laptop',
-    accesorios: 'fa-headphones', parlantes: 'fa-volume-high', controles: 'fa-gamepad', hogar: 'fa-house',
-    repuestos: 'fa-screwdriver-wrench', 'aire-acondicionado': 'fa-snowflake', televisores: 'fa-tv', electrodomesticos: 'fa-blender',
-    'repuestos-lavadoras': 'fa-soap', 'repuestos-ventiladores': 'fa-fan', 'repuestos-licuadoras': 'fa-blender',
-    'repuestos-ollas-de-presion': 'fa-utensils', 'repuestos-balineras': 'fa-gear'
+    todos: 'fa-store', audio: 'fa-headphones', 'cargadores-y-energia': 'fa-plug', cables: 'fa-link',
+    'relojes-inteligentes': 'fa-clock', videojuegos: 'fa-gamepad', 'cuidado-personal': 'fa-scissors',
+    'iluminacion-y-fotografia': 'fa-lightbulb', 'tecnologia-y-accesorios': 'fa-microchip', 'hogar-y-variedades': 'fa-house'
   };
   const SIN_FOTO = 'data:image/svg+xml;utf8,' + encodeURIComponent(
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#e9eef6"/>' +

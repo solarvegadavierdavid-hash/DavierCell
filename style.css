@@ -218,20 +218,6 @@ section h2 {
    TÉCNICO INFO (base = celular 320px)
 ============================================= */
 
-#info-tecnico h3 {
-  color: #19c8ff;
-  font-weight: 800;
-  font-size: 1.1rem;
-  margin-bottom: 14px;
-}
-
-#info-tecnico p {
-  color: #cccccc;
-  font-weight: 600;
-  line-height: 1.7;
-  font-size: 0.9rem;
-}
-
 /* =============================================
    FORMULARIO (base = celular 320px)
 ============================================= */
@@ -597,13 +583,6 @@ footer::before {
    GARANTÍAS (base = celular 320px)
 ============================================= */
 
-#lista-garantias {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  max-width: 100%;
-  padding: 0 16px;
-}
 
 /* =============================================
    SERVICIOS (base = celular 320px)
@@ -898,7 +877,6 @@ footer::before {
   section h2 { font-size: 1.6rem; margin-bottom: 26px; }
   .condiciones-menu { grid-template-columns: 1fr 1fr; padding: 24px; }
 
-  #lista-garantias { grid-template-columns: 1fr 1fr; padding: 0 30px; }
   #lista-servicios { grid-template-columns: 1fr 1fr; padding: 0 30px; }
 
   .boton-whatsapp-flotante { bottom: 110px; right: 22px; width: 55px; height: 55px; font-size: 1.8rem; }
@@ -917,7 +895,6 @@ footer::before {
   section { padding: 60px 20px; max-width: 1000px; }
   section h2 { font-size: 1.8rem; margin-bottom: 30px; }
 
-  #lista-garantias { grid-template-columns: 1fr 1fr 1fr; padding: 0 60px; }
   #lista-servicios { grid-template-columns: 1fr 1fr; padding: 0 60px; }
 
   .condiciones-menu { grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 30px; }
@@ -936,5 +913,5 @@ footer::before {
 ============================================================= */
 @media (min-width: 1920px) {
   section { max-width: 1200px; }
-  #lista-garantias, #lista-servicios { max-width: 1200px; margin: 0 auto; }
+  #lista-servicios { max-width: 1200px; margin: 0 auto; }
 }

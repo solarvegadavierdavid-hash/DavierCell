@@ -41,12 +41,6 @@ const servicios = [
   { nombre: "Optimización Avanzada de Software", descripcion: "Optimización integral del rendimiento para que el software de tu equipo opere con máxima eficiencia y seguridad." }
 ];
 
-const tecnico = {
-  nombre: "Davier David Solar Vega",
-  titulo: "Servicio Técnico Especializado en Dispositivos Móviles",
-  descripcion: "Con 5 años de trayectoria en el sector tecnológico, ofrezco soluciones integrales para la reparación y optimización de dispositivos móviles. Mi enfoque combina la precisión de la microelectrónica con el dominio avanzado de herramientas de software, garantizando diagnósticos exactos y resultados profesionales. Hardware Avanzado: Reparación de placas base, diagnóstico mediante mediciones de precisión y solución de fallas físicas complejas. Especialista en Software: optimización de sistemas y soporte técnico especializado. Compromiso de Calidad: Cada equipo es tratado con altos estándares técnicos."
-};
-
 const condiciones = {
   'revision-presupuesto': { titulo: "Revisión y Presupuesto", texto: "En nuestro centro de reparación, te ofrecemos un servicio eficiente y confiable. Las fallas comunes, como cambios de pantalla o batería, se resuelven en un plazo de 1 a 2 días hábiles. Para problemas más complejos, como dispositivos apagados, manipulados o mojados, el tiempo de reparación varía entre 4 y 7 días. Si tu dispositivo está en buen estado y no ha sido manipulado previamente, te damos prioridad para una reparación más rápida. Todos nuestros servicios incluyen un costo que varía según el modelo, y contamos con promociones especiales." },
   'pago-reparacion': { titulo: "Pago de Reparación", texto: "En nuestra empresa, no tienes que pagar nada por adelantado: la revisión y el diagnóstico inicial son 100% gratuitos. Solo pagas una vez que la reparación esté terminada y a tu total satisfacción.<br><br>Para tu comodidad, contamos con múltiples medios de pago:<br><br>📱 Pagos electrónicos: Nequi y Bancolombia.<br>💵 Efectivo." },
@@ -80,14 +74,6 @@ if (listaServicios) {
       </div>
     `;
   });
-}
-
-const infoTecnico = document.getElementById("info-tecnico");
-if (infoTecnico) {
-  infoTecnico.innerHTML = `
-    <h3>${tecnico.titulo} | ${tecnico.nombre}</h3>
-    <p>${tecnico.descripcion}</p>
-  `;
 }
 
 const listaFaq = document.getElementById("lista-faq");
