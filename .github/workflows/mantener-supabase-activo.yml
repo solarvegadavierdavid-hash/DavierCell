@@ -1,0 +1,65 @@
+# =====================================================================
+# DAVIERCELL - Latido diario a la base de datos
+# Supabase (plan gratuito) pausa el proyecto si pasan 7 dias sin peticiones.
+# Este flujo hace UNA consulta pequena y de solo lectura al dia, igual que una
+# visita a la tienda, para que la base nunca se duerma.
+# Usa solo la clave PUBLICA (anon) que ya esta en la pagina: la lee de
+# daviercell.com/supabase-config.js, asi no hay claves copiadas en este archivo.
+# =====================================================================
+name: Mantener Supabase activo
+
+on:
+  schedule:
+    - cron: '17 13 * * *'   # todos los dias a las 8:17 a. m. hora de Colombia (13:17 UTC)
+  workflow_dispatch:         # boton "Run workflow" en GitHub para probarlo a mano
+
+permissions: {}              # no necesita ningun permiso sobre el repositorio
+
+jobs:
+  latido:
+    name: Latido diario a la base
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Consultar la base como una visita
+        shell: bash
+        run: |
+          set -euo pipefail
+          hora=$(TZ=America/Bogota date '+%Y-%m-%d %H:%M')
+
+          fallar() {
+            echo "::error::$1"
+            {
+              echo "### ❌ La base de DAVIERCELL no respondió"
+              echo ""
+              echo "$1"
+              echo ""
+              echo "**Qué hacer:** entra a supabase.com → proyecto DAVIERCELL. Si dice *Paused*, pulsa **Restore project**."
+              echo "Revisado: $hora (hora Colombia)."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          }
+
+          config=$(curl -fsS --retry 3 --retry-all-errors https://daviercell.com/supabase-config.js) \
+            || fallar "No se pudo abrir daviercell.com/supabase-config.js."
+          url=$(printf '%s\n' "$config" | sed -n "s/.*SUPABASE_URL *= *'\([^']*\)'.*/\1/p")
+          key=$(printf '%s\n' "$config" | sed -n "s/.*SUPABASE_KEY *= *'\([^']*\)'.*/\1/p")
+          [ -n "$url" ] && [ -n "$key" ] || fallar "No se encontró la configuración pública de Supabase en la página."
+          echo "::add-mask::$key"
+
+          codigo=$(curl -sS -o respuesta.json -w '%{http_code}' --retry 3 --retry-all-errors \
+            -H "apikey: $key" -H "Authorization: Bearer $key" \
+            "$url/rest/v1/categorias?select=id&limit=1") || codigo=000
+          [ "$codigo" = "200" ] && [ "$(head -c 1 respuesta.json)" = "[" ] \
+            || fallar "Supabase respondió con el código $codigo."
+
+          echo "Base activa (código $codigo) - $hora"
+          {
+            echo "### ✅ Base de DAVIERCELL activa"
+            echo ""
+            echo "| Revisión | Resultado |"
+            echo "|---|---|"
+            echo "| Página daviercell.com | Responde |"
+            echo "| Base de datos (Supabase) | Respondió $codigo |"
+            echo "| Hora (Colombia) | $hora |"
+          } >> "$GITHUB_STEP_SUMMARY"
